@@ -1,0 +1,24 @@
+# Core
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# Data
+pandas>=2.1.0
+numpy>=1.26.0
+
+# ML
+scikit-learn>=1.4.0
+xgboost>=2.0.0
+
+# Database
+sqlalchemy>=2.0.0
+
+# Telegram bot
+python-telegram-bot>=20.7.0
+
+# Utils
+python-dotenv>=1.0.0
+loguru>=0.7.0
+tqdm>=4.66.0
+rich>=13.7.0
