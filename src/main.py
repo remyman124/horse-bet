@@ -29,12 +29,8 @@ def cmd_scrape(args):
     if args.race_day:
         race_date, venue = args.race_day, args.venue.upper()
         console.print(f"[cyan]Scraping {race_date} {venue}...[/cyan]")
-        data = pipeline.scraper.get_race_day_results(race_date, venue)
-        console.print(f"  Found {len(data.get('races', []))} races")
-
-        for r in data.get('races', []):
-            race_data = pipeline.scraper.get_race_result(race_date, venue, r['race_no'])
-            pipeline._upsert_race(pipeline.Session(), 0, r['race_no'], race_data)
+        result = pipeline.scrape_race_day(race_date, venue)
+        console.print(f"  ✓ {result['saved']} races saved, {result['skipped']} skipped")
         console.print(f"[green]✓ Done[/green]")
         return
 

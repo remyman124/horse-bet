@@ -20,8 +20,12 @@ class RaceDay(Base):
     __tablename__ = 'race_days'
 
     id = Column(Integer, primary_key=True)
-    race_date = Column(Date, nullable=False, unique=True)
+    race_date = Column(Date, nullable=False)
     venue = Column(String(4), nullable=False)  # "ST" or "HV"
+
+    __table_args__ = (
+        Index('ix_race_day_date_venue', 'race_date', 'venue', unique=True),
+    )
     total_races = Column(Integer, default=0)
     race_type = Column(String(10))  # "day" or "night"
     scraped_at = Column(DateTime, default=datetime.utcnow)
