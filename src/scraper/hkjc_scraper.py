@@ -310,19 +310,13 @@ class HKJCScraper:
             if 'Finish Time' in hmap:
                 horse['finish_time'] = cell_text[hmap['Finish Time']].strip()
 
-            # Win odds (last column often has W for winner + odds)
-            # Find odds column
-            for i, h in enumerate(headers):
-                if not h and i > 0:
-                    # Empty header column often has odds
+            # Win odds - column with 'Win Odds' header
+            for hdr, i in hmap.items():
+                if 'win odds' in hdr.lower():
                     v = cell_text[i].strip()
                     if re.match(r'^\d+\.\d+$', v):
                         horse['win_odds'] = float(v)
-                        break
-                elif h.lower() in ['w', 'win']:
-                    v = cell_text[i].strip()
-                    if re.match(r'^\d+\.\d+$', v):
-                        horse['win_odds'] = float(v)
+                    break
 
             if horse.get('horse_no'):
                 return horse
