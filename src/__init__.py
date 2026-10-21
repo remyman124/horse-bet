@@ -1,2 +1,1 @@
-# horse-bet
-__version__ = "0.1.0"
+# horse-bet package

@@ -14,8 +14,6 @@ xgboost>=2.0.0
 # Database
 sqlalchemy>=2.0.0
 
-# Telegram bot
-python-telegram-bot>=20.7.0
 
 # Utils
 python-dotenv>=1.0.0

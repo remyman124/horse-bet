@@ -32,7 +32,8 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     Engineer features for each horse-race entry.
 
     Features:
-    - Horse: recent form (last N races), win rate, avg finishing position
+    - Horse: recent form (last N races), win rate, avg finishing position,
+      form momentum (turnaround detection), trend reversal flag
     - Jockey: win rate, place rate, recent winners
     - Trainer: win rate, strike rate
     - Race: distance, class, track type, field size
@@ -62,6 +63,30 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
         lambda x: (x.shift(1).isin([1, 2, 3])).rolling(10, min_periods=1).mean()
     )
 
+    # ---- Form reversal / momentum features ----
+    # Last 3 races average finishing position (lower is better)
+    df['form_last3_avg'] = df.groupby('horse_name')['finishing_position'].transform(
+        lambda x: x.shift(1).rolling(3, min_periods=1).mean()
+    )
+    # Previous 3 races average (before last3)
+    df['form_prev3_avg'] = df.groupby('horse_name')['finishing_position'].transform(
+        lambda x: x.shift(4).rolling(3, min_periods=1).mean()
+    )
+    # Form momentum: positive means improving (lower pos is better)
+    df['form_momentum'] = df['form_prev3_avg'] - df['form_last3_avg']
+
+    # Recent win rate (last 5 races)
+    df['recent_win_rate'] = df.groupby('horse_name')['finishing_position'].transform(
+        lambda x: x.shift(1).eq(1).rolling(5, min_periods=1).mean()
+    )
+
+    # Trend reversal flag: improving AND was previously out of form
+    # "out of form" = prev3 avg > 5 (worse than median finishing position)
+    df['trend_reversal'] = (
+        (df['form_momentum'] > 0) &
+        (df['form_prev3_avg'] > 5)
+    ).astype(int)
+
     # ---- Jockey features ----
     df['jockey_win_rate'] = df.groupby('jockey')['finishing_position'].transform(
         lambda x: (x.shift(1) == 1).rolling(20, min_periods=1).mean()
@@ -88,12 +113,14 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     df['implied_prob'] = 1 / df['win_odds'].replace(0, np.nan)
 
     # ---- Target variables ----
+    # Handle nullable Int64 NA: fill with 0 for comparison safety
+    if df['finishing_position'].dtype.name == 'Int64':
+        df['finishing_position'] = df['finishing_position'].fillna(0)
     df['target_win'] = (df['finishing_position'] == 1).astype(int)
     df['target_place'] = df['finishing_position'].isin([1, 2, 3]).astype(int)
     df['target_top4'] = df['finishing_position'].isin([1, 2, 3, 4]).astype(int)
 
     return df
-
 
 # ---------------------------------------------------------------------------
 # Model training
@@ -131,13 +158,31 @@ class HorseBetModel:
         df_train = df.dropna(subset=['finishing_position']).copy()
 
         # Encode categoricals
+        # Map unknown/empty values to the first known class (safe fallback)
+        race_class_map = {
+            'Group-One': '', 'Group-Two': '', 'Group-Three': '',
+            'Listed': '', 'Pattern': '',
+        }
+        fallback_map = {
+            'track': 'Turf',
+            'venue': 'ST',
+            'race_class': '',
+        }
+        if 'race_class' in df_train.columns:
+            df_train['race_class'] = df_train['race_class'].fillna('').replace(race_class_map)
+
         for col in ['venue', 'race_class', 'track']:
             if col in df_train.columns:
                 if col not in self.encoders:
                     self.encoders[col] = LabelEncoder()
-                    df_train[col] = self.encoders[col].fit_transform(df_train[col].fillna('Unknown'))
+                    df_train[col] = self.encoders[col].fit_transform(df_train[col].fillna('Unknown').astype(str))
                 else:
-                    df_train[col] = self.encoders[col].transform(df_train[col].fillna('Unknown').astype(str))
+                    vals = df_train[col].fillna('').astype(str)
+                    known = set(self.encoders[col].classes_)
+                    fb = fallback_map.get(col, '')
+                    # Ensure all values are in encoder classes; unknown → fallback
+                    vals = vals.apply(lambda x: x if x in known else fb)
+                    df_train[col] = self.encoders[col].transform(vals)
 
         # Fill missing numerics
         df_train = df_train.fillna(0)
@@ -178,7 +223,6 @@ class HorseBetModel:
             subsample=0.8,
             colsample_bytree=0.8,
             eval_metric='logloss',
-            use_label_encoder=False,
             random_state=42,
         )
         self.models['win'].fit(X_train, yw_train)
@@ -191,7 +235,6 @@ class HorseBetModel:
             max_depth=6,
             learning_rate=0.05,
             eval_metric='logloss',
-            use_label_encoder=False,
             random_state=42,
         )
         self.models['place'].fit(X_train, yp_train)
@@ -204,7 +247,6 @@ class HorseBetModel:
             max_depth=6,
             learning_rate=0.05,
             eval_metric='logloss',
-            use_label_encoder=False,
             random_state=42,
         )
         self.models['top4'].fit(X_train, yt_train)
@@ -227,19 +269,35 @@ class HorseBetModel:
         """Predict win/place probabilities for each horse entry."""
         df = engineer_features(df.copy())
 
+        # Map unknown race_class values
+        race_class_map = {
+            'Group-One': '', 'Group-Two': '', 'Group-Three': '',
+            'Listed': '', 'Pattern': '',
+        }
+        fallback_map = {
+            'track': 'Turf',
+            'venue': 'ST',
+            'race_class': '',
+        }
+        if 'race_class' in df.columns:
+            df['race_class'] = df['race_class'].fillna('').replace(race_class_map)
+
         # Encode categoricals
         for col in ['venue', 'race_class', 'track']:
             if col in df.columns and col in self.encoders:
-                vals = df[col].fillna('Unknown').astype(str)
+                vals = df[col].fillna('').astype(str)
                 # Handle unseen labels
                 known = set(self.encoders[col].classes_)
-                vals = vals.apply(lambda x: x if x in known else 'Unknown')
+                fb = fallback_map.get(col, '')
+                vals = vals.apply(lambda x: x if x in known else fb)
                 df[col] = self.encoders[col].transform(vals)
 
         df = df.fillna(0)
         X = df[self.feature_cols].astype(float)
 
-        preds = df[['race_date', 'venue', 'race_no', 'horse_no', 'horse_name', 'win_odds', 'draw', 'rating']].copy()
+        preds = df[['race_date', 'venue', 'race_no', 'horse_no', 'horse_name', 'win_odds',
+                    'draw', 'rating', 'race_class', 'distance', 'track',
+                    'jockey', 'trainer']].copy()
         preds['prob_win'] = self.models['win'].predict_proba(X)[:, 1]
         preds['prob_place'] = self.models['place'].predict_proba(X)[:, 1]
         preds['prob_top4'] = self.models['top4'].predict_proba(X)[:, 1]
@@ -284,3 +342,54 @@ class HorseBetModel:
             model = xgb.XGBClassifier()
             model.load_model(str(Path(path).parent / f'{name}_xgb.json'))
             self.models[name] = model
+
+
+# -----------------------------------------------------------------------
+# NoOddsModel — XGBoost model WITHOUT win_odds/implied_prob features
+# For predicting races where live odds are unavailable
+# -----------------------------------------------------------------------
+
+class NoOddsModel:
+    """
+    XGBoost model trained without win_odds/implied_prob.
+    Use this for upcoming races where HKJC login is required for odds.
+    """
+    FEATURE_COLS = [
+        'draw', 'rating',
+        'horse_avg_finishing_position', 'horse_win_rate', 'horse_place_rate',
+        'jockey_win_rate', 'jockey_place_rate',
+        'trainer_win_rate', 'trainer_place_rate',
+        'field_size', 'is_different_distance', 'distance',
+        'race_class_enc', 'track_enc', 'jockey_enc', 'trainer_enc',
+    ]
+
+    def __init__(self, models, encoders):
+        self.models = models
+        self.encoders = encoders
+
+    def predict_proba(self, X):
+        preds = {}
+        for name, m in self.models.items():
+            preds[f'prob_{name}'] = m.predict_proba(X)[:, 1]
+        return pd.DataFrame(preds)
+
+    def predict(self, df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Run predictions on a DataFrame containing FEATURE_COLS.
+        Returns DataFrame with metadata cols + prob_win_norm, prob_place_norm, prob_top4_norm.
+        """
+        X = df[self.FEATURE_COLS].astype(float).fillna(0)
+        prob_df = self.predict_proba(X)
+
+        out_cols = ['race_date', 'venue', 'race_no', 'horse_no', 'horse_name',
+                     'draw', 'rating', 'race_class', 'distance', 'track', 'jockey', 'trainer']
+        result = df[out_cols].copy().reset_index(drop=True)
+        for col in ['prob_win', 'prob_place', 'prob_top4']:
+            result[col] = prob_df[col].values
+
+        for col in ['prob_win', 'prob_place', 'prob_top4']:
+            total = result.groupby(['race_date', 'venue', 'race_no'])[col].transform('sum')
+            result[f'{col}_norm'] = result[col] / total.replace(0, 1)
+
+        result = result.sort_values('prob_win_norm', ascending=False)
+        return result
