@@ -401,7 +401,11 @@ def main():
     res['value_ev0_market'] = evaluate(scored, make_value(0.0, True), 'market-implied EV > 0')
     res['value_ev05_market'] = evaluate(scored, make_value(0.05, True), 'market-implied EV > 0.05')
 
-    out = {'evidence': a.evidence, 'races_scored': int(scored['race_key'].nunique()),
+    out = {'evidence': a.evidence,
+           'evidence_races': len(ev),
+           'evidence_rows': int(len(df)),
+           'evidence_place_rows': int(sum(len(v['place']) for v in ev.values())),
+           'races_scored': int(scored['race_key'].nunique()),
            'p_place_auc_model': round(float(auc), 4),
            'p_place_auc_market': round(float(auc_mkt), 4),
            'strategies': res}

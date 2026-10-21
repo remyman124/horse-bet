@@ -11,6 +11,7 @@ their results rather than from hand-typed numbers.
 
 import base64
 import csv
+import re
 import json
 import os
 import sqlite3
@@ -154,10 +155,23 @@ pre { background: #10203a; color: #e8edf3; padding: 3.5mm 4.5mm; font-size: 7.6p
 pre code { background: none; color: inherit; padding: 0; font-size: 7.6pt; }
 .folio { font-size: 7.4pt; color: #8b97a8; border-top: 1px solid #d9dfe8;
   padding-top: 2mm; margin-top: 6mm; }
+
+section.toc { page-break-before: always; }
+.toc-row { display: grid; grid-template-columns: 11mm 1fr 1.25fr 12mm;
+  align-items: baseline; gap: 0 4mm; padding: 3.1mm 0;
+  border-bottom: 1px solid #e7ebf1; }
+.toc-no { font-family: "Noto Serif CJK JP", serif; font-weight: 700; color: #b23a48;
+  font-size: 10pt; }
+.toc-t { font-size: 10pt; font-weight: 700; }
+.toc-d { font-size: 8.2pt; color: #5a6a80; }
+.toc-row .pg { text-align: right; font-size: 9pt; color: #5a6a80;
+  font-variant-numeric: tabular-nums; }
 """
 
 
 def build(d):
+    """Return (cover_html, rest_html) with the cover and body separated so the
+    contents page can be slotted in between them."""
     V, P, R, db, leak = d['value'], d['place'], d['metrics'], d['db'], d['leak']
     S = P['strategies']
     best = V['best_edge_per_race']
@@ -197,15 +211,16 @@ def build(d):
       <div class="l">模型「value 規則」歷史回報<br>（636 場樣本外）</div></div>
     <div class="tile"><div class="n neg">27.04% <small>vs 27.83%</small></div>
       <div class="l">模型首名命中率 vs 市場最熱門<br>（同一 636 場）</div></div>
-    <div class="tile"><div class="n neg">−14.46%</div>
-      <div class="l">PLACE 盤最佳策略回報<br>（4,121 場 · 8 個年份）</div></div>
+    <div class="tile"><div class="n neg">−14.23%</div>
+      <div class="l">PLACE 盤最佳策略回報<br>（{P['races_scored']:,} 場 · 20 個年份）</div></div>
     <div class="tile"><div class="n pos">100%</div>
       <div class="l">資料經官方來源驗證比例<br>（{db['prov']:,} 筆修復紀錄）</div></div>
   </div>
 
   <p class="small" style="margin-top:8mm">本報告所有數據源自香港賽馬會官方公開頁面，並以第二個官方來源
      （官方 PLACE 派彩表）作獨立交叉驗證；所有投注建議僅依據賽前可得資訊。</p>
-</div>""")
+</div>
+<!--TOC-->""")
 
     # ══ §1 ══
     rows_th = ''.join(
@@ -236,9 +251,9 @@ def build(d):
       <tr><td>WIN Value filter（模型 vs 市場）</td><td class="r num">636 場</td>
         <td>每場挑 edge 最大者</td><td class="r num neg">−46.53%</td>
         <td class="r num">−20.74%</td><td class="neg">負，且遠劣於基準</td></tr>
-      <tr><td>PLACE 盤（跨年代）</td><td class="r num">4,121 場 / 8 年</td>
-        <td>模型 top P(place)</td><td class="r num neg">−14.46%</td>
-        <td class="r num">−14.36%</td><td class="neg">負，與基準打平</td></tr>
+      <tr><td>PLACE 盤（跨年代）</td><td class="r num">{P['races_scored']:,} 場 / 20 年</td>
+        <td>模型 top P(place)</td><td class="r num neg">−14.23%</td>
+        <td class="r num">−15.03%</td><td class="neg">負，與基準打平</td></tr>
     </tbody>
   </table>
   <p class="tnote">市場基準＝每場買官方最低賠率（最熱門）的馬。港交所獎金池回報率：WIN 與 PLACE 均為 82.5%，
@@ -258,9 +273,8 @@ def build(d):
         回報率 {best['roi_pct']:.2f}%。</li>
     <li><b>唯一接近零的結果無法重現。</b>WIN 掃描中只有 edge ≥ 3% 一格錄得正數
         （+5.87%），但該格 341 注只中 3 個贏家（賠率 98、105、158 倍）—— 屬隨機撞正而非 edge。
-        PLACE 盤則只有兩個孤立格接近損益平衡（2024 年 +0.96%、2022 年 +0.23%），
-        同一策略在其餘七年錄得 −10% 至 −20%。2024 年是唯一正數年份，而 2026 年同一策略為
-        <em>−20.37%</em>。單年成立並不等於可下注。</li>
+        PLACE 盤更徹底：<em>11 種策略 × 20 個年份 = 220 個格子，全部為負</em>，
+        沒有任何一個策略在任何一年錄得正回報。這是封線的決定性證據。</li>
   </ol>
 
   <h3>1.4 若仍要參與：封頂的娛樂方案</h3>
@@ -565,18 +579,38 @@ def build(d):
     # ══ §5 ══
     sy = S['model_top']['by_year']
     years = sorted(sy.keys())
+    KEY = [('market_favourite', '市場最熱門'),
+           ('model_top', '模型 top P(place)'),
+           ('model_edge', '模型 − 市場'),
+           ('value_ev0_model', '模型 EV > 0'),
+           ('market_longshot', '市場最冷門')]
+    # Table 5.1 — every strategy, with its positive-year count
+    strat_rows = ''
+    for k, v in S.items():
+        by = v.get('by_year', {})
+        pos = sum(1 for d in by.values() if d['roi_pct'] > 0)
+        best = max((d['roi_pct'] for d in by.values()), default=0.0)
+        strat_rows += (f"<tr><td>{STRAT_LABELS.get(k, k)}</td>"
+                       f"<td class='r num'>{v['races']:,}</td>"
+                       f"<td class='r num'>{v.get('hit_pct', 0):.1f}%</td>"
+                       f"<td class='r num'>{v.get('mean_payout', 0):.3f}x</td>"
+                       f"<td class='r num neg'>{v['roi_pct']:+.2f}%</td>"
+                       f"<td class='r num'>{best:+.2f}%</td>"
+                       f"<td class='c'>{pos} / {len(by)}</td></tr>")
+    # Table 5.2 — year down the side, strategies across
     place_rows = ''
-    for k, lab in [('market_favourite', '市場最熱門選擇'),
-                   ('model_top', '模型 top P(place)'),
-                   ('model_edge', '模型 P(place) − 市場'),
-                   ('value_ev0_model', '模型 EV > 0'),
-                   ('market_longshot', '市場最冷門')]:
-        by = S[k]['by_year']
-        cells = ''.join(
-            f"<td class='r num'>{by[y]['roi_pct']:+.2f}%</td>" if y in by else '<td class="r">—</td>'
-            for y in years)
-        place_rows += (f"<tr><td>{lab}</td><td class='r num'>{S[k]['races']:,}</td>"
-                       f"<td class='r num neg'>{S[k]['roi_pct']:+.2f}%</td>{cells}</tr>")
+    for y in years:
+        cells = ''
+        for k, _ in KEY:
+            by = S[k]['by_year']
+            cells += (f"<td class='r num'>{by[y]['roi_pct']:+.2f}%</td>" if y in by
+                      else '<td class="r">—</td>')
+        place_rows += (f"<tr><td class='c'>{y}</td>"
+                       f"<td class='r num'>{sy[y]['races']}</td>{cells}</tr>")
+    place_rows += (f"<tr class='tot'><td class='c'>全部</td>"
+                   f"<td class='r num'>{S['model_top']['races']:,}</td>"
+                   + ''.join(f"<td class='r num neg'>{S[k]['roi_pct']:+.2f}%</td>" for k, _ in KEY)
+                   + '</tr>')
     h.append(f"""<section>
   <h2 class="sec"><span class="no">§5</span>PLACE 盤證據（跨年代）</h2>
   <p class="lead">PLACE 盤以香港賽馬會官方公佈的 PLACE 派彩金額作為結算依據 —— 該金額為每 HK$10
@@ -584,29 +618,44 @@ def build(d):
      冠軍的 PLACE 派彩一律低於其 WIN 派彩（881/881 通過），語義確認無誤。
      官方規則顯示 WIN 與 PLACE 兩個獎金池的回報率同為 <b>82.5%</b>。</p>
 
+  <table class="keep">
+    <caption>表 5.1　全部 {len(S)} 種策略總覽 —— 沒有任何策略在任何一年錄得正回報</caption>
+    <thead><tr><th>策略</th><th class="r">下注數</th><th class="r">命中率</th>
+      <th class="r">平均派彩 (x)</th><th class="r">整體 ROI</th><th class="r">最佳年份 ROI</th>
+      <th class="c">正回報年份</th></tr></thead>
+    <tbody>{strat_rows}</tbody>
+  </table>
+  <p class="tnote">「正回報年份」欄是決定性的：{len(S)} 種策略 × {len(years)} 個年份
+     = {len(S)*len(years)} 個格子，全部為負。命中率是 PLACE 盤中獎率；
+     平均派彩是每 HK$10 注碼的平均回收倍數（1.000x 即打和）。
+     「市場隱含 EV &gt; 0」與「市場隱含 EV &gt; 0.05」逐年結果完全相同 ——
+     兩者在本資料集上篩出同一批馬，並非重複計算錯誤。</p>
+
   <figure>
     <img src="{img('c3_place_by_year.png')}"/>
     <figcaption><b>圖 5.1</b>　PLACE 盤逐年回報（walk-forward：逐年訓練、逐年評分，只用賽前資訊）。
-      四條策略在每一個年份均為負值。來源：{P['races_scored']:,} 場樣本外賽事，
-      {len(years)} 個年份（{years[0]}–{years[-1]}）。</figcaption>
+      圖中四條主要策略在每一個年份均為負值；全部 {len(S)} 種策略的逐年數字見表 5.1。
+      來源：{P['races_scored']:,} 場樣本外賽事，{len(years)} 個年份（{years[0]}–{years[-1]}）。</figcaption>
   </figure>
 
   <table>
-    <caption>表 5.1　PLACE 盤逐年回報率（%），負值以紅色標示</caption>
-    <thead><tr><th>策略</th><th class="r">總場次</th><th class="r">整體</th>
-      {''.join(f'<th class="r">{y}</th>' for y in years)}</tr></thead>
+    <caption>表 5.2　五種主要策略的逐年回報率（%），負值以紅色標示</caption>
+    <thead><tr><th class="c">年份</th><th class="r">場次</th>
+      {''.join(f'<th class="r">{lab}</th>' for _, lab in KEY)}</tr></thead>
     <tbody>{place_rows}</tbody>
   </table>
   <p class="tnote">P(place) 排序能力：模型 AUC {P['p_place_auc_model']:.4f}，
      市場 AUC {P['p_place_auc_market']:.4f} —— 市場同樣優於模型。
-     樣本 4,410 場官方 PLACE 派彩、54,481 個 runner row，其中 {P['races_scored']:,} 場納入評分。</p>
+     樣本 {P['evidence_races']:,} 場官方 PLACE 派彩（{P['evidence_rows']:,} 個 runner row），
+     其中 {P['races_scored']:,} 場納入評分，覆蓋 2007–2026 全部 20 個年份。</p>
 
   <div class="callout">
     <div class="t">結論：PLACE 盤全年代無正期望</div>
     <p>最佳策略（模型 top P(place)）回報率 {S['model_top']['roi_pct']:.2f}%，
        與「買市場最熱門」（{S['market_favourite']['roi_pct']:.2f}%）實質相同 ——
-       模型在此盤口貢獻為零。唯一接近零的兩個年份（2024 +0.96%、2022 +0.23%）
-       在其他七年均為 −10% 至 −20%，不構成可重現的優勢。</p>
+       模型在此盤口貢獻為零。全部 11 種策略在全部 20 個年份均為負值，
+       <em>零個正數格子</em>；P(place) 排序能力模型 {P['p_place_auc_model']:.4f}
+       亦低於市場 {P['p_place_auc_market']:.4f}。</p>
   </div>
 </section>""")
 
@@ -638,6 +687,11 @@ def build(d):
       <tr><td>place_dividend_1 為組合字串</td><td class="r num">166 筆</td>
         <td>派彩欄被讀成贏出組合而非金額</td>
         <td>改為官方派彩金額；現為 0</td></tr>
+      <tr><td>PLACE 派彩清單混入賽馬表</td><td class="r num">148 / 597 場（25%）</td>
+        <td>舊 PLACE 解析器把整張 runner table（馬號 + 賠率）附加在真正的前三名派彩之後，
+            令 1,741 個 runner 賠率被當成派彩金額</td>
+        <td>改為 table-scoped 解析；新解析器 39,384 個派彩行
+            <b>平均每場恰好 3.00 行</b>，且無任何一行的金額低於 HK$10</td></tr>
     </tbody>
   </table>
 
@@ -715,8 +769,12 @@ python3 scripts/make_report_charts.py && python3 scripts/make_report.py</code></
   <h3>7.1 本報告的限制</h3>
   <ul style="margin:2mm 0 3mm;padding-left:6mm">
     <li><b>樣本限制。</b>WIN 策略的樣本外測試為 {R['test_races']} 場；
-        PLACE 盤雖有 {P['races_scored']:,} 場，但 2010–2021 年的官方 PLACE 派彩仍在補抓中，
-        最終數字可能微調 —— 但已測試的 8 個年份、每格均為負，方向不會改變。</li>
+        PLACE 盤已覆蓋 2006–2026 全部官方派彩頁（{P['evidence_races']:,} 場，
+        {P['races_scored']:,} 場評分，20 個年份），但評分自 2007 年起
+        —— 2006 年的 609 場因當年可用訓練樣本不足而被剔除。</li>
+    <li><b>死頂的第四名。</b>官方 PLACE 派彩在死頂情況下有第四行；
+        本分析只取前三名派彩，3 場死頂中第四名馬匹的額外派彩未被計入
+        （影響 3 / {P['races_scored']:,} 場，可忽略）。</li>
     <li><b>高賠率格的方差。</b>edge ≥ 3% 一格僅 341 注、3 個贏家，其回報率的
         標準誤極大；本報告不把該格視為可用訊號，亦不視其為反證。</li>
     <li><b>模型結構限制。</b>以樹模型為主，尚未證明能捕捉形式指標以外的市場結構；
@@ -753,7 +811,45 @@ python3 scripts/make_report_charts.py && python3 scripts/make_report.py</code></
   </div>
 </section>""")
 
-    return '\n'.join(h)
+    raw = '\n'.join(h)
+    cover, rest = raw.split('<!--TOC-->', 1)
+    return cover, rest
+
+
+STRAT_LABELS = {
+    'market_favourite': '市場最熱門選擇',
+    'market_2nd_favourite': '市場第二大熱門',
+    'market_3rd_favourite': '市場第三大熱門',
+    'market_longshot': '市場最冷門',
+    'model_top': '模型 top P(place)',
+    'model_outside_6plus': '模型 P(place) 最高且賠率 ≥ 6',
+    'model_edge': '模型 P(place) − 市場',
+    'value_ev0_model': '模型 EV > 0',
+    'value_ev05_model': '模型 EV > 0.05',
+    'value_ev0_market': '市場隱含 EV > 0',
+    'value_ev05_market': '市場隱含 EV > 0.05',
+}
+
+TOC = [
+    ('§1', '執行摘要與建議', '三項獨立檢驗、失效機制、封頂的娛樂方案'),
+    ('§2', '今晚賽事概覽與候選名單', '跑馬地 9 場、模型首選與「value 名單」的對照'),
+    ('§3', '模型表現與失效機制', 'AUC／命中率、校準檢查、系統性冷門偏差'),
+    ('§4', 'Value filter 回測', '門檻掃描、唯一的正數格、實際買了什麼'),
+    ('§5', 'PLACE 盤證據（跨年代）', '逐年回報率、模型 vs 市場的 P(place) 排序能力'),
+    ('§6', '資料完整性與方法論', '已修復的缺陷、資料庫狀態、outcome leak 檢驗'),
+    ('§7', '風險聲明與限制', '樣本限制、資料來源、完整性聲明'),
+]
+
+
+def toc_html(pages=None):
+    rows = []
+    for no, title, sub in TOC:
+        p = f'<span class="pg">{(pages or {}).get(no, "")}</span>'
+        rows.append(f'<div class="toc-row"><span class="toc-no">{no}</span>'
+                    f'<span class="toc-t">{title}</span>'
+                    f'<span class="toc-d">{sub}</span>{p}</div>')
+    return ('<section class="toc"><h2 class="sec"><span class="no">目錄</span>Contents</h2>'
+            + ''.join(rows) + '</section>')
 
 
 RENDER_HELPER = '''import sys
@@ -813,9 +909,36 @@ def render(html, path):
 
 def main():
     d = load()
+    cover, body = build(d)
+    pages = None
+
+    # Pass 1 — render without TOC page numbers, then read back where each
+    # section actually starts, so the contents page carries real numbers.
+    tmp = '/tmp/report_pass1.pdf'
+    html1 = ('<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8">'
+             '<title>HKJC 2026-10-21 投注建議報告</title>'
+             f'<style>{CSS}</style></head><body>' + cover + toc_html() + body + '</body></html>')
+    render(html1, tmp)
+    import subprocess
+    n = int(subprocess.run(['pdfinfo', tmp], capture_output=True, text=True)
+            .stdout.split('Pages:')[1].split()[0])
+    pages = {}
+    for p in range(1, n + 1):
+        txt = subprocess.run(['pdftotext', '-layout', '-f', str(p), '-l', str(p), tmp, '-'],
+                             capture_output=True, text=True).stdout
+        if '目錄' in txt and 'Contents' in txt:
+            continue          # the contents page itself lists every title
+        for no, title, _ in TOC:
+            if no in pages:
+                continue
+            # the section heading line: "§N <title>" at the start of a line
+            if re.search(rf'^{re.escape(no)}\s+{re.escape(title[:6])}', txt, re.M):
+                pages[no] = p
+    print('TOC page map:', pages)
+
     html = ('<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8">'
             '<title>HKJC 2026-10-21 投注建議報告</title>'
-            f'<style>{CSS}</style></head><body>' + build(d) + '</body></html>')
+            f'<style>{CSS}</style></head><body>' + cover + toc_html(pages) + body + '</body></html>')
     open('/tmp/report.html', 'w').write(html)
     print('html written', len(html), 'bytes')
     render(html, OUT_PDF)
@@ -824,7 +947,7 @@ def main():
     subprocess.run(['pdftotext', '-layout', OUT_PDF, '/tmp/report.txt'], check=True)
     txt = open('/tmp/report.txt', encoding='utf-8').read()
     print('extracted chars:', len(txt))
-    for probe in ['不投注', '−46.53%', '−14.46%', '跑馬地', 'RISING FROM EAST',
+    for probe in ['不投注', '−46.53%', '−14.23%', '跑馬地', 'RISING FROM EAST',
                   '0.7782', '冷門偏差', '18 / 18', '建議：不投注']:
         print(f'  {probe!r}:', probe in txt)
 

@@ -158,7 +158,7 @@ def chart_place_by_year():
             ('model_edge', '模型 P(place) − 市場', GOLD),
             ('value_ev0_model', '模型 EV > 0', GREEN)]
     years = sorted(next(iter(s.values()))['by_year'].keys())
-    fig, ax = plt.subplots(figsize=(7.4, 3.6))
+    fig, ax = plt.subplots(figsize=(7.4, 4.1 if len(years) > 12 else 3.6))
     w = 0.2
     for i, (k, lab, c) in enumerate(pick):
         by = s[k]['by_year']
@@ -167,12 +167,18 @@ def chart_place_by_year():
         ax.bar(xs, vals, w, label=lab, color=c, zorder=3)
     ax.axhline(0, color=INK, lw=1.2, zorder=5)
     ax.set_xticks(range(len(years)))
-    ax.set_xticklabels(years)
+    ax.set_xticklabels(years, rotation=0 if len(years) <= 12 else 45,
+                       ha='center' if len(years) <= 12 else 'right', fontsize=8.5)
     ax.set_ylabel('投資回報率 ROI (%)')
     ax.set_xlabel('年份（walk-forward：逐年訓練、逐年評分）')
-    ax.set_title('PLACE 盤逐年回報：每一年、每個策略均為負值', pad=12)
+    ax.set_title(f'PLACE 盤逐年回報：{len(years)} 個年份、每個策略均為負值', pad=34)
+
     ax.yaxis.set_major_formatter(FuncFormatter(lambda x, p: f'{x:.0f}%'))
-    ax.legend(loc='lower left', ncol=2, fontsize=8.5)
+    lo = min(v for _, _, _ in pick for v in
+             [s[k]['by_year'].get(y, {}).get('roi_pct', 0) for y in years])
+    ax.set_ylim(lo * 1.18, 0)
+    ax.legend(loc='lower center', bbox_to_anchor=(0.5, 1.012), ncol=4,
+              fontsize=8.2, frameon=False, handlelength=1.3, columnspacing=1.4)
     return finish(fig, 'c3_place_by_year.png')
 
 

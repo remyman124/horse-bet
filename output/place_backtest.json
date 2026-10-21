@@ -1,14 +1,14 @@
 {
-  "evidence": "/tmp/place_div.ckpt.json",
-  "races_scored": 4121,
-  "p_place_auc_model": 0.755,
-  "p_place_auc_market": 0.7598,
+  "evidence": "data/official_evidence/place_dividends.json",
+  "races_scored": 12519,
+  "p_place_auc_model": 0.7659,
+  "p_place_auc_market": 0.7669,
   "strategies": {
     "market_favourite": {
-      "races": 4121,
-      "hit_pct": 60.03,
-      "mean_payout": 0.8564,
-      "roi_pct": -14.36,
+      "races": 12519,
+      "hit_pct": 60.17,
+      "mean_payout": 0.8497,
+      "roi_pct": -15.03,
       "by_year": {
         "2007": {
           "races": 575,
@@ -18,17 +18,77 @@
         "2008": {
           "races": 584,
           "hit_pct": 54.62,
-          "roi_pct": -19.77
+          "roi_pct": -19.79
         },
         "2009": {
-          "races": 47,
-          "hit_pct": 57.45,
-          "roi_pct": -21.38
+          "races": 618,
+          "hit_pct": 59.06,
+          "roi_pct": -17.28
+        },
+        "2010": {
+          "races": 645,
+          "hit_pct": 59.53,
+          "roi_pct": -17.84
+        },
+        "2011": {
+          "races": 499,
+          "hit_pct": 56.31,
+          "roi_pct": -20.8
+        },
+        "2012": {
+          "races": 641,
+          "hit_pct": 59.75,
+          "roi_pct": -9.98
+        },
+        "2013": {
+          "races": 620,
+          "hit_pct": 58.55,
+          "roi_pct": -16.03
+        },
+        "2014": {
+          "races": 575,
+          "hit_pct": 60.35,
+          "roi_pct": -15.46
+        },
+        "2015": {
+          "races": 661,
+          "hit_pct": 61.57,
+          "roi_pct": -16.14
+        },
+        "2016": {
+          "races": 600,
+          "hit_pct": 61.0,
+          "roi_pct": -12.39
+        },
+        "2017": {
+          "races": 676,
+          "hit_pct": 58.14,
+          "roi_pct": -19.46
+        },
+        "2018": {
+          "races": 683,
+          "hit_pct": 60.91,
+          "roi_pct": -13.67
+        },
+        "2019": {
+          "races": 688,
+          "hit_pct": 63.81,
+          "roi_pct": -13.9
+        },
+        "2020": {
+          "races": 735,
+          "hit_pct": 60.82,
+          "roi_pct": -15.17
+        },
+        "2021": {
+          "races": 573,
+          "hit_pct": 60.91,
+          "roi_pct": -13.28
         },
         "2022": {
-          "races": 461,
-          "hit_pct": 59.22,
-          "roi_pct": -16.24
+          "races": 692,
+          "hit_pct": 60.4,
+          "roi_pct": -15.79
         },
         "2023": {
           "races": 633,
@@ -42,8 +102,8 @@
         },
         "2025": {
           "races": 722,
-          "hit_pct": 61.36,
-          "roi_pct": -14.58
+          "hit_pct": 61.5,
+          "roi_pct": -14.36
         },
         "2026": {
           "races": 433,
@@ -53,126 +113,306 @@
       }
     },
     "market_2nd_favourite": {
-      "races": 4121,
-      "hit_pct": 47.05,
-      "mean_payout": 0.8301,
-      "roi_pct": -16.99,
+      "races": 12519,
+      "hit_pct": 48.44,
+      "mean_payout": 0.8419,
+      "roi_pct": -15.81,
       "by_year": {
         "2007": {
           "races": 575,
-          "hit_pct": 43.13,
-          "roi_pct": -22.49
+          "hit_pct": 43.3,
+          "roi_pct": -22.12
         },
         "2008": {
           "races": 584,
-          "hit_pct": 44.86,
-          "roi_pct": -18.24
+          "hit_pct": 45.03,
+          "roi_pct": -17.9
         },
         "2009": {
-          "races": 47,
-          "hit_pct": 36.17,
-          "roi_pct": -36.81
+          "races": 618,
+          "hit_pct": 44.34,
+          "roi_pct": -21.99
+        },
+        "2010": {
+          "races": 645,
+          "hit_pct": 51.01,
+          "roi_pct": -12.13
+        },
+        "2011": {
+          "races": 499,
+          "hit_pct": 48.7,
+          "roi_pct": -13.75
+        },
+        "2012": {
+          "races": 641,
+          "hit_pct": 46.96,
+          "roi_pct": -15.6
+        },
+        "2013": {
+          "races": 620,
+          "hit_pct": 46.77,
+          "roi_pct": -18.12
+        },
+        "2014": {
+          "races": 575,
+          "hit_pct": 48.87,
+          "roi_pct": -17.17
+        },
+        "2015": {
+          "races": 661,
+          "hit_pct": 48.41,
+          "roi_pct": -17.41
+        },
+        "2016": {
+          "races": 600,
+          "hit_pct": 48.33,
+          "roi_pct": -16.17
+        },
+        "2017": {
+          "races": 676,
+          "hit_pct": 53.85,
+          "roi_pct": -7.25
+        },
+        "2018": {
+          "races": 683,
+          "hit_pct": 48.32,
+          "roi_pct": -16.97
+        },
+        "2019": {
+          "races": 688,
+          "hit_pct": 51.02,
+          "roi_pct": -14.68
+        },
+        "2020": {
+          "races": 735,
+          "hit_pct": 51.43,
+          "roi_pct": -12.62
+        },
+        "2021": {
+          "races": 573,
+          "hit_pct": 46.77,
+          "roi_pct": -19.94
         },
         "2022": {
-          "races": 461,
-          "hit_pct": 46.2,
-          "roi_pct": -19.88
+          "races": 692,
+          "hit_pct": 48.27,
+          "roi_pct": -16.7
         },
         "2023": {
           "races": 633,
-          "hit_pct": 47.39,
-          "roi_pct": -16.65
+          "hit_pct": 47.71,
+          "roi_pct": -16.16
         },
         "2024": {
           "races": 666,
-          "hit_pct": 47.15,
-          "roi_pct": -17.64
+          "hit_pct": 47.0,
+          "roi_pct": -17.96
         },
         "2025": {
           "races": 722,
-          "hit_pct": 49.72,
-          "roi_pct": -12.71
+          "hit_pct": 49.58,
+          "roi_pct": -12.79
         },
         "2026": {
           "races": 433,
           "hit_pct": 52.19,
-          "roi_pct": -9.35
+          "roi_pct": -9.04
         }
       }
     },
     "market_3rd_favourite": {
-      "races": 4121,
-      "hit_pct": 40.11,
-      "mean_payout": 0.8566,
-      "roi_pct": -14.34,
+      "races": 12519,
+      "hit_pct": 39.94,
+      "mean_payout": 0.8381,
+      "roi_pct": -16.19,
       "by_year": {
         "2007": {
           "races": 575,
-          "hit_pct": 38.26,
-          "roi_pct": -17.1
+          "hit_pct": 37.74,
+          "roi_pct": -18.45
         },
         "2008": {
           "races": 584,
-          "hit_pct": 39.38,
-          "roi_pct": -14.02
+          "hit_pct": 38.87,
+          "roi_pct": -15.28
         },
         "2009": {
-          "races": 47,
-          "hit_pct": 44.68,
-          "roi_pct": -2.13
+          "races": 618,
+          "hit_pct": 39.81,
+          "roi_pct": -15.96
+        },
+        "2010": {
+          "races": 645,
+          "hit_pct": 40.47,
+          "roi_pct": -15.19
+        },
+        "2011": {
+          "races": 499,
+          "hit_pct": 39.68,
+          "roi_pct": -16.5
+        },
+        "2012": {
+          "races": 641,
+          "hit_pct": 39.78,
+          "roi_pct": -15.34
+        },
+        "2013": {
+          "races": 620,
+          "hit_pct": 38.55,
+          "roi_pct": -18.35
+        },
+        "2014": {
+          "races": 575,
+          "hit_pct": 42.26,
+          "roi_pct": -12.59
+        },
+        "2015": {
+          "races": 661,
+          "hit_pct": 38.73,
+          "roi_pct": -19.46
+        },
+        "2016": {
+          "races": 600,
+          "hit_pct": 39.83,
+          "roi_pct": -17.27
+        },
+        "2017": {
+          "races": 676,
+          "hit_pct": 38.31,
+          "roi_pct": -20.02
+        },
+        "2018": {
+          "races": 683,
+          "hit_pct": 38.07,
+          "roi_pct": -18.62
+        },
+        "2019": {
+          "races": 688,
+          "hit_pct": 42.59,
+          "roi_pct": -13.88
+        },
+        "2020": {
+          "races": 735,
+          "hit_pct": 40.68,
+          "roi_pct": -18.5
+        },
+        "2021": {
+          "races": 573,
+          "hit_pct": 41.01,
+          "roi_pct": -14.52
         },
         "2022": {
-          "races": 461,
-          "hit_pct": 38.61,
-          "roi_pct": -18.47
+          "races": 692,
+          "hit_pct": 39.02,
+          "roi_pct": -19.22
         },
         "2023": {
           "races": 633,
-          "hit_pct": 43.13,
-          "roi_pct": -7.55
+          "hit_pct": 42.65,
+          "roi_pct": -8.36
         },
         "2024": {
           "races": 666,
-          "hit_pct": 44.44,
-          "roi_pct": -6.68
+          "hit_pct": 44.59,
+          "roi_pct": -6.2
         },
         "2025": {
           "races": 722,
           "hit_pct": 37.12,
-          "roi_pct": -19.48
+          "roi_pct": -19.63
         },
         "2026": {
           "races": 433,
-          "hit_pct": 38.57,
-          "roi_pct": -21.2
+          "hit_pct": 38.8,
+          "roi_pct": -20.73
         }
       }
     },
     "market_longshot": {
-      "races": 4121,
-      "hit_pct": 3.93,
-      "mean_payout": 0.5409,
-      "roi_pct": -45.91,
+      "races": 12519,
+      "hit_pct": 3.69,
+      "mean_payout": 0.5393,
+      "roi_pct": -46.07,
       "by_year": {
         "2007": {
           "races": 575,
-          "hit_pct": 4.35,
-          "roi_pct": -45.64
+          "hit_pct": 4.52,
+          "roi_pct": -43.46
         },
         "2008": {
           "races": 584,
-          "hit_pct": 4.62,
-          "roi_pct": -32.72
+          "hit_pct": 4.45,
+          "roi_pct": -39.23
         },
         "2009": {
-          "races": 47,
-          "hit_pct": 4.26,
-          "roi_pct": -62.45
+          "races": 618,
+          "hit_pct": 4.05,
+          "roi_pct": -45.67
+        },
+        "2010": {
+          "races": 645,
+          "hit_pct": 3.72,
+          "roi_pct": -48.85
+        },
+        "2011": {
+          "races": 499,
+          "hit_pct": 4.01,
+          "roi_pct": -36.45
+        },
+        "2012": {
+          "races": 641,
+          "hit_pct": 4.99,
+          "roi_pct": -33.96
+        },
+        "2013": {
+          "races": 620,
+          "hit_pct": 2.74,
+          "roi_pct": -56.43
+        },
+        "2014": {
+          "races": 575,
+          "hit_pct": 2.96,
+          "roi_pct": -49.08
+        },
+        "2015": {
+          "races": 661,
+          "hit_pct": 3.18,
+          "roi_pct": -49.54
+        },
+        "2016": {
+          "races": 600,
+          "hit_pct": 4.17,
+          "roi_pct": -39.32
+        },
+        "2017": {
+          "races": 676,
+          "hit_pct": 3.25,
+          "roi_pct": -54.27
+        },
+        "2018": {
+          "races": 683,
+          "hit_pct": 3.95,
+          "roi_pct": -41.02
+        },
+        "2019": {
+          "races": 688,
+          "hit_pct": 2.18,
+          "roi_pct": -62.61
+        },
+        "2020": {
+          "races": 735,
+          "hit_pct": 3.13,
+          "roi_pct": -47.35
+        },
+        "2021": {
+          "races": 573,
+          "hit_pct": 4.54,
+          "roi_pct": -24.99
         },
         "2022": {
-          "races": 461,
-          "hit_pct": 5.42,
-          "roi_pct": -31.97
+          "races": 692,
+          "hit_pct": 4.62,
+          "roi_pct": -39.77
         },
         "2023": {
           "races": 633,
@@ -181,8 +421,8 @@
         },
         "2024": {
           "races": 666,
-          "hit_pct": 3.75,
-          "roi_pct": -46.37
+          "hit_pct": 3.9,
+          "roi_pct": -44.89
         },
         "2025": {
           "races": 722,
@@ -197,340 +437,763 @@
       }
     },
     "model_top": {
-      "races": 4121,
-      "hit_pct": 58.8,
-      "mean_payout": 0.8554,
-      "roi_pct": -14.46,
+      "races": 12519,
+      "hit_pct": 59.61,
+      "mean_payout": 0.8577,
+      "roi_pct": -14.23,
       "by_year": {
         "2007": {
           "races": 575,
-          "hit_pct": 55.48,
-          "roi_pct": -13.12
+          "hit_pct": 55.65,
+          "roi_pct": -13.08
         },
         "2008": {
           "races": 584,
-          "hit_pct": 53.94,
-          "roi_pct": -18.53
+          "hit_pct": 53.77,
+          "roi_pct": -18.54
         },
         "2009": {
-          "races": 47,
-          "hit_pct": 59.57,
-          "roi_pct": -15.32
+          "races": 618,
+          "hit_pct": 59.22,
+          "roi_pct": -14.68
+        },
+        "2010": {
+          "races": 645,
+          "hit_pct": 61.24,
+          "roi_pct": -12.5
+        },
+        "2011": {
+          "races": 499,
+          "hit_pct": 58.92,
+          "roi_pct": -14.14
+        },
+        "2012": {
+          "races": 641,
+          "hit_pct": 58.5,
+          "roi_pct": -10.95
+        },
+        "2013": {
+          "races": 620,
+          "hit_pct": 57.26,
+          "roi_pct": -14.91
+        },
+        "2014": {
+          "races": 575,
+          "hit_pct": 59.3,
+          "roi_pct": -14.56
+        },
+        "2015": {
+          "races": 661,
+          "hit_pct": 60.82,
+          "roi_pct": -15.89
+        },
+        "2016": {
+          "races": 600,
+          "hit_pct": 58.33,
+          "roi_pct": -15.91
+        },
+        "2017": {
+          "races": 676,
+          "hit_pct": 57.69,
+          "roi_pct": -18.91
+        },
+        "2018": {
+          "races": 683,
+          "hit_pct": 59.0,
+          "roi_pct": -14.87
+        },
+        "2019": {
+          "races": 688,
+          "hit_pct": 63.52,
+          "roi_pct": -12.95
+        },
+        "2020": {
+          "races": 735,
+          "hit_pct": 61.09,
+          "roi_pct": -13.28
+        },
+        "2021": {
+          "races": 573,
+          "hit_pct": 61.08,
+          "roi_pct": -11.34
         },
         "2022": {
-          "races": 461,
-          "hit_pct": 55.31,
-          "roi_pct": -20.3
+          "races": 692,
+          "hit_pct": 59.83,
+          "roi_pct": -15.89
         },
         "2023": {
           "races": 633,
-          "hit_pct": 61.3,
-          "roi_pct": -13.93
+          "hit_pct": 61.14,
+          "roi_pct": -15.07
         },
         "2024": {
           "races": 666,
-          "hit_pct": 63.66,
-          "roi_pct": -9.03
+          "hit_pct": 62.61,
+          "roi_pct": -11.26
         },
         "2025": {
           "races": 722,
-          "hit_pct": 61.22,
-          "roi_pct": -13.25
+          "hit_pct": 61.91,
+          "roi_pct": -12.61
         },
         "2026": {
           "races": 433,
-          "hit_pct": 58.2,
-          "roi_pct": -15.58
+          "hit_pct": 59.35,
+          "roi_pct": -12.99
         }
       }
     },
     "model_outside_6plus": {
-      "races": 4121,
-      "hit_pct": 35.5,
-      "mean_payout": 0.8597,
-      "roi_pct": -14.03,
+      "races": 12519,
+      "hit_pct": 35.83,
+      "mean_payout": 0.8339,
+      "roi_pct": -16.61,
       "by_year": {
         "2007": {
           "races": 575,
           "hit_pct": 32.17,
-          "roi_pct": -17.06
+          "roi_pct": -15.5
         },
         "2008": {
           "races": 584,
-          "hit_pct": 33.9,
-          "roi_pct": -18.15
+          "hit_pct": 34.25,
+          "roi_pct": -16.62
         },
         "2009": {
-          "races": 47,
-          "hit_pct": 34.04,
-          "roi_pct": -16.91
+          "races": 618,
+          "hit_pct": 33.01,
+          "roi_pct": -22.44
+        },
+        "2010": {
+          "races": 645,
+          "hit_pct": 34.88,
+          "roi_pct": -19.24
+        },
+        "2011": {
+          "races": 499,
+          "hit_pct": 37.07,
+          "roi_pct": -12.64
+        },
+        "2012": {
+          "races": 641,
+          "hit_pct": 35.88,
+          "roi_pct": -16.7
+        },
+        "2013": {
+          "races": 620,
+          "hit_pct": 33.55,
+          "roi_pct": -21.5
+        },
+        "2014": {
+          "races": 575,
+          "hit_pct": 35.65,
+          "roi_pct": -19.1
+        },
+        "2015": {
+          "races": 661,
+          "hit_pct": 37.07,
+          "roi_pct": -12.75
+        },
+        "2016": {
+          "races": 600,
+          "hit_pct": 31.5,
+          "roi_pct": -27.32
+        },
+        "2017": {
+          "races": 676,
+          "hit_pct": 40.09,
+          "roi_pct": -7.8
+        },
+        "2018": {
+          "races": 683,
+          "hit_pct": 35.29,
+          "roi_pct": -16.95
+        },
+        "2019": {
+          "races": 688,
+          "hit_pct": 40.12,
+          "roi_pct": -8.71
+        },
+        "2020": {
+          "races": 735,
+          "hit_pct": 38.37,
+          "roi_pct": -13.0
+        },
+        "2021": {
+          "races": 573,
+          "hit_pct": 37.52,
+          "roi_pct": -14.36
         },
         "2022": {
-          "races": 461,
-          "hit_pct": 33.62,
-          "roi_pct": -18.54
+          "races": 692,
+          "hit_pct": 32.08,
+          "roi_pct": -27.7
         },
         "2023": {
           "races": 633,
-          "hit_pct": 39.34,
-          "roi_pct": -4.4
+          "hit_pct": 37.28,
+          "roi_pct": -13.06
         },
         "2024": {
           "races": 666,
-          "hit_pct": 38.29,
-          "roi_pct": -7.67
+          "hit_pct": 39.04,
+          "roi_pct": -9.34
         },
         "2025": {
           "races": 722,
-          "hit_pct": 35.6,
-          "roi_pct": -16.22
+          "hit_pct": 35.04,
+          "roi_pct": -19.4
         },
         "2026": {
           "races": 433,
-          "hit_pct": 34.18,
-          "roi_pct": -19.53
+          "hit_pct": 35.33,
+          "roi_pct": -19.83
         }
       }
     },
     "model_edge": {
-      "races": 4121,
-      "hit_pct": 26.5,
-      "mean_payout": 0.8661,
-      "roi_pct": -13.39,
+      "races": 12519,
+      "hit_pct": 25.96,
+      "mean_payout": 0.8314,
+      "roi_pct": -16.86,
       "by_year": {
         "2007": {
           "races": 575,
-          "hit_pct": 26.43,
-          "roi_pct": -13.74
+          "hit_pct": 26.78,
+          "roi_pct": -17.2
         },
         "2008": {
           "races": 584,
-          "hit_pct": 24.32,
-          "roi_pct": -18.41
+          "hit_pct": 22.26,
+          "roi_pct": -23.31
         },
         "2009": {
-          "races": 47,
-          "hit_pct": 23.4,
-          "roi_pct": -17.23
+          "races": 618,
+          "hit_pct": 25.73,
+          "roi_pct": -16.44
+        },
+        "2010": {
+          "races": 645,
+          "hit_pct": 25.27,
+          "roi_pct": -17.64
+        },
+        "2011": {
+          "races": 499,
+          "hit_pct": 28.86,
+          "roi_pct": -7.84
+        },
+        "2012": {
+          "races": 641,
+          "hit_pct": 23.71,
+          "roi_pct": -22.96
+        },
+        "2013": {
+          "races": 620,
+          "hit_pct": 29.35,
+          "roi_pct": -7.47
+        },
+        "2014": {
+          "races": 575,
+          "hit_pct": 25.22,
+          "roi_pct": -22.37
+        },
+        "2015": {
+          "races": 661,
+          "hit_pct": 27.53,
+          "roi_pct": -8.6
+        },
+        "2016": {
+          "races": 600,
+          "hit_pct": 22.5,
+          "roi_pct": -26.71
+        },
+        "2017": {
+          "races": 676,
+          "hit_pct": 24.41,
+          "roi_pct": -20.25
+        },
+        "2018": {
+          "races": 683,
+          "hit_pct": 27.38,
+          "roi_pct": -14.84
+        },
+        "2019": {
+          "races": 688,
+          "hit_pct": 29.36,
+          "roi_pct": -10.39
+        },
+        "2020": {
+          "races": 735,
+          "hit_pct": 23.95,
+          "roi_pct": -25.99
+        },
+        "2021": {
+          "races": 573,
+          "hit_pct": 27.75,
+          "roi_pct": -9.05
         },
         "2022": {
-          "races": 461,
-          "hit_pct": 25.38,
-          "roi_pct": -13.71
+          "races": 692,
+          "hit_pct": 26.59,
+          "roi_pct": -13.95
         },
         "2023": {
           "races": 633,
-          "hit_pct": 28.28,
-          "roi_pct": -10.5
+          "hit_pct": 25.91,
+          "roi_pct": -15.72
         },
         "2024": {
           "races": 666,
-          "hit_pct": 30.78,
-          "roi_pct": 0.96
+          "hit_pct": 27.63,
+          "roi_pct": -11.17
         },
         "2025": {
           "races": 722,
-          "hit_pct": 24.52,
-          "roi_pct": -20.21
+          "hit_pct": 24.65,
+          "roi_pct": -21.86
         },
         "2026": {
           "races": 433,
-          "hit_pct": 25.17,
-          "roi_pct": -20.37
+          "hit_pct": 24.25,
+          "roi_pct": -23.45
         }
       }
     },
     "value_ev0_model": {
-      "races": 3471,
-      "hit_pct": 49.06,
-      "mean_payout": 0.8541,
-      "roi_pct": -14.59,
+      "races": 9363,
+      "hit_pct": 52.77,
+      "mean_payout": 0.8459,
+      "roi_pct": -15.41,
       "by_year": {
         "2007": {
-          "races": 536,
-          "hit_pct": 40.86,
-          "roi_pct": -15.57
+          "races": 541,
+          "hit_pct": 40.85,
+          "roi_pct": -18.61
         },
         "2008": {
-          "races": 523,
-          "hit_pct": 45.7,
-          "roi_pct": -12.73
+          "races": 529,
+          "hit_pct": 44.61,
+          "roi_pct": -12.95
         },
         "2009": {
-          "races": 41,
-          "hit_pct": 46.34,
-          "roi_pct": -33.17
+          "races": 537,
+          "hit_pct": 50.47,
+          "roi_pct": -16.3
+        },
+        "2010": {
+          "races": 539,
+          "hit_pct": 51.39,
+          "roi_pct": -12.84
+        },
+        "2011": {
+          "races": 385,
+          "hit_pct": 51.17,
+          "roi_pct": -18.79
+        },
+        "2012": {
+          "races": 450,
+          "hit_pct": 48.0,
+          "roi_pct": -10.19
+        },
+        "2013": {
+          "races": 474,
+          "hit_pct": 51.48,
+          "roi_pct": -8.47
+        },
+        "2014": {
+          "races": 468,
+          "hit_pct": 49.57,
+          "roi_pct": -25.17
+        },
+        "2015": {
+          "races": 508,
+          "hit_pct": 57.28,
+          "roi_pct": -12.56
+        },
+        "2016": {
+          "races": 457,
+          "hit_pct": 51.86,
+          "roi_pct": -10.45
+        },
+        "2017": {
+          "races": 508,
+          "hit_pct": 51.38,
+          "roi_pct": -18.12
+        },
+        "2018": {
+          "races": 488,
+          "hit_pct": 51.84,
+          "roi_pct": -18.83
+        },
+        "2019": {
+          "races": 521,
+          "hit_pct": 59.69,
+          "roi_pct": -15.84
+        },
+        "2020": {
+          "races": 504,
+          "hit_pct": 53.97,
+          "roi_pct": -20.57
+        },
+        "2021": {
+          "races": 376,
+          "hit_pct": 55.32,
+          "roi_pct": -21.3
         },
         "2022": {
-          "races": 412,
-          "hit_pct": 50.73,
-          "roi_pct": 0.23
+          "races": 484,
+          "hit_pct": 56.4,
+          "roi_pct": -10.15
         },
         "2023": {
-          "races": 542,
-          "hit_pct": 47.23,
-          "roi_pct": -30.15
+          "races": 442,
+          "hit_pct": 55.43,
+          "roi_pct": -25.23
         },
         "2024": {
-          "races": 546,
-          "hit_pct": 54.76,
-          "roi_pct": -12.29
+          "races": 427,
+          "hit_pct": 61.59,
+          "roi_pct": -11.91
         },
         "2025": {
-          "races": 542,
-          "hit_pct": 55.17,
-          "roi_pct": -16.47
+          "races": 455,
+          "hit_pct": 63.08,
+          "roi_pct": -7.94
         },
         "2026": {
-          "races": 329,
-          "hit_pct": 49.54,
-          "roi_pct": -7.24
+          "races": 270,
+          "hit_pct": 54.07,
+          "roi_pct": -11.49
         }
       }
     },
     "value_ev05_model": {
-      "races": 3134,
-      "hit_pct": 51.28,
-      "mean_payout": 0.8508,
-      "roi_pct": -14.92,
+      "races": 8219,
+      "hit_pct": 56.13,
+      "mean_payout": 0.8504,
+      "roi_pct": -14.96,
       "by_year": {
         "2007": {
-          "races": 500,
-          "hit_pct": 42.0,
-          "roi_pct": -15.48
+          "races": 502,
+          "hit_pct": 42.23,
+          "roi_pct": -17.62
         },
         "2008": {
-          "races": 493,
-          "hit_pct": 46.86,
-          "roi_pct": -10.57
+          "races": 476,
+          "hit_pct": 47.06,
+          "roi_pct": -9.83
         },
         "2009": {
-          "races": 37,
-          "hit_pct": 51.35,
-          "roi_pct": -25.95
+          "races": 489,
+          "hit_pct": 51.94,
+          "roi_pct": -16.01
+        },
+        "2010": {
+          "races": 490,
+          "hit_pct": 54.49,
+          "roi_pct": -10.48
+        },
+        "2011": {
+          "races": 336,
+          "hit_pct": 52.98,
+          "roi_pct": -22.42
+        },
+        "2012": {
+          "races": 387,
+          "hit_pct": 50.65,
+          "roi_pct": -11.32
+        },
+        "2013": {
+          "races": 406,
+          "hit_pct": 54.93,
+          "roi_pct": -10.89
+        },
+        "2014": {
+          "races": 415,
+          "hit_pct": 52.05,
+          "roi_pct": -22.12
+        },
+        "2015": {
+          "races": 456,
+          "hit_pct": 59.65,
+          "roi_pct": -13.21
+        },
+        "2016": {
+          "races": 399,
+          "hit_pct": 55.39,
+          "roi_pct": -7.1
+        },
+        "2017": {
+          "races": 439,
+          "hit_pct": 55.81,
+          "roi_pct": -15.08
+        },
+        "2018": {
+          "races": 410,
+          "hit_pct": 57.56,
+          "roi_pct": -14.45
+        },
+        "2019": {
+          "races": 475,
+          "hit_pct": 62.74,
+          "roi_pct": -16.29
+        },
+        "2020": {
+          "races": 434,
+          "hit_pct": 58.99,
+          "roi_pct": -19.9
+        },
+        "2021": {
+          "races": 319,
+          "hit_pct": 60.19,
+          "roi_pct": -17.46
         },
         "2022": {
-          "races": 372,
-          "hit_pct": 52.15,
-          "roi_pct": -3.23
+          "races": 405,
+          "hit_pct": 61.23,
+          "roi_pct": -12.38
         },
         "2023": {
-          "races": 487,
-          "hit_pct": 50.51,
-          "roi_pct": -29.06
+          "races": 384,
+          "hit_pct": 59.9,
+          "roi_pct": -22.95
         },
         "2024": {
-          "races": 472,
-          "hit_pct": 58.69,
-          "roi_pct": -9.65
+          "races": 368,
+          "hit_pct": 67.12,
+          "roi_pct": -12.36
         },
         "2025": {
-          "races": 484,
-          "hit_pct": 57.64,
-          "roi_pct": -18.68
+          "races": 398,
+          "hit_pct": 66.08,
+          "roi_pct": -13.31
         },
         "2026": {
-          "races": 289,
-          "hit_pct": 52.25,
-          "roi_pct": -13.52
+          "races": 231,
+          "hit_pct": 58.44,
+          "roi_pct": -17.2
         }
       }
     },
     "value_ev0_market": {
-      "races": 4121,
-      "hit_pct": 22.88,
-      "mean_payout": 0.6909,
-      "roi_pct": -30.91,
+      "races": 12519,
+      "hit_pct": 21.04,
+      "mean_payout": 0.6821,
+      "roi_pct": -31.79,
       "by_year": {
         "2007": {
           "races": 575,
-          "hit_pct": 14.26,
-          "roi_pct": -38.27
+          "hit_pct": 15.13,
+          "roi_pct": -34.5
         },
         "2008": {
           "races": 584,
-          "hit_pct": 16.1,
-          "roi_pct": -28.39
+          "hit_pct": 14.9,
+          "roi_pct": -29.31
         },
         "2009": {
-          "races": 47,
-          "hit_pct": 19.15,
-          "roi_pct": -27.45
+          "races": 618,
+          "hit_pct": 18.12,
+          "roi_pct": -28.78
+        },
+        "2010": {
+          "races": 645,
+          "hit_pct": 17.52,
+          "roi_pct": -41.32
+        },
+        "2011": {
+          "races": 499,
+          "hit_pct": 15.63,
+          "roi_pct": -3.15
+        },
+        "2012": {
+          "races": 641,
+          "hit_pct": 14.82,
+          "roi_pct": -38.01
+        },
+        "2013": {
+          "races": 620,
+          "hit_pct": 15.65,
+          "roi_pct": -23.54
+        },
+        "2014": {
+          "races": 575,
+          "hit_pct": 15.83,
+          "roi_pct": -37.03
+        },
+        "2015": {
+          "races": 661,
+          "hit_pct": 16.79,
+          "roi_pct": -34.4
+        },
+        "2016": {
+          "races": 600,
+          "hit_pct": 22.17,
+          "roi_pct": -49.96
+        },
+        "2017": {
+          "races": 676,
+          "hit_pct": 22.63,
+          "roi_pct": -33.17
+        },
+        "2018": {
+          "races": 683,
+          "hit_pct": 23.13,
+          "roi_pct": -22.07
+        },
+        "2019": {
+          "races": 688,
+          "hit_pct": 26.89,
+          "roi_pct": -38.93
+        },
+        "2020": {
+          "races": 735,
+          "hit_pct": 20.68,
+          "roi_pct": -29.24
+        },
+        "2021": {
+          "races": 573,
+          "hit_pct": 22.69,
+          "roi_pct": -17.22
         },
         "2022": {
-          "races": 461,
-          "hit_pct": 18.66,
-          "roi_pct": -18.15
+          "races": 692,
+          "hit_pct": 28.18,
+          "roi_pct": -28.21
         },
         "2023": {
           "races": 633,
-          "hit_pct": 31.75,
-          "roi_pct": -30.18
+          "hit_pct": 30.49,
+          "roi_pct": -33.36
         },
         "2024": {
           "races": 666,
-          "hit_pct": 28.83,
-          "roi_pct": -21.12
+          "hit_pct": 27.48,
+          "roi_pct": -34.88
         },
         "2025": {
           "races": 722,
-          "hit_pct": 23.96,
-          "roi_pct": -47.16
+          "hit_pct": 24.24,
+          "roi_pct": -40.44
         },
         "2026": {
           "races": 433,
           "hit_pct": 24.48,
-          "roi_pct": -27.53
+          "roi_pct": -30.68
         }
       }
     },
     "value_ev05_market": {
-      "races": 4121,
-      "hit_pct": 22.88,
-      "mean_payout": 0.6909,
-      "roi_pct": -30.91,
+      "races": 12519,
+      "hit_pct": 21.04,
+      "mean_payout": 0.6821,
+      "roi_pct": -31.79,
       "by_year": {
         "2007": {
           "races": 575,
-          "hit_pct": 14.26,
-          "roi_pct": -38.27
+          "hit_pct": 15.13,
+          "roi_pct": -34.5
         },
         "2008": {
           "races": 584,
-          "hit_pct": 16.1,
-          "roi_pct": -28.39
+          "hit_pct": 14.9,
+          "roi_pct": -29.31
         },
         "2009": {
-          "races": 47,
-          "hit_pct": 19.15,
-          "roi_pct": -27.45
+          "races": 618,
+          "hit_pct": 18.12,
+          "roi_pct": -28.78
+        },
+        "2010": {
+          "races": 645,
+          "hit_pct": 17.52,
+          "roi_pct": -41.32
+        },
+        "2011": {
+          "races": 499,
+          "hit_pct": 15.63,
+          "roi_pct": -3.15
+        },
+        "2012": {
+          "races": 641,
+          "hit_pct": 14.82,
+          "roi_pct": -38.01
+        },
+        "2013": {
+          "races": 620,
+          "hit_pct": 15.65,
+          "roi_pct": -23.54
+        },
+        "2014": {
+          "races": 575,
+          "hit_pct": 15.83,
+          "roi_pct": -37.03
+        },
+        "2015": {
+          "races": 661,
+          "hit_pct": 16.79,
+          "roi_pct": -34.4
+        },
+        "2016": {
+          "races": 600,
+          "hit_pct": 22.17,
+          "roi_pct": -49.96
+        },
+        "2017": {
+          "races": 676,
+          "hit_pct": 22.63,
+          "roi_pct": -33.17
+        },
+        "2018": {
+          "races": 683,
+          "hit_pct": 23.13,
+          "roi_pct": -22.07
+        },
+        "2019": {
+          "races": 688,
+          "hit_pct": 26.89,
+          "roi_pct": -38.93
+        },
+        "2020": {
+          "races": 735,
+          "hit_pct": 20.68,
+          "roi_pct": -29.24
+        },
+        "2021": {
+          "races": 573,
+          "hit_pct": 22.69,
+          "roi_pct": -17.22
         },
         "2022": {
-          "races": 461,
-          "hit_pct": 18.66,
-          "roi_pct": -18.15
+          "races": 692,
+          "hit_pct": 28.18,
+          "roi_pct": -28.21
         },
         "2023": {
           "races": 633,
-          "hit_pct": 31.75,
-          "roi_pct": -30.18
+          "hit_pct": 30.49,
+          "roi_pct": -33.36
         },
         "2024": {
           "races": 666,
-          "hit_pct": 28.83,
-          "roi_pct": -21.12
+          "hit_pct": 27.48,
+          "roi_pct": -34.88
         },
         "2025": {
           "races": 722,
-          "hit_pct": 23.96,
-          "roi_pct": -47.16
+          "hit_pct": 24.24,
+          "roi_pct": -40.44
         },
         "2026": {
           "races": 433,
           "hit_pct": 24.48,
-          "roi_pct": -27.53
+          "roi_pct": -30.68
         }
       }
     }
-  }
+  },
+  "evidence_races": 13128,
+  "evidence_place_rows": 39384,
+  "evidence_rows": 162414
 }
