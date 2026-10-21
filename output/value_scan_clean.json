@@ -2,59 +2,59 @@
   "threshold_scan": [
     {
       "thr": 0.0,
-      "n": 4551,
-      "roi_pct": -16.98,
-      "hit_pct": 3.21,
-      "staked": 4551,
-      "returned": 3778.4
+      "n": 3553,
+      "roi_pct": -31.65,
+      "hit_pct": 8.56,
+      "staked": 3553,
+      "returned": 2428.5
     },
     {
       "thr": 0.01,
-      "n": 3706,
-      "roi_pct": -16.83,
-      "hit_pct": 2.35,
-      "staked": 3706,
-      "returned": 3082.2
+      "n": 805,
+      "roi_pct": -28.7,
+      "hit_pct": 16.52,
+      "staked": 805,
+      "returned": 574.0
     },
     {
       "thr": 0.02,
-      "n": 2598,
-      "roi_pct": -6.93,
-      "hit_pct": 1.92,
-      "staked": 2598,
-      "returned": 2418.0
+      "n": 289,
+      "roi_pct": -29.1,
+      "hit_pct": 21.8,
+      "staked": 289,
+      "returned": 204.9
     },
     {
       "thr": 0.03,
-      "n": 673,
-      "roi_pct": 23.18,
-      "hit_pct": 1.49,
-      "staked": 673,
-      "returned": 829.0
+      "n": 122,
+      "roi_pct": -32.54,
+      "hit_pct": 22.95,
+      "staked": 122,
+      "returned": 82.3
     },
     {
       "thr": 0.04,
-      "n": 32,
-      "roi_pct": 503.12,
-      "hit_pct": 6.25,
-      "staked": 32,
-      "returned": 193.0
+      "n": 35,
+      "roi_pct": -23.14,
+      "hit_pct": 31.43,
+      "staked": 35,
+      "returned": 26.9
     },
     {
       "thr": 0.05,
-      "n": 18,
-      "roi_pct": 388.89,
-      "hit_pct": 5.56,
-      "staked": 18,
-      "returned": 88.0
+      "n": 13,
+      "roi_pct": -27.69,
+      "hit_pct": 38.46,
+      "staked": 13,
+      "returned": 9.4
     },
     {
       "thr": 0.07,
-      "n": 7,
-      "roi_pct": 1157.14,
-      "hit_pct": 14.29,
-      "staked": 7,
-      "returned": 88.0
+      "n": 2,
+      "roi_pct": 0.0,
+      "hit_pct": 50.0,
+      "staked": 2,
+      "returned": 2.0
     },
     {
       "thr": 0.1,
@@ -66,17 +66,17 @@
     }
   ],
   "best_edge_per_race": {
-    "n": 597,
-    "roi_pct": -33.5,
-    "hit_pct": 1.01,
-    "staked": 597,
-    "returned": 397.0
+    "n": 271,
+    "roi_pct": -27.12,
+    "hit_pct": 22.51,
+    "staked": 271,
+    "returned": 197.5
   },
   "favourite_baseline": {
-    "n": 598,
-    "roi_pct": -20.27,
-    "hit_pct": 28.09,
-    "staked": 598,
-    "returned": 476.8
+    "n": 636,
+    "roi_pct": -20.74,
+    "hit_pct": 27.83,
+    "staked": 636,
+    "returned": 504.1
   }
 }

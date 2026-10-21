@@ -40,3 +40,4 @@ Thumbs.db
 # Logs
 *.log
 logs/
+models/*.pre-gaprepair

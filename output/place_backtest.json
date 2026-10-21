@@ -1,74 +1,74 @@
 {
   "evidence": "/tmp/place_div.ckpt.json",
-  "races_scored": 837,
-  "p_place_auc_model": 0.7345,
-  "p_place_auc_market": 0.7437,
+  "races_scored": 1673,
+  "p_place_auc_model": 0.7389,
+  "p_place_auc_market": 0.7492,
   "strategies": {
     "market_favourite": {
-      "races": 837,
-      "hit_pct": 56.63,
-      "mean_payout": 0.8533,
-      "roi_pct": -14.67
+      "races": 1673,
+      "hit_pct": 56.72,
+      "mean_payout": 0.8361,
+      "roi_pct": -16.39
     },
     "market_2nd_favourite": {
-      "races": 837,
-      "hit_pct": 43.37,
-      "mean_payout": 0.7875,
-      "roi_pct": -21.25
-    },
-    "market_3rd_favourite": {
-      "races": 837,
-      "hit_pct": 38.59,
-      "mean_payout": 0.8383,
-      "roi_pct": -16.17
-    },
-    "market_longshot": {
-      "races": 837,
-      "hit_pct": 4.42,
-      "mean_payout": 0.5697,
-      "roi_pct": -43.03
-    },
-    "model_top": {
-      "races": 837,
-      "hit_pct": 56.63,
-      "mean_payout": 0.8908,
-      "roi_pct": -10.92
-    },
-    "model_outside_6plus": {
-      "races": 837,
-      "hit_pct": 33.93,
-      "mean_payout": 0.8576,
-      "roi_pct": -14.24
-    },
-    "model_edge": {
-      "races": 837,
-      "hit_pct": 27.96,
-      "mean_payout": 0.9125,
-      "roi_pct": -8.75
-    },
-    "value_ev0_model": {
-      "races": 756,
-      "hit_pct": 42.06,
-      "mean_payout": 0.8109,
-      "roi_pct": -18.91
-    },
-    "value_ev05_model": {
-      "races": 712,
-      "hit_pct": 43.26,
+      "races": 1673,
+      "hit_pct": 46.26,
       "mean_payout": 0.827,
       "roi_pct": -17.3
     },
+    "market_3rd_favourite": {
+      "races": 1673,
+      "hit_pct": 38.91,
+      "mean_payout": 0.835,
+      "roi_pct": -16.5
+    },
+    "market_longshot": {
+      "races": 1673,
+      "hit_pct": 4.24,
+      "mean_payout": 0.5761,
+      "roi_pct": -42.39
+    },
+    "model_top": {
+      "races": 1673,
+      "hit_pct": 56.13,
+      "mean_payout": 0.859,
+      "roi_pct": -14.1
+    },
+    "model_outside_6plus": {
+      "races": 1673,
+      "hit_pct": 32.99,
+      "mean_payout": 0.8116,
+      "roi_pct": -18.84
+    },
+    "model_edge": {
+      "races": 1673,
+      "hit_pct": 24.57,
+      "mean_payout": 0.8023,
+      "roi_pct": -19.77
+    },
+    "value_ev0_model": {
+      "races": 1520,
+      "hit_pct": 42.57,
+      "mean_payout": 0.8189,
+      "roi_pct": -18.11
+    },
+    "value_ev05_model": {
+      "races": 1428,
+      "hit_pct": 43.98,
+      "mean_payout": 0.8347,
+      "roi_pct": -16.53
+    },
     "value_ev0_market": {
-      "races": 837,
-      "hit_pct": 14.81,
-      "mean_payout": 0.6326,
-      "roi_pct": -36.74
+      "races": 1673,
+      "hit_pct": 17.15,
+      "mean_payout": 0.6996,
+      "roi_pct": -30.04
     },
     "value_ev05_market": {
-      "races": 837,
-      "hit_pct": 14.81,
-      "mean_payout": 0.6326,
-      "roi_pct": -36.74
+      "races": 1673,
+      "hit_pct": 17.15,
+      "mean_payout": 0.6996,
+      "roi_pct": -30.04
     }
   }
 }

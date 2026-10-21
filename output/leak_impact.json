@@ -2,38 +2,38 @@
   "test_period": "2006-01-01 .. 2026-10-19",
   "contaminated_rows_reconstructed": 394,
   "clean": {
-    "auc": 0.7769,
-    "races": 597,
-    "top1": 165,
-    "top1_pct": 27.64,
-    "top3": 352,
-    "top3_pct": 58.96
+    "auc": 0.7794,
+    "races": 635,
+    "top1": 175,
+    "top1_pct": 27.56,
+    "top3": 376,
+    "top3_pct": 59.21
   },
   "contaminated": {
-    "auc": 0.778,
-    "races": 597,
-    "top1": 167,
-    "top1_pct": 27.97,
-    "top3": 357,
-    "top3_pct": 59.8
+    "auc": 0.7787,
+    "races": 635,
+    "top1": 178,
+    "top1_pct": 28.03,
+    "top3": 377,
+    "top3_pct": 59.37
   },
   "favourite_clean": {
-    "races": 597,
-    "top1": 168,
-    "top1_pct": 28.14,
-    "top3": 365,
-    "top3_pct": 61.14
+    "races": 635,
+    "top1": 177,
+    "top1_pct": 27.87,
+    "top3": 387,
+    "top3_pct": 60.94
   },
   "favourite_contaminated": {
-    "races": 597,
-    "top1": 168,
-    "top1_pct": 28.14,
-    "top3": 365,
-    "top3_pct": 61.14
+    "races": 635,
+    "top1": 177,
+    "top1_pct": 27.87,
+    "top3": 387,
+    "top3_pct": 60.94
   },
   "leak_cost": {
-    "auc_points": 0.0011,
-    "top1_pp": 0.33,
-    "top3_pp": 0.84
+    "auc_points": -0.0007,
+    "top1_pp": 0.47,
+    "top3_pp": 0.16
   }
 }
