@@ -112,13 +112,13 @@ h2.sec .no { color: #b23a48; margin-right: 3mm; }
 h3 { font-size: 10.6pt; margin: 5.5mm 0 2mm; }
 p { margin: 0 0 2.6mm; }
 p.lead { font-size: 9.6pt; }
-.small { font-size: 7.9pt; color: #5a6a80; }
+.small { font-size: 8.1pt; color: #5a6a80; }
 strong { font-weight: 700; }
 em { font-style: normal; color: #b23a48; font-weight: 700; }
 .num { font-variant-numeric: tabular-nums; }
 
-table { width: 100%; border-collapse: collapse; margin: 2.5mm 0 3mm; font-size: 8.3pt; }
-caption { caption-side: top; text-align: left; font-size: 8.3pt; font-weight: 700;
+table { width: 100%; border-collapse: collapse; margin: 2.5mm 0 3mm; font-size: 8.65pt; }
+caption { caption-side: top; text-align: left; font-size: 8.5pt; font-weight: 700;
   color: #10203a; padding-bottom: 1.8mm; }
 th { text-align: left; font-weight: 700; font-size: 7.4pt; letter-spacing: .05em;
   text-transform: uppercase; color: #5a6a80; border-bottom: 1.4px solid #10203a;
@@ -130,18 +130,23 @@ td.c, th.c { text-align: center; }
 tr.tot td { font-weight: 700; border-top: 1.4px solid #10203a; background: #eef2f6 !important; }
 td.neg { color: #b23a48; font-weight: 700; }
 td.pos { color: #1f7a5c; font-weight: 700; }
-.tnote { font-size: 7.6pt; color: #5a6a80; margin: -1.5mm 0 4mm; }
+.tnote { font-size: 7.9pt; color: #5a6a80; margin: -1.5mm 0 4mm; line-height: 1.5; }
 
 figure { margin: 4mm 0 5mm; page-break-inside: avoid; }
 figure img { width: 100%; border: 1px solid #d9dfe8; }
-figcaption { font-size: 7.7pt; color: #5a6a80; margin-top: 1.8mm; line-height: 1.5; }
+figcaption { font-size: 7.9pt; color: #5a6a80; margin-top: 1.8mm; line-height: 1.5; }
 figcaption b { color: #10203a; }
 
 .callout { border-left: 4px solid #2d5f8b; background: #f4f7fa; padding: 4mm 5mm;
   margin: 3.5mm 0; page-break-inside: avoid; }
 .callout.warn { border-left-color: #b23a48; background: #fbf5f6; }
+.keepblock { page-break-inside: avoid; break-inside: avoid; }
+.two-up { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 4.5mm;
+  align-items: start; margin: 3.5mm 0; page-break-inside: avoid; }
+.two-up .callout { margin: 0; height: 100%; }
+.two-up .kv { grid-template-columns: 26mm 1fr; gap: 1mm 3mm; font-size: 8.1pt; }
 .callout.ok { border-left-color: #1f7a5c; background: #f3f8f6; }
-.callout .t { font-weight: 700; font-size: 9.2pt; margin-bottom: 1.5mm; }
+.callout .t { font-weight: 700; font-size: 9.7pt; margin-bottom: 1.5mm; }
 .callout p:last-child { margin-bottom: 0; }
 
 ol.arg { margin: 2mm 0 3mm; padding-left: 6mm; }
@@ -197,8 +202,9 @@ def build(d):
   <div class="verdict">
     <div class="lab">Recommendation</div>
     <div class="head">建議：不投注（無正期望）</div>
-    <p>三條互相獨立的量化路線 —— WIN 模型選馬、Value filter 篩選、PLACE 盤 —— 全部指向同一結論：
-       經 11 種策略、19 年歷史樣本測試，<em>沒有任何一條規則的期望回報為正</em>。</p>
+    <p>四項互相獨立的量化檢驗 —— WIN 模型選馬、Value filter 篩選、PLACE 盤、資料可信度 ——
+       全部指向同一結論：經 11 種策略、19 年歷史樣本測試，
+       <em>沒有任何一條規則的期望回報為正</em>。</p>
     <p>更關鍵的是，本報告已定位失敗的<em>機制</em>：模型的機率輸出存在系統性「冷門偏差」，
        令「模型認為便宜」的訊號實際上是<em>系統性買冷門</em>。依此規則下注的歷史回報為
        <em>−46.53%</em>。</p>
@@ -217,8 +223,10 @@ def build(d):
       <div class="l">資料經官方來源驗證比例<br>（{db['prov']:,} 筆修復紀錄）</div></div>
   </div>
 
-  <p class="small" style="margin-top:8mm">本報告所有數據源自香港賽馬會官方公開頁面，並以第二個官方來源
+  <p class="small" style="margin-top:7mm">本報告所有數據源自香港賽馬會官方公開頁面，並以第二個官方來源
      （官方 PLACE 派彩表）作獨立交叉驗證；所有投注建議僅依據賽前可得資訊。</p>
+  <p class="small" style="margin-top:2mm"><b>閱讀次序：</b>§1 給出結論與今晚的行動方案；
+     §2 是今晚的賽事與建議對象；§3–§6 逐條交代結論如何得出；§7 是限制與風險聲明。</p>
 </div>
 <!--TOC-->""")
 
@@ -229,87 +237,130 @@ def build(d):
         f"<td class='r num neg'>{r['roi_pct']:.2f}%</td></tr>"
         for r in V['threshold_scan'] if r['n'])
     h.append(f"""<section>
-  <h2 class="sec"><span class="no">§1</span>執行摘要與建議</h2>
+  <h2 class="sec"><span class="no">§1</span>結論</h2>
 
-  <h3>1.1 建議</h3>
+  <h3>1.1 核心判斷</h3>
   <div class="callout warn">
-    <div class="t">不投注（No bet）— 於已測試的所有規則與所有年份</div>
-    <p>判斷準則為「期望值為正」，而非「邊場可能贏」。經測試的每一種策略，
-       期望回報均為負；差額的量級（−10% 至 −46%）遠大於模型相對市場的任何微弱優勢
-       （AUC 低 0.0038、首名命中率低 0.79 個百分點）。</p>
+    <div class="t">今晚不投注 —— 測試過的每一種規則都沒有正期望</div>
+    <p>用 {db['runners']:,} 筆經官方來源逐項驗證的歷史數據、跨 19 年樣本，
+       測試了 11 種投注規則。<em>每一種的期望回報都為負</em>，幅度 −10% 至 −46%，
+       遠大於模型相對市場的任何微弱差距（AUC 低 0.0038、首名命中率低 0.79 個百分點）。
+       判斷準則是「期望值為正」，不是「邊場可能贏」。</p>
   </div>
 
-  <h3>1.2 三項獨立檢驗</h3>
+  <h3>1.2 四項獨立檢驗的結果</h3>
   <table>
-    <caption>表 1.1　三條互相獨立的量化路線及其最佳表現</caption>
-    <thead><tr><th>檢驗路線</th><th class="r">樣本</th><th>最佳策略</th>
-      <th class="r">回報率</th><th class="r">市場基準</th><th>結論</th></tr></thead>
+    <caption>表 1.1　四條互相獨立的檢驗路線，全部指向同一結論</caption>
+    <thead><tr><th>檢驗</th><th class="r">樣本</th><th>最佳策略</th>
+      <th class="r">回報率</th><th class="r">市場基準</th><th>判定</th></tr></thead>
     <tbody>
-      <tr><td>WIN 模型選馬（首名命中率）</td><td class="r num">636 場</td>
+      <tr><td>① WIN 模型選馬</td><td class="r num">636 場</td>
         <td>FORM+ODDS 模型</td><td class="r num neg">27.04%</td>
         <td class="r num">27.83%</td><td class="neg">無 edge</td></tr>
-      <tr><td>WIN Value filter（模型 vs 市場）</td><td class="r num">636 場</td>
+      <tr><td>② WIN Value filter（模型 vs 市場）</td><td class="r num">636 場</td>
         <td>每場挑 edge 最大者</td><td class="r num neg">−46.53%</td>
         <td class="r num">−20.74%</td><td class="neg">負，且遠劣於基準</td></tr>
-      <tr><td>PLACE 盤（跨年代）</td><td class="r num">{P['races_scored']:,} 場 / 20 年</td>
+      <tr><td>③ PLACE 盤（跨年代）</td><td class="r num">{P['races_scored']:,} 場 / 20 年</td>
         <td>模型 top P(place)</td><td class="r num neg">−14.23%</td>
         <td class="r num">−15.03%</td><td class="neg">負，與基準打平</td></tr>
+      <tr><td>④ 結論基礎可信度</td><td class="r num">{db['races']:,} 場 · {db['prov']:,} 筆</td>
+        <td>官方來源逐項比對</td><td class="r num pos">0 不符</td>
+        <td class="r num">—</td><td class="pos">基礎可靠</td></tr>
     </tbody>
   </table>
   <p class="tnote">市場基準＝每場買官方最低賠率（最熱門）的馬。港交所獎金池回報率：WIN 與 PLACE 均為 82.5%，
      抽水先行；策略之間的差異必須大於抽水才可能獲利。</p>
 
-  <h3>1.3 為何不建議下注：三個理由</h3>
+  <h3>1.3 三個關鍵發現</h3>
   <ol class="arg">
-    <li><b>模型沒有排序優勢。</b>在同一 636 場樣本外測試上，模型的勝出概率排序能力
-        （AUC {R['model_auc']:.4f}）低於市場的正規化隱含機率（{R['market_auc']:.4f}）。
-        將模型與市場各取一半混合，AUC 為 {R['blend_auc']:.4f} —— <em>仍低於單用市場</em>，
-        證明模型沒有為市場提供任何互補資訊。</li>
-    <li><b>Value filter 買的其實是冷門，不是「便宜貨」。</b>模型的機率輸出向中間壓縮：
-        在最高十分位，模型給大熱馬的機率比實際勝率低 8.19 個百分點；而在最低十分位，
-        模型反而高估 2.40 個百分點。結果是「模型機率 &gt; 市場機率」這個條件
-        <em>系統性地選中最被高估的馬</em>。該規則每場挑 edge 最大的一匹，
-        歷史中位賠率為 <em>{sel['odds_median']:.0f} 倍</em>，命中率僅 {sel['hit_pct']:.2f}%，
-        回報率 {best['roi_pct']:.2f}%。</li>
-    <li><b>唯一接近零的結果無法重現。</b>WIN 掃描中只有 edge ≥ 3% 一格錄得正數
-        （+5.87%），但該格 341 注只中 3 個贏家（賠率 98、105、158 倍）—— 屬隨機撞正而非 edge。
+    <li><b>模型沒有排序優勢，也沒有互補資訊。</b>在 636 場樣本外測試上，
+        模型 AUC {R['model_auc']:.4f} 低於市場 {R['market_auc']:.4f}；
+        兩者各半混合後 AUC {R['blend_auc']:.4f}，<em>仍低於單用市場</em>。
+        首名命中率 27.04% vs 27.83%，前三 60.06% vs 61.16%。</li>
+    <li><b>模型的「value 訊號」其實是系統性買冷門。</b>模型機率向中間壓縮：
+        最高十分位低估大熱 8.19 個百分點，最低十分位高估 2.40 個百分點；
+        市場同期全程誤差在 −1.00 至 +1.71 個百分點。結果是
+        「模型機率 &gt; 市場機率」這個條件必然選中最被高估的馬。
+        該規則的歷史中位賠率 <em>{sel['odds_median']:.0f} 倍</em>、
+        命中率 {sel['hit_pct']:.2f}%、回報 {best['roi_pct']:.2f}%。</li>
+    <li><b>唯一接近零的結果無法重現。</b>WIN 掃描只有 edge ≥ 3% 一格為正（+5.87%），
+        但 341 注只中 3 個贏家（賠率 98、105、158 倍）—— 隨機撞正而非 edge。
         PLACE 盤更徹底：<em>11 種策略 × 20 個年份 = 220 個格子，全部為負</em>，
-        沒有任何一個策略在任何一年錄得正回報。這是封線的決定性證據。</li>
+        沒有任何策略在任何一年錄得正回報。</li>
   </ol>
 
-  <h3>1.4 若仍要參與：封頂的娛樂方案</h3>
-  <div class="callout warn">
-    <div class="t">重要：不要跟「value 名單」</div>
-    <p>模型今晚提出的 5 隻「value 候選」全部為 {d['cand_odds_lo']:.0f} 至 {d['cand_odds_hi']:.0f} 倍的冷門
-       （市場第 {d['cand_rank_lo']} 至第 {d['cand_rank_hi']} 熱門）。歷史證據顯示，
-       這個名單正是回報最差的類別（每場挑 edge 最大者：回報 {best['roi_pct']:.2f}%，
-       命中率 {sel['hit_pct']:.2f}%）。若純為娛樂而落注，應以模型的<em>首選</em>為準，
-       而非其「value」名單。</p>
+  <div class="keepblock">
+  <h3>1.4 今晚具體可以做乜</h3>
+  <div class="two-up">
+  <div class="callout ok">
+    <div class="t">方案 A（建議）：不落注</div>
+    <p style="font-size:11pt;font-weight:700;margin:0 0 2.5mm;color:#1f7a5c">
+       成本 HK$0　期望回報 0</p>
+    <p>相對所有已測策略，這是今晚期望值最高的選擇 —— 每一種下注規則的
+       歷史期望都是負數。</p>
+    <ul style="margin:2mm 0 0;padding-left:5mm;font-size:8.2pt">
+      <li>模型的四分之一 Kelly 注碼全部為 <b>0.00%</b>：扣完抽水後冇可下注比例</li>
+      <li>模型 9 場首選與市場大熱 <b>7 場重疊</b>：冇選邊優劣可言</li>
+      <li>唯一錄得正數的一格係 341 注中 3 個贏家（98/105/158 倍）：撞正唔係 edge</li>
+    </ul>
   </div>
-  <div class="callout">
-    <div class="t">娛樂方案（已知負期望，不構成任何投資建議）</div>
+  <div class="callout warn">
+    <div class="t">方案 B：若純為娛樂而參與</div>
+    <p><b>不要跟「value 名單」。</b>模型今晚提出的 5 隻「value 候選」全部為
+       {d['cand_odds_lo']:.0f} 至 {d['cand_odds_hi']:.0f} 倍的冷門
+       （市場第 {d['cand_rank_lo']} 至第 {d['cand_rank_hi']} 熱門）。
+       歷史證據顯示這個類別是回報最差的：每場挑 edge 最大者回報 {best['roi_pct']:.2f}%、
+       命中率 {sel['hit_pct']:.2f}%。</p>
+    <p>若仍然要落注，應以模型的<em>首選</em>為準（見 §2.3）—— 即模型概率最高的一匹，
+       賠率多在 3 至 6 倍。</p>
     <div class="kv">
       <div class="k">總額上限</div><div>全程 <b>HK$100</b>，單場不多於 HK$50</div>
-      <div class="k">建議對象</div><div>模型於今晚 9 場的首選（見 §2.3），即模型概率最高的一匹</div>
       <div class="k">單場注碼</div><div>HK$10 × 最多 5 場，合計上限 HK$100</div>
       <div class="k">Kelly 注碼</div><div>四分之一 Kelly 計算結果全部為 <b>0.00%</b> ——
            扣減 17.5% 抽水後沒有可下注的優勢比例</div>
-      <div class="k">風險提示</div><div>模型首選的歷史命中率為 27.04%，市場最熱門為 27.83%；
+      <div class="k">風險</div><div>模型首選歷史命中率 27.04%，市場最熱門 27.83%；
            兩者同樣受制於抽水</div>
     </div>
   </div>
+  </div>
+  </div>
 
-  <h3>1.5 什麼情況會改變本建議</h3>
+  <h3>1.5 這個結論的邊界</h3>
   <ul style="margin:2mm 0 0;padding-left:6mm">
     <li>模型在長期樣本外測試中首名命中率<b>持續高於</b>市場最熱門選擇至少 2 個百分點；</li>
     <li>模型機率在校準檢查中<b>收斂至市場的精度</b>（目前最大偏差 8.19 個百分點，
         市場最大偏差 1.71 個百分點）；</li>
     <li>Value filter 在未經調參的保留測試集上回報率<b>轉正</b>，而非單一孤立年份。</li>
   </ul>
-  <p class="small" style="margin-top:3mm">截至資料截止日，上述條件均未成立。</p>
+  <p class="small" style="margin-top:3mm">截至資料截止日 2026-10-19，上述條件均未成立。</p>
+
+  <h3>1.6 結論的證據在哪裡</h3>
+  <table>
+    <caption>表 1.2　每個結論對應的推導章節</caption>
+    <thead><tr><th>結論</th><th>推導章節</th><th>核心證據</th></tr></thead>
+    <tbody>
+      <tr><td>模型沒有 edge</td><td>§3</td>
+        <td>同一 636 場：AUC 0.7782 vs 0.7820、混合 0.7812、校準偏差 8.19pp vs 1.71pp</td></tr>
+      <tr><td>value filter 等於買冷門</td><td>§4</td>
+        <td>賠率分層偏差由 −6.82pp 升至 +2.74pp；中位賠率 {sel['odds_median']:.0f} 倍、
+            回報 {best['roi_pct']:.2f}%</td></tr>
+      <tr><td>PLACE 全年代無正期望</td><td>§5</td>
+        <td>{P['races_scored']:,} 場、20 個年份、11 種策略、220 格全部為負</td></tr>
+      <tr><td>結論可信（無資料污染）</td><td>§6</td>
+        <td>六類缺陷已修復並附官方證據；受控洩漏實驗影響低於 0.5pp</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn" style="margin-top:4mm">
+    <div class="t">一句話總結</div>
+    <p>本系統找得到市場的定價，也找得到模型偏差，但<em>找不到可重現的正期望</em>。
+       11 種策略、19 年樣本、{P['races_scored']:,} 場 PLACE 盤、636 場 WIN 樣本外測試，
+       沒有一項通過。結論是今晚不落注；若純為娛樂，請用模型的<em>首選</em>，
+       而不要用它的<em>「value 名單」</em>。</p>
+  </div>
 </section>""")
 
-    # ══ §2 ══
+# ══ §2 ══
     pr_rows = ''.join(
         f"<tr><td class='c'>R{r['race']}</td><td class='r num'>{r['n_runners']}</td>"
         f"<td>{r['model_top1']}</td><td class='r num'>{r['model_top1_odds']}</td>"
@@ -333,7 +384,7 @@ def build(d):
         f"<td class='c'>{'一致' if r['model_picks_favourite']=='True' else '不同'}</td></tr>"
         for r in d['predict'])
     h.append(f"""<section>
-  <h2 class="sec"><span class="no">§2</span>今晚賽事概覽與候選名單</h2>
+  <h2 class="sec"><span class="no">§2</span>今晚賽事與行動方案</h2>
   <p class="lead">今晚<b>跑馬地</b> 9 場，官方公佈 103 匹參賽馬，扣除 1 匹退出後為 <b>102 匹</b>。
      場地已以官方 racecard 逐場核實：2026-10-21 跑馬地頁面回傳完整賽馬名單，
      沙田頁面則無資料。賽事結構以官方 GraphQL 服務核對，馬名、馬號、退賽狀態
@@ -411,7 +462,7 @@ def build(d):
         f"<td class='r num neg'>{b['diff_pp']:+.3f} pp</td></tr>"
         for b in R['longshot_bias'])
     h.append(f"""<section>
-  <h2 class="sec"><span class="no">§3</span>模型表現與失效機制</h2>
+  <h2 class="sec"><span class="no">§3</span>結論點解成立（一）：模型冇排序優勢</h2>
   <p class="lead">模型為 XGBoost 分級模型，輸入 27 項特徵（含賽前形式指標與官方 published 賠率），
      嚴格按時間切分：訓練 2006-01-01 至 2025-05-31，驗證 2025-06-04 至 2025-09-28，
      測試 {R['test_period'][0]} 至 {R['test_period'][1]}（{R['test_races']} 場、
@@ -508,7 +559,7 @@ def build(d):
 
     # ══ §4 ══
     h.append(f"""<section>
-  <h2 class="sec"><span class="no">§4</span>Value filter 回測</h2>
+  <h2 class="sec"><span class="no">§4</span>結論點解成立（二）：value filter 買嘅係冷門</h2>
   <p class="lead">Value filter 定義：當模型機率（與市場機率同場正規化後）高於市場機率達某個
      edge 門檻時下注。測試於 {R['test_races']} 場樣本外賽事、{R['test_rows']:,} 匹具備
      published 賠率的馬，以每注 HK$1 等注碼計算。</p>
@@ -612,7 +663,7 @@ def build(d):
                    + ''.join(f"<td class='r num neg'>{S[k]['roi_pct']:+.2f}%</td>" for k, _ in KEY)
                    + '</tr>')
     h.append(f"""<section>
-  <h2 class="sec"><span class="no">§5</span>PLACE 盤證據（跨年代）</h2>
+  <h2 class="sec"><span class="no">§5</span>結論點解成立（三）：PLACE 跨年代全負</h2>
   <p class="lead">PLACE 盤以香港賽馬會官方公佈的 PLACE 派彩金額作為結算依據 —— 該金額為每 HK$10
      注碼的實際派彩，按完成次序排列。經 881 場官方頁面驗證：派彩金額全部 ≥ HK$10、
      冠軍的 PLACE 派彩一律低於其 WIN 派彩（881/881 通過），語義確認無誤。
@@ -661,7 +712,7 @@ def build(d):
 
     # ══ §6 ══
     h.append(f"""<section>
-  <h2 class="sec"><span class="no">§6</span>資料完整性與方法論</h2>
+  <h2 class="sec"><span class="no">§6</span>結論點解成立（四）：結論基礎可信</h2>
   <p class="lead">本報告的結論建基於一份經官方來源逐項驗證的資料庫。今日已修復六類結構性缺陷，
      修復前後的差異足以影響結論，因此完整記錄於下。</p>
 
@@ -831,12 +882,12 @@ STRAT_LABELS = {
 }
 
 TOC = [
-    ('§1', '執行摘要與建議', '三項獨立檢驗、失效機制、封頂的娛樂方案'),
-    ('§2', '今晚賽事概覽與候選名單', '跑馬地 9 場、模型首選與「value 名單」的對照'),
-    ('§3', '模型表現與失效機制', 'AUC／命中率、校準檢查、系統性冷門偏差'),
-    ('§4', 'Value filter 回測', '門檻掃描、唯一的正數格、實際買了什麼'),
-    ('§5', 'PLACE 盤證據（跨年代）', '逐年回報率、模型 vs 市場的 P(place) 排序能力'),
-    ('§6', '資料完整性與方法論', '已修復的缺陷、資料庫狀態、outcome leak 檢驗'),
+    ('§1', '結論', '今晚落注與否、四項檢驗結果、三個關鍵發現、行動方案'),
+    ('§2', '今晚賽事與行動方案', '跑馬地 9 場、模型首選與「value 名單」的對照'),
+    ('§3', '結論點解成立（一）：模型冇排序優勢', 'AUC／命中率、校準檢查、系統性冷門偏差'),
+    ('§4', '結論點解成立（二）：value filter 買嘅係冷門', '門檻掃描、唯一的正數格、實際買了什麼'),
+    ('§5', '結論點解成立（三）：PLACE 跨年代全負', '20 個年份、11 種策略、220 格全部為負'),
+    ('§6', '結論點解成立（四）：結論基礎可信', '已修復的缺陷、資料庫狀態、outcome leak 檢驗'),
     ('§7', '風險聲明與限制', '樣本限制、資料來源、完整性聲明'),
 ]
 
