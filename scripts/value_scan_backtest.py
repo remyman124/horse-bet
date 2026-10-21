@@ -176,6 +176,7 @@ print('E) MODEL EDGE BY ODDS BUCKET — is the edge a real skill or a')
 print('   systematic longshot bias? (model prob vs market prob, winners only)')
 print('=' * 74)
 w = te[te['won'] == 1]
+edge_buckets = []
 for lab in labels:
     g = w[w['bucket'] == lab]
     if not len(g):
@@ -183,9 +184,117 @@ for lab in labels:
     print(f"  {lab:10s} n={len(g):>5}  model mean p={g['p_model'].mean():.3%}  "
           f"market mean p={g['p_market'].mean():.3%}  "
           f"diff={g['p_model'].mean()-g['p_market'].mean():+.3%}")
+    edge_buckets.append({
+        'bucket': lab,
+        'n': int(len(g)),
+        'model_pct': float(g['p_model'].mean() * 100),
+        'market_pct': float(g['p_market'].mean() * 100),
+        'diff_pp': float((g['p_model'].mean() - g['p_market'].mean()) * 100),
+    })
+
+print('\n' + '=' * 74)
+print('F) CALIBRATION — model probability vs realised win rate, by decile')
+print('   (if the model were calibrated, model p should equal the win rate)')
+print('=' * 74)
+te['decile'] = pd.qcut(te['p_model'], 10, labels=False, duplicates='drop')
+calib = []
+for i, g in te.groupby('decile'):
+    row = {'decile': int(i), 'n': int(len(g)),
+           'model_p_pct': float(g['p_model'].mean() * 100),
+           'market_p_pct': float(g['p_market'].mean() * 100),
+           'actual_win_pct': float(g['won'].mean() * 100)}
+    row['model_minus_actual_pp'] = row['model_p_pct'] - row['actual_win_pct']
+    row['market_minus_actual_pp'] = row['market_p_pct'] - row['actual_win_pct']
+    calib.append(row)
+    print(f"  decile {i}: model p={row['model_p_pct']:6.3f}%  "
+          f"market p={row['market_p_pct']:6.3f}%  actual={row['actual_win_pct']:6.3f}%  "
+          f"model-act={row['model_minus_actual_pp']:+6.3f}pp  "
+          f"mkt-act={row['market_minus_actual_pp']:+6.3f}pp")
+
+# the headline: where does the model's edge actually come from?
+bl = te[te['won'] == 1]
+bias = []
+for lab in labels:
+    g = bl[bl['bucket'] == lab]
+    if not len(g):
+        continue
+    bias.append({'bucket': lab, 'n': int(len(g)),
+                 'model_p_pct': float(g['p_model'].mean() * 100),
+                 'market_p_pct': float(g['p_market'].mean() * 100),
+                 'diff_pp': float((g['p_model'].mean() - g['p_market'].mean()) * 100)})
+
+# ── H. head-to-head on the SAME races (model top-1 vs market favourite) ──
+print('\n' + '=' * 74)
+print('H) HEAD TO HEAD on the same races')
+print('=' * 74)
+m_top1 = te.sort_values('p_model', ascending=False).groupby(RK).head(1)
+k_top1 = te.sort_values('p_market', ascending=False).groupby(RK).head(1)
+m_hit = float(m_top1['won'].mean() * 100)
+k_hit = float(k_top1['won'].mean() * 100)
+m_top3 = (te.sort_values('p_model', ascending=False).groupby(RK)
+           .head(3).groupby(RK)['won'].sum().eq(3).mean() * 100)
+k_top3 = (te.sort_values('p_market', ascending=False).groupby(RK)
+           .head(3).groupby(RK)['won'].sum().eq(3).mean() * 100)
+n_r = int(te.groupby(RK).ngroups)
+print(f'  races: {n_r}')
+print(f'  model  top1 {m_hit:.2f}%   top3 {m_top3:.2f}%')
+print(f'  market top1 {k_hit:.2f}%   top3 {k_top3:.2f}%')
+head_to_head = {'races': n_r,
+                'model_top1_pct': round(m_hit, 2), 'market_top1_pct': round(k_hit, 2),
+                'model_top3_pct': round(float(m_top3), 2),
+                'market_top3_pct': round(float(k_top3), 2)}
+
+# ── G: diagnostic on the selected bets (odds distribution + winners) ──────
+print('\n' + '=' * 74)
+print('G) DIAGNOSTIC — odds distribution of the selected bets')
+print('=' * 74)
+sel_diag = {}
+for thr in (0.00, 0.02, 0.03):
+    b = te[te['edge'] >= thr]
+    if not len(b):
+        continue
+    w = b[b['won'] == 1]
+    sel_diag[f'edge>={thr:.0%}'] = {
+        'n': int(len(b)), 'wins': int(len(w)),
+        'staked': int(len(b)), 'returned': round(float((w['win_odds']).sum()), 2),
+        'odds_min': float(b['win_odds'].min()), 'odds_max': float(b['win_odds'].max()),
+        'odds_median': float(b['win_odds'].median()),
+        'winner_odds': [float(x) for x in w['win_odds']],
+    }
+    print(f"  edge>={thr:.0%}: n={len(b):5d} wins={len(w):3d} "
+          f"returned={w['win_odds'].sum():9.1f} odds[{b['win_odds'].min():.1f}..{b['win_odds'].max():.1f}] "
+          f"median={b['win_odds'].median():.1f}  winner odds={sorted(float(x) for x in w['win_odds'])}")
+
+# best-edge-per-race: which runner is actually selected?
+best = te.sort_values('edge', ascending=False).groupby(RK).head(1)
+bw = best[best['won'] == 1]
+print(f"\n  best-edge-per-race: n={len(best)} wins={len(bw)} "
+      f"returned={bw['win_odds'].sum():.1f} "
+      f"odds[{best['win_odds'].min():.1f}..{best['win_odds'].max():.1f}] "
+      f"median={best['win_odds'].median():.1f}")
+print(f"    selected odds histogram: "
+      f"{best['win_odds'].describe()[['min','25%','50%','75%','max']].round(1).to_dict()}")
+print(f"    winner odds: {sorted(float(x) for x in bw['win_odds'])}")
+sel_diag['best_edge_per_race'] = {
+    'n': int(len(best)), 'wins': int(len(bw)),
+    'returned': round(float(bw['win_odds'].sum()), 2),
+    'odds_min': float(best['win_odds'].min()), 'odds_max': float(best['win_odds'].max()),
+    'odds_median': float(best['win_odds'].median()),
+    'winner_odds': [float(x) for x in bw['win_odds']],
+    'n_by_race': int(len(best)),
+}
+te.to_csv('/tmp/te_test.csv', index=False)
+print('\n  saved test frame -> /tmp/te_test.csv')
 
 json.dump({'threshold_scan': rows,
            'best_edge_per_race': roi(cand),
-           'favourite_baseline': rf},
+           'favourite_baseline': rf,
+           'edge_by_odds_bucket': edge_buckets,
+           'model_calibration': calib,
+           'head_to_head': head_to_head,
+           'selection_diagnostic': sel_diag,
+           'test_races': int(n_races),
+           'test_rows_with_odds': int(len(te)),
+           'all_runners_baseline': allb},
           open(ROOT / 'output' / 'value_scan_clean.json', 'w'), indent=2)
 print(f"\nsaved: {ROOT / 'output' / 'value_scan_clean.json'}")
