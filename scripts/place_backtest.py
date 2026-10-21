@@ -266,7 +266,8 @@ def evaluate(df, picker, label, note=''):
             continue
         pay = float(sel.iloc[0]['place_payout'])
         rows.append({'payout': pay, 'hit': 1 if pay > 0 else 0,
-                     'odds': float(sel.iloc[0]['win_odds'])})
+                     'odds': float(sel.iloc[0]['win_odds']),
+                     'year': str(key).split('|')[0][:4]})
     if not rows:
         print(f'  {label:30s} (no races)')
         return None
@@ -274,8 +275,17 @@ def evaluate(df, picker, label, note=''):
     roi = r['payout'].mean() - 1
     print(f'  {label:30s} n={len(r):5d}  hit={r["hit"].mean()*100:5.1f}%  '
           f'mean payout={r["payout"].mean():.3f}x  ROI={roi*100:+7.2f}%  {note}')
+    # per-year breakdown: is the result an artefact of one era?
+    by_year = {}
+    for y, gy in r.groupby('year'):
+        by_year[y] = {'races': len(gy),
+                      'hit_pct': round(gy['hit'].mean() * 100, 2),
+                      'roi_pct': round((gy['payout'].mean() - 1) * 100, 2)}
+    print('      by year: ' + '  '.join(
+        f"{y}: {v['roi_pct']:+6.2f}% (n={v['races']})" for y, v in sorted(by_year.items())))
     return {'races': len(r), 'hit_pct': round(r['hit'].mean() * 100, 2),
-            'mean_payout': round(r['payout'].mean(), 4), 'roi_pct': round(roi * 100, 2)}
+            'mean_payout': round(r['payout'].mean(), 4), 'roi_pct': round(roi * 100, 2),
+            'by_year': by_year}
 
 
 def main():
