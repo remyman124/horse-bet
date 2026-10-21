@@ -300,6 +300,39 @@ def t5_against_official_pages():
           not mism, f'{len(mism)} mismatches: {mism[:5]}')
 
 
+def t6_scraper_dividend_parser():
+    """The production scraper must read the published DIVIDEND cell.
+
+    Regression guard for the bug that put the winner's HORSE NUMBER into
+    race_results.win_dividend and a combination string such as '3,6' into
+    place_dividend_1: the dividends table is
+    [Pool, Winning Combination, Dividend (HK$)], so the payout is the
+    third cell, not the second. The fixture pages are stored under
+    tests/fixtures/ so the test needs no network.
+    """
+    print('\nT6  production scraper reads the published dividend cell')
+    import bs4
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    sys.path.insert(0, os.path.join(root, 'src'))
+    try:
+        from scraper.hkjc_scraper import HKJCScraper
+    except Exception as e:                                    # pragma: no cover
+        check('scraper importable', False, repr(e))
+        return
+    man = json.load(open(os.path.join(root, 'tests', 'fixtures', 'dividends_manifest.json')))
+    scraper = HKJCScraper.__new__(HKJCScraper)
+    for name, spec in man.items():
+        html = open(os.path.join(root, 'tests', 'fixtures', spec['file'])).read()
+        table = bs4.BeautifulSoup(html, 'lxml').find('table')
+        got = scraper._parse_dividend_table(table)
+        exp = spec['expected']
+        gp = [(x['combo'], x['amount']) for x in got.get('place', [])]
+        check(f'{name}: WIN dividend is the published amount',
+              got.get('win') == exp['win'], f"got {got.get('win')!r} want {exp['win']!r}")
+        check(f'{name}: PLACE rows are the three placers',
+              gp == [tuple(x) for x in exp['place']], f'got {gp}')
+
+
 def main():
     print('=== ODDS PIPELINE TESTS ===')
     t1_provenance()
@@ -307,6 +340,7 @@ def main():
     t3_equivalence()
     t4_convention()
     t5_against_official_pages()
+    t6_scraper_dividend_parser()
     print(f'\n=== {len(PASS)} passed, {len(FAIL)} failed ===')
     if FAIL:
         for f in FAIL:

@@ -1,0 +1,65 @@
+{
+ "2026-09-16_HV_R1": {
+  "file": "dividends_2026-09-16_HV_R1.html",
+  "expected": {
+   "win": "45.00",
+   "place": [
+    [
+     "11",
+     "16.00"
+    ],
+    [
+     "12",
+     "46.50"
+    ],
+    [
+     "6",
+     "46.00"
+    ]
+   ]
+  },
+  "url": "https://racing.hkjc.com/en-us/local/information/localresults?racedate=2026/09/16&Racecourse=HV&RaceNo=1"
+ },
+ "2026-03-18_HV_R1": {
+  "file": "dividends_2026-03-18_HV_R1.html",
+  "expected": {
+   "win": "180.00",
+   "place": [
+    [
+     "1",
+     "106.50"
+    ],
+    [
+     "7",
+     "17.00"
+    ],
+    [
+     "10",
+     "15.50"
+    ]
+   ]
+  },
+  "url": "https://racing.hkjc.com/en-us/local/information/localresults?racedate=2026/03/18&Racecourse=HV&RaceNo=1"
+ },
+ "2006-01-01_ST_R5": {
+  "file": "dividends_2006-01-01_ST_R5.html",
+  "expected": {
+   "win": "338.00",
+   "place": [
+    [
+     "14",
+     "74.50"
+    ],
+    [
+     "2",
+     "23.00"
+    ],
+    [
+     "11",
+     "175.00"
+    ]
+   ]
+  },
+  "url": "https://racing.hkjc.com/en-us/local/information/localresults?racedate=2006/01/01&Racecourse=ST&RaceNo=5"
+ }
+}

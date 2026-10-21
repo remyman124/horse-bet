@@ -314,7 +314,8 @@ class HKJCScraper:
             for hdr, i in hmap.items():
                 if 'win odds' in hdr.lower():
                     v = cell_text[i].strip()
-                    if re.match(r'^\d+\.\d+$', v):
+                    # Accept both "9.8" and "10" formats
+                    if re.match(r'^\d+(?:\.\d+)?$', v):
                         horse['win_odds'] = float(v)
                     break
 
@@ -326,29 +327,109 @@ class HKJCScraper:
 
         return None
 
+    @staticmethod
+    def _is_amount(text: str) -> bool:
+        """True when a cell holds a published HK$ dividend amount."""
+        if not text:
+            return False
+        try:
+            float(str(text).replace(',', '').strip())
+        except (TypeError, ValueError):
+            return False
+        return True
+
     def _parse_dividend_table(self, table) -> dict:
-        """Parse dividend (payout) table."""
+        """Parse the official dividend (payout) table.
+
+        The HKJC results page publishes:
+
+            Pool | Winning Combination | Dividend (HK$)
+            WIN   | 11                 | 45.00
+            PLACE | 11                 | 16.00
+            12    | 46.50                    <- 2nd placer
+            6     | 46.00                    <- 3rd placer
+            QUINELLA | 11,12         | 355.00
+
+        so the payout is the LAST cell of a pool-label row and the SECOND
+        cell of a sub-row. Reading cells[1] of a label row returns the
+        winning COMBINATION (a horse number), not the dividend -- that
+        mistake put the winner's horse number into
+        race_results.win_dividend and a combination string such as '3,6'
+        into place_dividend_1.
+
+        Only rows of THIS table are read, so the runners table can no
+        longer leak into the PLACE list. That leak was the reason 33% of
+        the PLACE amounts in the old data came out below HK$10 per HK$10
+        stake, which is impossible for a winning bet.
+
+        Returns:
+            {'win': '45.00', 'win_combo': '11',
+             'place': [{'combo': '11', 'amount': '16.00'}, ...],
+             'quinella': [...], 'quartet': [...], ...}
+        """
         divs = {}
         rows = table.find_all('tr')
-        for row in rows[1:]:  # skip header
+        if not rows:
+            return divs
+
+        # locate the dividend column from the header row. The table starts
+        # with a single-cell title row ('Dividend'), so only a row with at
+        # least two cells can be the real header.
+        div_idx = None
+        for r in rows:
+            cs = [c.get_text(strip=True) for c in r.find_all(['td', 'th'])]
+            if len(cs) >= 2 and 'dividend' in cs[-1].lower():
+                div_idx = len(cs) - 1
+                break
+        if div_idx is None:
+            nxt = len(rows[1].find_all(['td', 'th'])) if len(rows) > 1 else 2
+            div_idx = 2 if nxt >= 3 else 1
+
+        def bucket(name):
+            # normalise so a pool label row and its sub-rows land in the
+            # same list ('QUINELLA PLACE' -> 'quinella_place')
+            return divs.setdefault(name.lower().replace(' ', '_'), [])
+
+        current = None
+        for row in rows:
             cells = row.find_all(['td', 'th'])
             if len(cells) < 2:
                 continue
-            key = cells[0].get_text(strip=True)
-            val = cells[1].get_text(strip=True)
-            key_lower = key.lower()
-            if 'win' in key_lower:
-                divs['win'] = val
-            elif 'place' in key_lower:
-                divs['place'] = val
-            elif 'quinella' in key_lower:
-                divs['quinella'] = val
-            elif 'quintuple' in key_lower:
-                divs['quintuple'] = val
-            elif 'quartet' in key_lower or '4th' in key_lower:
-                divs['quartet'] = val
+            texts = [c.get_text(strip=True) for c in cells]
+            key = texts[0]
+            if not key:
+                continue
+            if key.upper() == 'DIVIDEND' or (len(texts) > 1 and texts[1].upper().startswith('DIVIDEND')):
+                continue                       # header row
+
+            if key.isdigit() or ',' in key or '/' in key:
+                # sub-row: belongs to the pool label above it
+                if current is None:
+                    continue
+                amount = texts[1] if len(texts) > 1 else ''
+                if not self._is_amount(amount):
+                    continue
+                b = bucket(current)
+                if isinstance(b, list):
+                    b.append({'combo': key, 'amount': amount})
+                elif current == 'WIN':
+                    # dead heat: another winner shares the WIN pool
+                    divs.setdefault('win_extra', []).append(
+                        {'combo': key, 'amount': amount})
             else:
-                divs[key] = val
+                # pool label row
+                current = key.upper()
+                if len(texts) <= div_idx:
+                    continue
+                combo = texts[1] if len(texts) > 1 else ''
+                amount = texts[div_idx]
+                if not self._is_amount(amount):
+                    continue          # header / non-payout row
+                if current == 'WIN':
+                    divs['win'] = amount
+                    divs['win_combo'] = combo
+                else:
+                    bucket(current).append({'combo': combo, 'amount': amount})
         return divs
 
     def _parse_race_card(self, html: str, race_date: str, venue: str, race_no: int) -> dict:
@@ -364,14 +445,43 @@ class HKJCScraper:
 
         text = soup.get_text()
 
-        # Extract race info
-        class_match = re.search(r'Class\s+(\d+)\s*-\s*(\d+)[Mm]\s*-\s*\(([\d-]+)\)', text)
-        if class_match:
+        # Extract race info from div containing full description
+        # e.g.: "Race 1 - ...Turf, \"A\" Course, 1200M ... Rating: 60-40, Class 4"
+        # or:   "Race 5 - THE CHAIRMAN'S SPRINT PRIZE ... Turf, \"A\" Course, 1200M ... Group One"
+        for tag in soup.find_all(['div', 'span', 'td', 'p']):
+            t = tag.get_text(strip=True)
+            if len(t) < 30 or len(t) > 500:
+                continue
+            if not (re.search(r'Class\s*\d', t) or re.search(r'Race\s*\d+.*\d{4}M', t)):
+                continue
+
+            # Extract class (Class 4, Class 3 etc; also Group One / Group Two / Listed)
+            class_m = re.search(r'Class\s*(\d+)', t)
+            group_m = re.search(r'(Group\s*(One|Two|Three)|Listed)', t, re.IGNORECASE)
+            if class_m:
+                race_class = f"Class {class_m.group(1)}"
+            elif group_m:
+                race_class = group_m.group(1).title().replace(' ', '-')
+            else:
+                race_class = None
+
+            # Extract distance (e.g. "1200M" or "1650m")
+            dist_m = re.search(r'(\d{4}|\d{3})[Mm]', t)
+            # Extract rating range (e.g. "60-40" or "105-75")
+            rating_m = re.search(r'Rating:\s*(\d+-\d+)', t)
+            # Extract track
+            track = 'AWT' if 'AWT' in t or 'All-Weather' in t else ('Dirt' if 'Dirt' in t else 'Turf')
+            # Extract prize money
+            prize_m = re.search(r'\$([\d,]+)', t)
+
             result['race_info'] = {
-                'race_class': f"Class {class_match.group(1)}",
-                'distance': class_match.group(2),
-                'rating': class_match.group(3),
+                'race_class': race_class,
+                'distance': dist_m.group(1) if dist_m else None,
+                'rating': rating_m.group(1) if rating_m else None,
+                'track': track,
+                'prize_money': f"${prize_m.group(1)}" if prize_m else None,
             }
+            break
 
         # Find horse table
         tables = soup.find_all('table')
@@ -407,10 +517,13 @@ class HKJCScraper:
 
             horse = {}
 
-            if 'No.' in hmap:
-                v = cell_text[hmap['No.']].strip()
-                if v.isdigit():
-                    horse['horse_no'] = int(v)
+            # Horse No. — column header may be "No." or "Horse No."
+            for col in ('Horse No.', 'No.'):
+                if col in hmap:
+                    v = cell_text[hmap[col]].strip()
+                    if v.isdigit():
+                        horse['horse_no'] = int(v)
+                    break
 
             if 'Horse' in hmap:
                 idx = hmap['Horse']
@@ -432,19 +545,28 @@ class HKJCScraper:
             if 'Trainer' in hmap:
                 horse['trainer'] = cell_text[hmap['Trainer']].strip()
 
-            if 'Wt.' in hmap:
-                horse['weight'] = cell_text[hmap['Wt.']].strip()
+            # Weight — column header may be "Wt." or "Weight"
+            for col in ('Wt.', 'Weight'):
+                if col in hmap:
+                    horse['weight'] = cell_text[hmap[col]].strip()
+                    break
 
-            if 'Rating' in hmap:
-                v = cell_text[hmap['Rating']].strip()
-                m = re.search(r'(\d+)', v)
-                if m:
-                    horse['rating'] = int(m.group(1))
+            # Rating — column header may be "Rtg.", "Rating", or "Overall Rtg."
+            for col in ('Rtg.', 'Rating', "Int'l Rtg."):
+                if col in hmap:
+                    v = cell_text[hmap[col]].strip()
+                    m = re.search(r'(\d+)', v)
+                    if m:
+                        horse['rating'] = int(m.group(1))
+                    break
 
-            if 'Odds' in hmap:
-                v = cell_text[hmap['Odds']].strip()
-                if re.match(r'^\d+\.\d+$', v):
-                    horse['win_odds'] = float(v)
+            # Odds — only present for logged-in users; skip if absent
+            for col in ('Odds', 'Win Odds'):
+                if col in hmap:
+                    v = cell_text[hmap[col]].strip()
+                    if re.match(r'^\d+\.\d+$', v):
+                        horse['win_odds'] = float(v)
+                    break
 
             if horse.get('horse_no'):
                 horses.append(horse)

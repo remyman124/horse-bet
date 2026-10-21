@@ -16,6 +16,16 @@ from sqlalchemy.orm import Session
 log = logging.getLogger(__name__)
 
 
+class DataQualityError(Exception):
+    """Raised when scraped data fails quality validation."""
+    def __init__(self, race_date, venue, race_no, reason):
+        self.race_date = race_date
+        self.venue = venue
+        self.race_no = race_no
+        self.reason = reason
+        super().__init__(f"[{race_date} {venue} R{race_no}] {reason}")
+
+
 class DataPipeline:
     """Orchestrates the full data lifecycle: scrape → store → process."""
 
@@ -67,6 +77,10 @@ class DataPipeline:
 
                 try:
                     race_data = self.scraper.get_race_result(race_date, venue, race_no)
+                    # Inject context for validation error messages
+                    race_data['race_date'] = race_date
+                    race_data['venue'] = venue
+                    race_data['race_no'] = race_no
                     self._upsert_race(session, rd.id, race_no, race_data)
                     saved += 1
                     log.info(f"  ✓ Race {race_no}: {len(race_data.get('horses', []))} horses, "
@@ -101,8 +115,99 @@ class DataPipeline:
                     log.warning(f"Failed {date_str} {venue}: {e}")
             current += timedelta(days=1)
 
+    def _validate_race_data(self, data: dict):
+        """
+        Validate scraped race data quality. Raises DataQualityError on failure.
+
+        Checks:
+        1. dividends not null (race must have completed)
+        2. horse count: 8-16 expected (alert outside 5-18)
+        3. WIN dividend > 1.0 (plausible payout)
+        4. Place dividend > 1.0 for each placed horse
+        """
+        race_date = data.get('race_date', '')
+        venue = data.get('venue', '')
+        race_no = data.get('race_no', '')
+
+        # 1. Dividends must exist (race completed)
+        divs = data.get('dividends')
+        if not divs:
+            raise DataQualityError(race_date, venue, race_no, "No dividends — race may not have completed yet")
+
+        # 2. Horse count sanity check
+        horses = data.get('horses', [])
+        n_horses = len(horses)
+        if n_horses < 5:
+            raise DataQualityError(
+                race_date, venue, race_no,
+                f"Only {n_horses} horses found (expected ≥8, suspicious <5)"
+            )
+        if n_horses > 18:
+            log.warning(f"[{race_date} {venue} R{race_no}] Unusually large field: {n_horses} horses")
+
+        # 3. WIN dividend plausibility
+        #    NOTE: a published WIN of 1 is a LEGITIMATE official value (a
+        #    refund), so it must not be rejected here.
+        win_div = divs.get('win', 0)
+        try:
+            win_div = float(win_div)
+        except (TypeError, ValueError):
+            win_div = 0
+        if win_div <= 0:
+            raise DataQualityError(
+                race_date, venue, race_no,
+                f"WIN dividend={win_div} implausible (must be > 0)"
+            )
+
+        # 4. Place dividend plausibility (per horse)
+        #    The published amounts are per HK$10 stake, so anything below
+        #    10 means the parser picked up the wrong cell (the winning
+        #    combination, or a row of the runners table). A winning bet
+        #    can never return less than the stake.
+        place_divs = divs.get('place', [])
+        place_list = place_divs if isinstance(place_divs, list) else [place_divs]
+        for i, pd_item in enumerate(place_list):
+            if isinstance(pd_item, dict):
+                pd_item = pd_item.get('amount', 0)
+            try:
+                pd_float = float(pd_item)
+            except (TypeError, ValueError):
+                pd_float = 0
+            if pd_float < 10.0:
+                raise DataQualityError(
+                    race_date, venue, race_no,
+                    f"PLACE dividend[{i}]={pd_float} implausible "
+                    f"(must be >= 10 per HK$10 stake)"
+                )
+
+        # 5. Every finisher must have a valid position
+        finishers = [h for h in horses if h.get('position') is not None]
+        if len(finishers) < 3:
+            log.warning(
+                f"[{race_date} {venue} R{race_no}] Only {len(finishers)} finishers with positions"
+            )
+
+        # 6. Win odds vs dividend cross-check
+        for h in horses:
+            odds = h.get('win_odds')
+            if odds is None:
+                continue
+            try:
+                odds = float(odds)
+                # If odds suggest high chance (≤3.0) but dividend is huge (>30), flag
+                if odds <= 3.0 and win_div > 30:
+                    log.warning(
+                        f"[{race_date} {venue} R{race_no}] Horse #{h.get('horse_no')} "
+                        f"odds={odds} but WIN dividend={win_div} — possible data anomaly"
+                    )
+            except (TypeError, ValueError):
+                pass
+
     def _upsert_race(self, session: Session, race_day_id: int, race_no: int, data: dict):
         """Upsert a single race and its horse entries."""
+        # Validate data quality before storing
+        self._validate_race_data(data, session)
+
         race = session.query(Race).filter_by(
             race_day_id=race_day_id, race_no=race_no
         ).first()
@@ -155,7 +260,22 @@ class DataPipeline:
                 session.add(result)
             divs = data['dividends']
             result.win_dividend = divs.get('win', '')
-            result.place_dividend_1 = divs.get('place', '')
+            # PLACE is one entry per placer: [{'combo': '11', 'amount': '16.00'}, ...]
+            place = divs.get('place') or []
+            if isinstance(place, list):
+                cols = ('place_dividend_1', 'place_dividend_2', 'place_dividend_3')
+                for i, col in enumerate(cols):
+                    val = ''
+                    if i < len(place):
+                        item = place[i]
+                        val = item.get('amount', '') if isinstance(item, dict) else item
+                    setattr(result, col, val)
+            else:
+                result.place_dividend_1 = place
+            q = divs.get('quartet') or []
+            if isinstance(q, list) and q:
+                result.quartet = ', '.join(
+                    str(x.get('amount', '')) if isinstance(x, dict) else str(x) for x in q)
 
         session.flush()
         return race
