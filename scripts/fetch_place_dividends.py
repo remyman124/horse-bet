@@ -205,6 +205,10 @@ def main():
     ap.add_argument('--until', default='2026-12-31')
     ap.add_argument('--workers', type=int, default=3)
     ap.add_argument('--limit', type=int, default=0)
+    ap.add_argument('--reverse', action='store_true',
+                    help='fetch newest races first (the recent era is the most '
+                         'representative of today\'s market and the model\'s test window)')
+    ap.add_argument('--ckpt', default=CKPT)
     a = ap.parse_args()
 
     conn = sqlite3.connect(DB)
@@ -215,13 +219,15 @@ def main():
         ORDER BY rd.race_date
     ''', (a.since, a.until))]
     conn.close()
+    if a.reverse:
+        keys = keys[::-1]
     if a.limit:
         keys = keys[:a.limit]
     print(f'target races: {len(keys)}', flush=True)
 
     ck = {}
-    if os.path.exists(CKPT):
-        ck = json.load(open(CKPT))
+    if os.path.exists(a.ckpt):
+        ck = json.load(open(a.ckpt))
     done = {k for k, v in ck.items() if v.get('status') == 'OK'}
     todo = [k for k in keys if k not in done]
     print(f'already OK: {len(done)} | to fetch: {len(todo)}', flush=True)
@@ -235,7 +241,7 @@ def main():
             stats[res['status']] = stats.get(res['status'], 0) + 1
             n = len(ck)
             if n % 25 == 0:
-                json.dump(ck, open(CKPT, 'w'))
+                json.dump(ck, open(a.ckpt, 'w'))
                 print(f'  {n}/{len(keys)}  {stats}', flush=True)
         return res
 
@@ -243,7 +249,7 @@ def main():
         for _ in ex.map(work, todo):
             pass
 
-    json.dump(ck, open(CKPT, 'w'))
+    json.dump(ck, open(a.ckpt, 'w'))
     ok = {k: v for k, v in ck.items() if v.get('status') == 'OK'}
     print('\nfinal:', stats, flush=True)
     print(f'valid races: {len(ok)}', flush=True)
