@@ -1,0 +1,475 @@
+{
+  "R1": {
+    "race_class": "G3",
+    "distance": 2400,
+    "field_size": 6,
+    "picks": [
+      {
+        "horse": "WINNING WING",
+        "trainer": "K W Lui",
+        "jockey": "H T Mo",
+        "win_prob": 0.238,
+        "place_prob": 0.644,
+        "top4_prob": 0.706,
+        "avg_pos": 3.5,
+        "last_dist": 2000,
+        "horse_win_rate": 0.18,
+        "trainer_win_rate": 0.09
+      },
+      {
+        "horse": "JOY OF SPRING",
+        "trainer": "C Fownes",
+        "jockey": "E C W Wong",
+        "win_prob": 0.166,
+        "place_prob": 0.582,
+        "top4_prob": 0.729,
+        "avg_pos": 4.2,
+        "last_dist": 1800,
+        "horse_win_rate": 0.2,
+        "trainer_win_rate": 0.1
+      },
+      {
+        "horse": "NAUTICAL FORCE",
+        "trainer": "J Size",
+        "jockey": "Z Purton",
+        "win_prob": 0.127,
+        "place_prob": 0.584,
+        "top4_prob": 0.628,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.13
+      }
+    ]
+  },
+  "R2": {
+    "race_class": "Class 2",
+    "distance": 1600,
+    "field_size": 8,
+    "picks": [
+      {
+        "horse": "PACKING ANGEL",
+        "trainer": "K W Lui",
+        "jockey": "J Moreira",
+        "win_prob": 0.205,
+        "place_prob": 0.577,
+        "top4_prob": 0.687,
+        "avg_pos": 5.2,
+        "last_dist": 2000,
+        "horse_win_rate": 0.12,
+        "trainer_win_rate": 0.09
+      },
+      {
+        "horse": "KAHOLO ANGEL",
+        "trainer": "C Fownes",
+        "jockey": "E C W Wong (-3)",
+        "win_prob": 0.174,
+        "place_prob": 0.366,
+        "top4_prob": 0.503,
+        "avg_pos": 4.0,
+        "last_dist": null,
+        "horse_win_rate": 0.25,
+        "trainer_win_rate": 0.1
+      },
+      {
+        "horse": "MAX QUE",
+        "trainer": "M Newnham",
+        "jockey": "C Y Ho",
+        "win_prob": 0.156,
+        "place_prob": 0.5,
+        "top4_prob": 0.607,
+        "avg_pos": 3.9,
+        "last_dist": 1650,
+        "horse_win_rate": 0.09,
+        "trainer_win_rate": 0.09
+      }
+    ]
+  },
+  "R3": {
+    "race_class": "Class 3",
+    "distance": 1200,
+    "field_size": 14,
+    "picks": [
+      {
+        "horse": "TURQUOISE VELOCITY",
+        "trainer": "K W Lui",
+        "jockey": "M L Yeung",
+        "win_prob": 0.187,
+        "place_prob": 0.338,
+        "top4_prob": 0.424,
+        "avg_pos": 1.0,
+        "last_dist": 1000,
+        "horse_win_rate": 1.0,
+        "trainer_win_rate": 0.09
+      },
+      {
+        "horse": "COMET MAJESTY",
+        "trainer": "C S Shum",
+        "jockey": "Z Purton",
+        "win_prob": 0.163,
+        "place_prob": 0.429,
+        "top4_prob": 0.484,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.09
+      },
+      {
+        "horse": "FIERY STEED",
+        "trainer": "P F Yiu",
+        "jockey": "Z Purton",
+        "win_prob": 0.162,
+        "place_prob": 0.449,
+        "top4_prob": 0.47,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.09
+      }
+    ]
+  },
+  "R4": {
+    "race_class": "Class 3",
+    "distance": 1400,
+    "field_size": 14,
+    "picks": [
+      {
+        "horse": "EXCEED THE LIMIT",
+        "trainer": "C S Shum",
+        "jockey": "Z Purton",
+        "win_prob": 0.155,
+        "place_prob": 0.398,
+        "top4_prob": 0.46,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.09
+      },
+      {
+        "horse": "QUANTUM LEGEND",
+        "trainer": "M Newnham",
+        "jockey": "Z Purton",
+        "win_prob": 0.153,
+        "place_prob": 0.403,
+        "top4_prob": 0.457,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.09
+      },
+      {
+        "horse": "FORTUNE LINK",
+        "trainer": "P F Yiu",
+        "jockey": "Z Purton",
+        "win_prob": 0.152,
+        "place_prob": 0.422,
+        "top4_prob": 0.444,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.09
+      }
+    ]
+  },
+  "R5": {
+    "race_class": "Class 3",
+    "distance": 2000,
+    "field_size": 10,
+    "picks": [
+      {
+        "horse": "AERODYNAMICS",
+        "trainer": "M Newnham",
+        "jockey": "Z Purton",
+        "win_prob": 0.167,
+        "place_prob": 0.492,
+        "top4_prob": 0.531,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.09
+      },
+      {
+        "horse": "LE ZONDA",
+        "trainer": "P C Ng",
+        "jockey": "Z Purton",
+        "win_prob": 0.158,
+        "place_prob": 0.531,
+        "top4_prob": 0.538,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.08
+      },
+      {
+        "horse": "POPE CODY",
+        "trainer": "Y S Tsui",
+        "jockey": "J Orman",
+        "win_prob": 0.154,
+        "place_prob": 0.376,
+        "top4_prob": 0.534,
+        "avg_pos": 5.1,
+        "last_dist": 1800,
+        "horse_win_rate": 0.1,
+        "trainer_win_rate": 0.07
+      }
+    ]
+  },
+  "R6": {
+    "race_class": "Class 4",
+    "distance": 1200,
+    "field_size": 14,
+    "picks": [
+      {
+        "horse": "VIRTUS GLORY",
+        "trainer": "P F Yiu",
+        "jockey": "Z Purton",
+        "win_prob": 0.162,
+        "place_prob": 0.449,
+        "top4_prob": 0.47,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.09
+      },
+      {
+        "horse": "ONESHOT",
+        "trainer": "W K Mo",
+        "jockey": "Z Purton",
+        "win_prob": 0.158,
+        "place_prob": 0.437,
+        "top4_prob": 0.504,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.09
+      },
+      {
+        "horse": "LEADING DRAGON",
+        "trainer": "P C Ng",
+        "jockey": "Z Purton",
+        "win_prob": 0.154,
+        "place_prob": 0.472,
+        "top4_prob": 0.474,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.08
+      }
+    ]
+  },
+  "R7": {
+    "race_class": "Class 4",
+    "distance": 1200,
+    "field_size": 14,
+    "picks": [
+      {
+        "horse": "LOVELY MILES",
+        "trainer": "P F Yiu",
+        "jockey": "Z Purton",
+        "win_prob": 0.162,
+        "place_prob": 0.449,
+        "top4_prob": 0.47,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.09
+      },
+      {
+        "horse": "FLYING FORTUNE",
+        "trainer": "W K Mo",
+        "jockey": "Z Purton",
+        "win_prob": 0.158,
+        "place_prob": 0.437,
+        "top4_prob": 0.504,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.09
+      },
+      {
+        "horse": "NOBLE PATCH",
+        "trainer": "P C Ng",
+        "jockey": "Z Purton",
+        "win_prob": 0.154,
+        "place_prob": 0.472,
+        "top4_prob": 0.474,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.08
+      }
+    ]
+  },
+  "R8": {
+    "race_class": "Class 4",
+    "distance": 1400,
+    "field_size": 14,
+    "picks": [
+      {
+        "horse": "CIRCUIT FIERY",
+        "trainer": "W Y So",
+        "jockey": "Z Purton",
+        "win_prob": 0.168,
+        "place_prob": 0.525,
+        "top4_prob": 0.563,
+        "avg_pos": 5.1,
+        "last_dist": 1400,
+        "horse_win_rate": 0.06,
+        "trainer_win_rate": 0.07
+      },
+      {
+        "horse": "PRESIDENT PEGASUS",
+        "trainer": "C S Shum",
+        "jockey": "Z Purton",
+        "win_prob": 0.155,
+        "place_prob": 0.398,
+        "top4_prob": 0.46,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.09
+      },
+      {
+        "horse": "HAPPY BRETHREN",
+        "trainer": "K W Lui",
+        "jockey": "Z Purton",
+        "win_prob": 0.126,
+        "place_prob": 0.372,
+        "top4_prob": 0.426,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.09
+      }
+    ]
+  },
+  "R9": {
+    "race_class": "Class 4",
+    "distance": 1800,
+    "field_size": 12,
+    "picks": [
+      {
+        "horse": "STORM RUNNER",
+        "trainer": "P C Ng",
+        "jockey": "Z Purton",
+        "win_prob": 0.206,
+        "place_prob": 0.519,
+        "top4_prob": 0.546,
+        "avg_pos": 5.6,
+        "last_dist": 2200,
+        "horse_win_rate": 0.0,
+        "trainer_win_rate": 0.08
+      },
+      {
+        "horse": "GRAND TURBO",
+        "trainer": "C S Shum",
+        "jockey": "Z Purton",
+        "win_prob": 0.17,
+        "place_prob": 0.433,
+        "top4_prob": 0.514,
+        "avg_pos": 6.0,
+        "last_dist": 1200,
+        "horse_win_rate": 0.05,
+        "trainer_win_rate": 0.09
+      },
+      {
+        "horse": "VERMILION TEMPEST",
+        "trainer": "C Fownes",
+        "jockey": "J Moreira",
+        "win_prob": 0.147,
+        "place_prob": 0.367,
+        "top4_prob": 0.411,
+        "avg_pos": 8.5,
+        "last_dist": null,
+        "horse_win_rate": 0.0,
+        "trainer_win_rate": 0.1
+      }
+    ]
+  },
+  "R10": {
+    "race_class": "Class 5",
+    "distance": 1200,
+    "field_size": 14,
+    "picks": [
+      {
+        "horse": "GLORY CLOUD",
+        "trainer": "C Fownes",
+        "jockey": "E C W Wong",
+        "win_prob": 0.098,
+        "place_prob": 0.326,
+        "top4_prob": 0.415,
+        "avg_pos": 5.9,
+        "last_dist": 1200,
+        "horse_win_rate": 0.06,
+        "trainer_win_rate": 0.1
+      },
+      {
+        "horse": "FIGHT TIME",
+        "trainer": "D J Hall",
+        "jockey": "M F Poon",
+        "win_prob": 0.08,
+        "place_prob": 0.247,
+        "top4_prob": 0.324,
+        "avg_pos": 5.4,
+        "last_dist": 1400,
+        "horse_win_rate": 0.06,
+        "trainer_win_rate": 0.09
+      },
+      {
+        "horse": "MAJESTIC DELIGHT",
+        "trainer": "D Eustace",
+        "jockey": "Raced keenly in the middle stages. Sent for sampling post-race.",
+        "win_prob": 0.079,
+        "place_prob": 0.324,
+        "top4_prob": 0.486,
+        "avg_pos": 6.5,
+        "last_dist": null,
+        "horse_win_rate": 0.09,
+        "trainer_win_rate": 0.09
+      }
+    ]
+  },
+  "R11": {
+    "race_class": "Class 5",
+    "distance": 1400,
+    "field_size": 14,
+    "picks": [
+      {
+        "horse": "SOARING BRONCO",
+        "trainer": "M Newnham",
+        "jockey": "J Orman",
+        "win_prob": 0.11,
+        "place_prob": 0.29,
+        "top4_prob": 0.362,
+        "avg_pos": 5.8,
+        "last_dist": null,
+        "horse_win_rate": 0.04,
+        "trainer_win_rate": 0.09
+      },
+      {
+        "horse": "YEE CHEONG RAIDER",
+        "trainer": "B Crawford",
+        "jockey": "Bumped shortly after the start. Sent for sampling post-race.",
+        "win_prob": 0.093,
+        "place_prob": 0.418,
+        "top4_prob": 0.504,
+        "avg_pos": 6.2,
+        "last_dist": null,
+        "horse_win_rate": 0.0,
+        "trainer_win_rate": 0.12
+      },
+      {
+        "horse": "SUPERB GUY",
+        "trainer": "K W Lui",
+        "jockey": "C L Chau",
+        "win_prob": 0.073,
+        "place_prob": 0.257,
+        "top4_prob": 0.341,
+        "avg_pos": 6.6,
+        "last_dist": 1650,
+        "horse_win_rate": 0.0,
+        "trainer_win_rate": 0.09
+      }
+    ]
+  }
+}

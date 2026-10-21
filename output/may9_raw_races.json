@@ -1,0 +1,1444 @@
+{
+  "R1": [
+    {
+      "horse_no": 1,
+      "name": "全能勇士",
+      "draw": 3,
+      "weight": "126",
+      "jockey": "潘頓",
+      "trainer": "呂健威",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 2,
+      "name": "銳行星",
+      "draw": 5,
+      "weight": "126",
+      "jockey": "莫雷拉",
+      "trainer": "方嘉柏",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 3,
+      "name": "紅悅舍",
+      "draw": 6,
+      "weight": "126",
+      "jockey": "布文",
+      "trainer": "韋達",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 4,
+      "name": "銀騎士",
+      "draw": 2,
+      "weight": "126",
+      "jockey": "希威森",
+      "trainer": "韋達",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 5,
+      "name": "鵲橋飛昇",
+      "draw": 4,
+      "weight": "126",
+      "jockey": "奧爾民",
+      "trainer": "賀賢",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 6,
+      "name": "永福",
+      "draw": 8,
+      "weight": "121",
+      "jockey": "袁幸堯 (-10)",
+      "trainer": "姚本輝",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 7,
+      "name": "極歡欣",
+      "draw": 1,
+      "weight": "121",
+      "jockey": "艾兆禮",
+      "trainer": "廖康銘",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 8,
+      "name": "盛世英雄",
+      "draw": 10,
+      "weight": "121",
+      "jockey": "田泰安",
+      "trainer": "大衛希斯",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 9,
+      "name": "雙劍合璧",
+      "draw": 9,
+      "weight": "121",
+      "jockey": "班德禮",
+      "trainer": "大衛希斯",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 10,
+      "name": "精英奪冠",
+      "draw": 7,
+      "weight": "121",
+      "jockey": "楊明綸",
+      "trainer": "大衛希斯",
+      "win_odds": "",
+      "place_odds": ""
+    }
+  ],
+  "R2": [
+    {
+      "horse_no": 1,
+      "name": "北地烈馬",
+      "draw": 3,
+      "weight": "135",
+      "jockey": "袁幸堯 (-10)",
+      "trainer": "葉楚航",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 2,
+      "name": "馬馳登",
+      "draw": 5,
+      "weight": "134",
+      "jockey": "布文",
+      "trainer": "黎昭昇",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 3,
+      "name": "龍威心得",
+      "draw": 11,
+      "weight": "132",
+      "jockey": "班德禮",
+      "trainer": "大衛希斯",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 4,
+      "name": "朗日自強",
+      "draw": 6,
+      "weight": "128",
+      "jockey": "奧爾民",
+      "trainer": "文家良",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 5,
+      "name": "奇異歡星",
+      "draw": 2,
+      "weight": "128",
+      "jockey": "田泰安",
+      "trainer": "桂福特",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 6,
+      "name": "澳華發發",
+      "draw": 8,
+      "weight": "127",
+      "jockey": "布浩榮",
+      "trainer": "賀賢",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 7,
+      "name": "川河石駒",
+      "draw": 1,
+      "weight": "127",
+      "jockey": "莫雷拉",
+      "trainer": "方嘉柏",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 8,
+      "name": "烈進駒",
+      "draw": 7,
+      "weight": "127",
+      "jockey": "潘頓",
+      "trainer": "呂健威",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 9,
+      "name": "天罡北斗",
+      "draw": 9,
+      "weight": "127",
+      "jockey": "巫顯東 (-2)",
+      "trainer": "沈集成",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 10,
+      "name": "非凡勇士",
+      "draw": 12,
+      "weight": "125",
+      "jockey": "梁家俊",
+      "trainer": "文家良",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 11,
+      "name": "安定神駒",
+      "draw": 10,
+      "weight": "124",
+      "jockey": "希威森",
+      "trainer": "廖康銘",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 12,
+      "name": "悠然常勝",
+      "draw": 4,
+      "weight": "123",
+      "jockey": "蔡明紹",
+      "trainer": "巫偉傑",
+      "win_odds": "",
+      "place_odds": ""
+    }
+  ],
+  "R3": [
+    {
+      "horse_no": 1,
+      "name": "文武全能",
+      "draw": 7,
+      "weight": "133",
+      "jockey": "布浩榮",
+      "trainer": "伍鵬志",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 2,
+      "name": "凱旋幸運",
+      "draw": 4,
+      "weight": "132",
+      "jockey": "黃寶妮 (-7)",
+      "trainer": "賀賢",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 3,
+      "name": "大浪園田",
+      "draw": 10,
+      "weight": "132",
+      "jockey": "金誠剛",
+      "trainer": "丁冠豪",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 4,
+      "name": "連連好運",
+      "draw": 14,
+      "weight": "131",
+      "jockey": "艾兆禮",
+      "trainer": "文家良",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 5,
+      "name": "銳一",
+      "draw": 9,
+      "weight": "131",
+      "jockey": "梁家俊",
+      "trainer": "桂福特",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 6,
+      "name": "志醒大將",
+      "draw": 6,
+      "weight": "130",
+      "jockey": "潘頓",
+      "trainer": "沈集成",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 7,
+      "name": "雪茄福星",
+      "draw": 5,
+      "weight": "130",
+      "jockey": "艾道拿",
+      "trainer": "大衛希斯",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 8,
+      "name": "巴閉佬",
+      "draw": 1,
+      "weight": "128",
+      "jockey": "奧爾民",
+      "trainer": "呂健威",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 9,
+      "name": "神燦金剛",
+      "draw": 11,
+      "weight": "126",
+      "jockey": "蔡明紹",
+      "trainer": "葉楚航",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 10,
+      "name": "朗日雪峰",
+      "draw": 12,
+      "weight": "125",
+      "jockey": "莫雷拉",
+      "trainer": "方嘉柏",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 11,
+      "name": "海洋帝君",
+      "draw": 8,
+      "weight": "123",
+      "jockey": "田泰安",
+      "trainer": "徐雨石",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 12,
+      "name": "肥仔精神",
+      "draw": 13,
+      "weight": "121",
+      "jockey": "周俊樂 (-2)",
+      "trainer": "巫偉傑",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 13,
+      "name": "添喜運",
+      "draw": 2,
+      "weight": "121",
+      "jockey": "何澤堯",
+      "trainer": "鄭俊偉",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 14,
+      "name": "東昇鉞",
+      "draw": 3,
+      "weight": "120",
+      "jockey": "楊明綸",
+      "trainer": "蘇偉賢",
+      "win_odds": "",
+      "place_odds": ""
+    }
+  ],
+  "R4": [
+    {
+      "horse_no": 1,
+      "name": "展雄威",
+      "draw": 8,
+      "weight": "130",
+      "jockey": "布文",
+      "trainer": "廖康銘",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 2,
+      "name": "電子好好",
+      "draw": 14,
+      "weight": "130",
+      "jockey": "何澤堯",
+      "trainer": "文家良",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 3,
+      "name": "凝聚美麗",
+      "draw": 7,
+      "weight": "129",
+      "jockey": "黃寶妮 (-7)",
+      "trainer": "巫偉傑",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 4,
+      "name": "支付之父",
+      "draw": 1,
+      "weight": "127",
+      "jockey": "潘頓",
+      "trainer": "葉楚航",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 5,
+      "name": "智勝勳章",
+      "draw": 11,
+      "weight": "126",
+      "jockey": "巫顯東 (-2)",
+      "trainer": "蘇偉賢",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 6,
+      "name": "鴻圖新星",
+      "draw": 4,
+      "weight": "125",
+      "jockey": "艾兆禮",
+      "trainer": "蔡約翰",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 7,
+      "name": "極速神影",
+      "draw": 2,
+      "weight": "125",
+      "jockey": "袁幸堯 (-10)",
+      "trainer": "姚本輝",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 8,
+      "name": "步風影",
+      "draw": 13,
+      "weight": "125",
+      "jockey": "奧爾民",
+      "trainer": "伍鵬志",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 9,
+      "name": "喜意",
+      "draw": 3,
+      "weight": "125",
+      "jockey": "梁家俊",
+      "trainer": "呂健威",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 10,
+      "name": "一舖掂晒",
+      "draw": 9,
+      "weight": "124",
+      "jockey": "田泰安",
+      "trainer": "巫偉傑",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 11,
+      "name": "致力之城",
+      "draw": 10,
+      "weight": "123",
+      "jockey": "艾道拿",
+      "trainer": "大衛希斯",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 12,
+      "name": "領航多福",
+      "draw": 6,
+      "weight": "123",
+      "jockey": "金誠剛",
+      "trainer": "鄭俊偉",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 13,
+      "name": "燊輝之星",
+      "draw": 5,
+      "weight": "123",
+      "jockey": "鍾易禮 (-2)",
+      "trainer": "告東尼",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 14,
+      "name": "縱橫大兄",
+      "draw": 12,
+      "weight": "120",
+      "jockey": "莫雷拉",
+      "trainer": "黎昭昇",
+      "win_odds": "",
+      "place_odds": ""
+    }
+  ],
+  "R5": [
+    {
+      "horse_no": 1,
+      "name": "錶之浩瀚",
+      "draw": 10,
+      "weight": "135",
+      "jockey": "黃寶妮 (-7)",
+      "trainer": "巫偉傑",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 2,
+      "name": "心雄雄",
+      "draw": 4,
+      "weight": "135",
+      "jockey": "楊明綸",
+      "trainer": "大衛希斯",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 3,
+      "name": "輝灑自如",
+      "draw": 7,
+      "weight": "134",
+      "jockey": "袁幸堯 (-10)",
+      "trainer": "姚本輝",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 4,
+      "name": "君子",
+      "draw": 12,
+      "weight": "129",
+      "jockey": "梁家俊",
+      "trainer": "文家良",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 5,
+      "name": "三代至醒",
+      "draw": 11,
+      "weight": "128",
+      "jockey": "希威森",
+      "trainer": "呂健威",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 6,
+      "name": "老鼠斑",
+      "draw": 9,
+      "weight": "128",
+      "jockey": "周俊樂 (-2)",
+      "trainer": "沈集成",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 7,
+      "name": "電子騰飛",
+      "draw": 1,
+      "weight": "126",
+      "jockey": "布浩榮",
+      "trainer": "蘇偉賢",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 8,
+      "name": "潮流勇駒",
+      "draw": 8,
+      "weight": "126",
+      "jockey": "巴度",
+      "trainer": "黎昭昇",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 9,
+      "name": "星辰千帥",
+      "draw": 3,
+      "weight": "124",
+      "jockey": "奧爾民",
+      "trainer": "賀賢",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 10,
+      "name": "明天更好",
+      "draw": 5,
+      "weight": "124",
+      "jockey": "金誠剛",
+      "trainer": "廖康銘",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 11,
+      "name": "摘星聲升",
+      "draw": 6,
+      "weight": "122",
+      "jockey": "巫顯東 (-2)",
+      "trainer": "鄭俊偉",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 12,
+      "name": "最好玩",
+      "draw": 2,
+      "weight": "116",
+      "jockey": "蔡明紹",
+      "trainer": "葉楚航",
+      "win_odds": "",
+      "place_odds": ""
+    }
+  ],
+  "R6": [
+    {
+      "horse_no": 1,
+      "name": "財富非凡",
+      "draw": 14,
+      "weight": "135",
+      "jockey": "梁家俊",
+      "trainer": "巫偉傑",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 2,
+      "name": "同樣世界",
+      "draw": 8,
+      "weight": "129",
+      "jockey": "周俊樂 (-2)",
+      "trainer": "大衛希斯",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 3,
+      "name": "將傲",
+      "draw": 7,
+      "weight": "129",
+      "jockey": "奧爾民",
+      "trainer": "韋達",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 4,
+      "name": "笑必勝",
+      "draw": 12,
+      "weight": "129",
+      "jockey": "艾道拿",
+      "trainer": "黎昭昇",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 5,
+      "name": "久久為軍",
+      "draw": 4,
+      "weight": "129",
+      "jockey": "鍾易禮 (-2)",
+      "trainer": "告東尼",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 6,
+      "name": "龍傲綾羅",
+      "draw": 10,
+      "weight": "128",
+      "jockey": "潘頓",
+      "trainer": "呂健威",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 7,
+      "name": "文明福星",
+      "draw": 3,
+      "weight": "127",
+      "jockey": "班德禮",
+      "trainer": "丁冠豪",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 8,
+      "name": "源好運",
+      "draw": 5,
+      "weight": "126",
+      "jockey": "艾兆禮",
+      "trainer": "廖康銘",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 9,
+      "name": "開心旺財",
+      "draw": 2,
+      "weight": "125",
+      "jockey": "布浩榮",
+      "trainer": "伍鵬志",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 10,
+      "name": "萬里鵬躍",
+      "draw": 11,
+      "weight": "123",
+      "jockey": "巫顯東 (-2)",
+      "trainer": "蘇偉賢",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 11,
+      "name": "有情有義",
+      "draw": 13,
+      "weight": "123",
+      "jockey": "莫雷拉",
+      "trainer": "方嘉柏",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 12,
+      "name": "皮具伯樂",
+      "draw": 9,
+      "weight": "123",
+      "jockey": "田泰安",
+      "trainer": "文家良",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 13,
+      "name": "全神貫注",
+      "draw": 6,
+      "weight": "119",
+      "jockey": "袁幸堯 (-10)",
+      "trainer": "姚本輝",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 14,
+      "name": "紅衣財神",
+      "draw": 1,
+      "weight": "118",
+      "jockey": "楊明綸",
+      "trainer": "羅富全",
+      "win_odds": "",
+      "place_odds": ""
+    }
+  ],
+  "R7": [
+    {
+      "horse_no": 1,
+      "name": "威武年代",
+      "draw": 1,
+      "weight": "135",
+      "jockey": "何澤堯",
+      "trainer": "呂健威",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 2,
+      "name": "嘉應巨昇",
+      "draw": 2,
+      "weight": "135",
+      "jockey": "袁幸堯 (-10)",
+      "trainer": "巫偉傑",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 3,
+      "name": "巴閉仔",
+      "draw": 14,
+      "weight": "135",
+      "jockey": "楊明綸",
+      "trainer": "徐雨石",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 4,
+      "name": "都靈冠星",
+      "draw": 9,
+      "weight": "135",
+      "jockey": "布文",
+      "trainer": "大衛希斯",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 5,
+      "name": "大千雄心",
+      "draw": 8,
+      "weight": "134",
+      "jockey": "莫雷拉",
+      "trainer": "方嘉柏",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 6,
+      "name": "爆出美麗",
+      "draw": 7,
+      "weight": "132",
+      "jockey": "巴度",
+      "trainer": "告東尼",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 7,
+      "name": "綫路福將",
+      "draw": 3,
+      "weight": "124",
+      "jockey": "奧爾民",
+      "trainer": "廖康銘",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 8,
+      "name": "好運年",
+      "draw": 4,
+      "weight": "124",
+      "jockey": "班德禮",
+      "trainer": "葉楚航",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 9,
+      "name": "捷威",
+      "draw": 11,
+      "weight": "124",
+      "jockey": "潘頓",
+      "trainer": "姚本輝",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 10,
+      "name": "明亮天下",
+      "draw": 13,
+      "weight": "123",
+      "jockey": "潘明輝",
+      "trainer": "羅富全",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 11,
+      "name": "君達得",
+      "draw": 10,
+      "weight": "120",
+      "jockey": "金誠剛",
+      "trainer": "丁冠豪",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 12,
+      "name": "紅磚戰士",
+      "draw": 6,
+      "weight": "119",
+      "jockey": "艾兆禮",
+      "trainer": "游達榮",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 13,
+      "name": "金鑽精靈",
+      "draw": 12,
+      "weight": "118",
+      "jockey": "希威森",
+      "trainer": "韋達",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 14,
+      "name": "堅闖",
+      "draw": 5,
+      "weight": "117",
+      "jockey": "田泰安",
+      "trainer": "伍鵬志",
+      "win_odds": "",
+      "place_odds": ""
+    }
+  ],
+  "R8": [
+    {
+      "horse_no": 1,
+      "name": "八駿巨昇",
+      "draw": 1,
+      "weight": "135",
+      "jockey": "鍾易禮 (-2)",
+      "trainer": "告東尼",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 2,
+      "name": "快活英雄",
+      "draw": 12,
+      "weight": "131",
+      "jockey": "巴度",
+      "trainer": "黎昭昇",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 3,
+      "name": "手機錶勁",
+      "draw": 11,
+      "weight": "128",
+      "jockey": "潘頓",
+      "trainer": "呂健威",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 4,
+      "name": "超寫意",
+      "draw": 3,
+      "weight": "127",
+      "jockey": "袁幸堯 (-10)",
+      "trainer": "姚本輝",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 5,
+      "name": "多威心得",
+      "draw": 5,
+      "weight": "126",
+      "jockey": "班德禮",
+      "trainer": "大衛希斯",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 6,
+      "name": "幸運多彩",
+      "draw": 9,
+      "weight": "120",
+      "jockey": "希威森",
+      "trainer": "游達榮",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 7,
+      "name": "㩒住贏",
+      "draw": 6,
+      "weight": "119",
+      "jockey": "周俊樂 (-2)",
+      "trainer": "羅富全",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 8,
+      "name": "勁駿騰飛",
+      "draw": 7,
+      "weight": "119",
+      "jockey": "楊明綸",
+      "trainer": "蘇偉賢",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 9,
+      "name": "長勝隊長",
+      "draw": 4,
+      "weight": "118",
+      "jockey": "金誠剛",
+      "trainer": "伍鵬志",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 10,
+      "name": "辣得準",
+      "draw": 8,
+      "weight": "117",
+      "jockey": "艾兆禮",
+      "trainer": "蔡約翰",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 11,
+      "name": "富國兄弟",
+      "draw": 2,
+      "weight": "116",
+      "jockey": "蔡明紹",
+      "trainer": "葉楚航",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 12,
+      "name": "自力更生",
+      "draw": 10,
+      "weight": "115",
+      "jockey": "巫顯東 (-2)",
+      "trainer": "鄭俊偉",
+      "win_odds": "",
+      "place_odds": ""
+    }
+  ],
+  "R9": [
+    {
+      "horse_no": 1,
+      "name": "會長之寶",
+      "draw": 6,
+      "weight": "135",
+      "jockey": "袁幸堯 (-10)",
+      "trainer": "韋達",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 2,
+      "name": "米奇",
+      "draw": 1,
+      "weight": "135",
+      "jockey": "艾兆禮",
+      "trainer": "蔡約翰",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 3,
+      "name": "精彩福星",
+      "draw": 3,
+      "weight": "129",
+      "jockey": "希威森",
+      "trainer": "大衛希斯",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 4,
+      "name": "星運傳奇",
+      "draw": 10,
+      "weight": "127",
+      "jockey": "莫雷拉",
+      "trainer": "方嘉柏",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 5,
+      "name": "大愛無疆",
+      "draw": 4,
+      "weight": "125",
+      "jockey": "奧爾民",
+      "trainer": "廖康銘",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 6,
+      "name": "勇冠群英",
+      "draw": 12,
+      "weight": "125",
+      "jockey": "楊明綸",
+      "trainer": "蘇偉賢",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 7,
+      "name": "團結勇士",
+      "draw": 2,
+      "weight": "122",
+      "jockey": "梁家俊",
+      "trainer": "鄭俊偉",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 8,
+      "name": "表廠傳奇",
+      "draw": 11,
+      "weight": "122",
+      "jockey": "田泰安",
+      "trainer": "徐雨石",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 9,
+      "name": "勇進駒",
+      "draw": 8,
+      "weight": "121",
+      "jockey": "金誠剛",
+      "trainer": "姚本輝",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 10,
+      "name": "勝萬金",
+      "draw": 14,
+      "weight": "121",
+      "jockey": "蔡明紹",
+      "trainer": "告東尼",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 11,
+      "name": "路路勁",
+      "draw": 9,
+      "weight": "120",
+      "jockey": "潘明輝",
+      "trainer": "羅富全",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 12,
+      "name": "駿馬之曲",
+      "draw": 7,
+      "weight": "119",
+      "jockey": "鍾易禮 (-2)",
+      "trainer": "沈集成",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 13,
+      "name": "幸運糖",
+      "draw": 13,
+      "weight": "118",
+      "jockey": "巴度",
+      "trainer": "巫偉傑",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 14,
+      "name": "飛來閃耀",
+      "draw": 5,
+      "weight": "118",
+      "jockey": "黃寶妮 (-7)",
+      "trainer": "賀賢",
+      "win_odds": "",
+      "place_odds": ""
+    }
+  ],
+  "R10": [
+    {
+      "horse_no": 1,
+      "name": "英駿飛駒",
+      "draw": 13,
+      "weight": "135",
+      "jockey": "袁幸堯 (-10)",
+      "trainer": "游達榮",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 2,
+      "name": "火悟空",
+      "draw": 5,
+      "weight": "132",
+      "jockey": "艾兆禮",
+      "trainer": "姚本輝",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 3,
+      "name": "安都",
+      "draw": 9,
+      "weight": "132",
+      "jockey": "布文",
+      "trainer": "蔡約翰",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 4,
+      "name": "活力拍檔",
+      "draw": 2,
+      "weight": "129",
+      "jockey": "何澤堯",
+      "trainer": "呂健威",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 5,
+      "name": "榮駿大道",
+      "draw": 1,
+      "weight": "129",
+      "jockey": "潘頓",
+      "trainer": "葉楚航",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 6,
+      "name": "共享富裕",
+      "draw": 11,
+      "weight": "126",
+      "jockey": "莫雷拉",
+      "trainer": "方嘉柏",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 7,
+      "name": "黃金大亨",
+      "draw": 7,
+      "weight": "126",
+      "jockey": "巴度",
+      "trainer": "告東尼",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 8,
+      "name": "千禧龍",
+      "draw": 12,
+      "weight": "124",
+      "jockey": "布浩榮",
+      "trainer": "沈集成",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 9,
+      "name": "北斗福星",
+      "draw": 3,
+      "weight": "121",
+      "jockey": "田泰安",
+      "trainer": "桂福特",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 10,
+      "name": "和光同塵",
+      "draw": 4,
+      "weight": "119",
+      "jockey": "蔡明紹",
+      "trainer": "巫偉傑",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 11,
+      "name": "高高至高",
+      "draw": 10,
+      "weight": "118",
+      "jockey": "鍾易禮 (-2)",
+      "trainer": "廖康銘",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 12,
+      "name": "八仟財陞",
+      "draw": 8,
+      "weight": "117",
+      "jockey": "班德禮",
+      "trainer": "羅富全",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 13,
+      "name": "金滙千帥",
+      "draw": 6,
+      "weight": "117",
+      "jockey": "潘明輝",
+      "trainer": "賀賢",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 14,
+      "name": "魅力知耀",
+      "draw": 14,
+      "weight": "117",
+      "jockey": "楊明綸",
+      "trainer": "大衛希斯",
+      "win_odds": "",
+      "place_odds": ""
+    }
+  ],
+  "R11": [
+    {
+      "horse_no": 1,
+      "name": "幸運有您",
+      "draw": 7,
+      "weight": "135",
+      "jockey": "袁幸堯 (-10)",
+      "trainer": "羅富全",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 2,
+      "name": "翠紅",
+      "draw": 10,
+      "weight": "129",
+      "jockey": "艾兆禮",
+      "trainer": "廖康銘",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 3,
+      "name": "賢者無敵",
+      "draw": 9,
+      "weight": "127",
+      "jockey": "奧爾民",
+      "trainer": "賀賢",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 4,
+      "name": "錶之星河",
+      "draw": 3,
+      "weight": "124",
+      "jockey": "布文",
+      "trainer": "文家良",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 5,
+      "name": "競駿輝煌",
+      "draw": 5,
+      "weight": "122",
+      "jockey": "艾道拿",
+      "trainer": "蔡約翰",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 6,
+      "name": "燈胆將軍",
+      "draw": 4,
+      "weight": "116",
+      "jockey": "莫雷拉",
+      "trainer": "黎昭昇",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 7,
+      "name": "維港智能",
+      "draw": 8,
+      "weight": "115",
+      "jockey": "楊明綸",
+      "trainer": "伍鵬志",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 8,
+      "name": "得道猴王",
+      "draw": 6,
+      "weight": "115",
+      "jockey": "鍾易禮 (-2)",
+      "trainer": "告東尼",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 9,
+      "name": "愛馬善",
+      "draw": 12,
+      "weight": "115",
+      "jockey": "潘明輝",
+      "trainer": "鄭俊偉",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 10,
+      "name": "天星",
+      "draw": 1,
+      "weight": "115",
+      "jockey": "黃寶妮 (-7)",
+      "trainer": "大衛希斯",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 11,
+      "name": "喜慶寶",
+      "draw": 11,
+      "weight": "115",
+      "jockey": "班德禮",
+      "trainer": "呂健威",
+      "win_odds": "",
+      "place_odds": ""
+    },
+    {
+      "horse_no": 12,
+      "name": "威利金箭",
+      "draw": 2,
+      "weight": "115",
+      "jockey": "田泰安",
+      "trainer": "桂福特",
+      "win_odds": "",
+      "place_odds": ""
+    }
+  ]
+}

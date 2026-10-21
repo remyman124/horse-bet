@@ -1,0 +1,66 @@
+{
+  "window": {
+    "from": "2025-10-04",
+    "to": "2026-10-19"
+  },
+  "races": 503,
+  "auc": {
+    "v6_form_odds": 0.7741,
+    "v5_legacy": 0.6526,
+    "favourite": 0.7752,
+    "rating": 0.5069
+  },
+  "strategies": {
+    "model_v6 (form+odds)": {
+      "top1": 143,
+      "top1_pct": 28.43,
+      "top3": 295,
+      "top3_pct": 58.65,
+      "flat_roi_top1_pct": -16.06
+    },
+    "model_v5 (legacy)": {
+      "top1": 97,
+      "top1_pct": 19.28,
+      "top3": 227,
+      "top3_pct": 45.13,
+      "flat_roi_top1_pct": -17.26
+    },
+    "BASELINE favourite": {
+      "top1": 143,
+      "top1_pct": 28.43,
+      "top3": 301,
+      "top3_pct": 59.84,
+      "flat_roi_top1_pct": -17.46
+    },
+    "BASELINE rating": {
+      "top1": 41,
+      "top1_pct": 8.15,
+      "top3": 135,
+      "top3_pct": 26.84,
+      "flat_roi_top1_pct": -35.81
+    },
+    "BLEND 60mkt/40ml": {
+      "top1": 145,
+      "top1_pct": 28.83,
+      "top3": 303,
+      "top3_pct": 60.24,
+      "flat_roi_top1_pct": -15.69
+    }
+  },
+  "per_year": [
+    {
+      "year": 2025,
+      "races": 197,
+      "v6_top3": 118,
+      "fav_top3": 120,
+      "v5_top3": 78
+    },
+    {
+      "year": 2026,
+      "races": 306,
+      "v6_top3": 177,
+      "fav_top3": 181,
+      "v5_top3": 149
+    }
+  ]
+}

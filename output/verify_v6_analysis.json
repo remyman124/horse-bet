@@ -1,0 +1,16 @@
+{
+  "races": 503,
+  "v6_pick_is_favourite_pct": 90.85,
+  "v6_top1": 143,
+  "v6_top3": 295,
+  "fav_top1": 143,
+  "fav_top3": 304,
+  "blend_top1": 145,
+  "blend_top3": 303,
+  "disagree_races": 46,
+  "disagree_v6_hit": 11,
+  "disagree_fav_hit": 11,
+  "disagree_v6_top3": 29,
+  "disagree_fav_top3": 30,
+  "blend_vs_fav_top3_mcnemar_p": 1.0
+}

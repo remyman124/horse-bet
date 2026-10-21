@@ -10,9 +10,19 @@ env/
 
 # Data
 *.db
+data/*.db-wal
+data/*.db-shm
+data/*.db-journal
+data/*.bak-*
+data/*.backup.*
 data/raw/*.json
 data/processed/*.csv
 models/*.json
+models/*.pkl
+models/*.pt
+models/*.bak
+models/*.pre-v2
+models/*.contaminated-bak
 
 # Environment
 .env

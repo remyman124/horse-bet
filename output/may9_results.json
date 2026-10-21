@@ -1,0 +1,1274 @@
+{
+  "R1": {
+    "results": [
+      {
+        "position": 1,
+        "horse_no": 5,
+        "name": "SPICE BAG (L244)",
+        "jockey": "J Orman",
+        "trainer": "D J Hall",
+        "win_odds": ""
+      },
+      {
+        "position": 2,
+        "horse_no": 2,
+        "name": "SHARP PLANET (L308)",
+        "jockey": "J Moreira",
+        "trainer": "C Fownes",
+        "win_odds": ""
+      },
+      {
+        "position": 3,
+        "horse_no": 6,
+        "name": "EVER WEALTH (L317)",
+        "jockey": "H Y Yuen",
+        "trainer": "P F Yiu",
+        "win_odds": ""
+      },
+      {
+        "position": 4,
+        "horse_no": 7,
+        "name": "GAUDIUM MAGNUM (L345)",
+        "jockey": "A Atzeni",
+        "trainer": "M Newnham",
+        "win_odds": ""
+      },
+      {
+        "position": 5,
+        "horse_no": 1,
+        "name": "ALMIGHTY WARRIOR (L245)",
+        "jockey": "Z Purton",
+        "trainer": "K W Lui",
+        "win_odds": ""
+      },
+      {
+        "position": 6,
+        "horse_no": 3,
+        "name": "SHOW ME YOUR LOVE (L355)",
+        "jockey": "H Bowman",
+        "trainer": "D J Whyte",
+        "win_odds": ""
+      },
+      {
+        "position": 7,
+        "horse_no": 10,
+        "name": "TALENTS CHAMPION (L295)",
+        "jockey": "M L Yeung",
+        "trainer": "D A Hayes",
+        "win_odds": ""
+      },
+      {
+        "position": 8,
+        "horse_no": 4,
+        "name": "SILVERY KNIGHT (L236)",
+        "jockey": "L Hewitson",
+        "trainer": "D J Whyte",
+        "win_odds": ""
+      },
+      {
+        "position": 9,
+        "horse_no": 8,
+        "name": "GLORIOUS HERO (L348)",
+        "jockey": "K Teetan",
+        "trainer": "D A Hayes",
+        "win_odds": ""
+      },
+      {
+        "position": 10,
+        "horse_no": 9,
+        "name": "SECRET INGREDIENT (L290)",
+        "jockey": "H Bentley",
+        "trainer": "D A Hayes",
+        "win_odds": ""
+      }
+    ],
+    "dividends": {
+      "WIN": [
+        {
+          "combo": "5",
+          "dividend": "499.00"
+        }
+      ],
+      "PLACE": [
+        {
+          "combo": "5",
+          "dividend": "105.50"
+        }
+      ],
+      "QUINELLA": [
+        {
+          "combo": "2,5",
+          "dividend": "1,217.50"
+        }
+      ]
+    }
+  },
+  "R2": {
+    "results": [
+      {
+        "position": 1,
+        "horse_no": 1,
+        "name": "NORTHERN FIRE BALL (J488)",
+        "jockey": "H Y Yuen",
+        "trainer": "C H Yip",
+        "win_odds": ""
+      },
+      {
+        "position": 2,
+        "horse_no": 2,
+        "name": "MATZDEN (L133)",
+        "jockey": "H Bowman",
+        "trainer": "J Richards",
+        "win_odds": ""
+      },
+      {
+        "position": 3,
+        "horse_no": 5,
+        "name": "WARRIORS DREAM (K255)",
+        "jockey": "K Teetan",
+        "trainer": "B Crawford",
+        "win_odds": ""
+      },
+      {
+        "position": 4,
+        "horse_no": 4,
+        "name": "BRIGHT DAY (J530)",
+        "jockey": "J Orman",
+        "trainer": "K L Man",
+        "win_odds": ""
+      },
+      {
+        "position": 5,
+        "horse_no": 7,
+        "name": "QUARTZ LEGEND (K548)",
+        "jockey": "J Moreira",
+        "trainer": "C Fownes",
+        "win_odds": ""
+      },
+      {
+        "position": 6,
+        "horse_no": 12,
+        "name": "LIGHTNING ACE (L136)",
+        "jockey": "M Chadwick",
+        "trainer": "W K Mo",
+        "win_odds": ""
+      },
+      {
+        "position": 7,
+        "horse_no": 8,
+        "name": "SPIRITED STEED (L278)",
+        "jockey": "Z Purton",
+        "trainer": "K W Lui",
+        "win_odds": ""
+      },
+      {
+        "position": 8,
+        "horse_no": 6,
+        "name": "ACA FAST (K467)",
+        "jockey": "E Brown",
+        "trainer": "D J Hall",
+        "win_odds": ""
+      },
+      {
+        "position": 9,
+        "horse_no": 3,
+        "name": "RYUI KOKOROE (L120)",
+        "jockey": "H Bentley",
+        "trainer": "D A Hayes",
+        "win_odds": ""
+      },
+      {
+        "position": 10,
+        "horse_no": 10,
+        "name": "EXTRAORDINARY GALL (K561)",
+        "jockey": "K C Leung",
+        "trainer": "K L Man",
+        "win_odds": ""
+      },
+      {
+        "position": 11,
+        "horse_no": 9,
+        "name": "THE COSMIC POWER (L064)",
+        "jockey": "H T Mo",
+        "trainer": "C S Shum",
+        "win_odds": ""
+      },
+      {
+        "position": 12,
+        "horse_no": 11,
+        "name": "RUSSET GLOW (L059)",
+        "jockey": "L Hewitson",
+        "trainer": "M Newnham",
+        "win_odds": ""
+      }
+    ],
+    "dividends": {
+      "WIN": [
+        {
+          "combo": "1",
+          "dividend": "34.00"
+        }
+      ],
+      "PLACE": [
+        {
+          "combo": "1",
+          "dividend": "14.50"
+        }
+      ],
+      "QUINELLA": [
+        {
+          "combo": "1,2",
+          "dividend": "77.00"
+        }
+      ]
+    }
+  },
+  "R3": {
+    "results": [
+      {
+        "position": 1,
+        "horse_no": 12,
+        "name": "JOLLY JUMPER (K110)",
+        "jockey": "C L Chau",
+        "trainer": "W K Mo",
+        "win_odds": ""
+      },
+      {
+        "position": 2,
+        "horse_no": 8,
+        "name": "SUPERB GUY (K323)",
+        "jockey": "J Orman",
+        "trainer": "K W Lui",
+        "win_odds": ""
+      },
+      {
+        "position": 3,
+        "horse_no": 13,
+        "name": "TEAM HAPPY (J218)",
+        "jockey": "C Y Ho",
+        "trainer": "C W Chang",
+        "win_odds": ""
+      },
+      {
+        "position": 4,
+        "horse_no": 14,
+        "name": "RUN YES RUN (J264)",
+        "jockey": "M L Yeung",
+        "trainer": "W Y So",
+        "win_odds": ""
+      },
+      {
+        "position": 5,
+        "horse_no": 1,
+        "name": "THE ALL ROUNDER (K402)",
+        "jockey": "E Brown",
+        "trainer": "P C Ng",
+        "win_odds": ""
+      },
+      {
+        "position": 6,
+        "horse_no": 5,
+        "name": "ONLY U (J037)",
+        "jockey": "K C Leung",
+        "trainer": "B Crawford",
+        "win_odds": ""
+      },
+      {
+        "position": 7,
+        "horse_no": 10,
+        "name": "VERBIER (J187)",
+        "jockey": "J Moreira",
+        "trainer": "C Fownes",
+        "win_odds": ""
+      },
+      {
+        "position": 8,
+        "horse_no": 2,
+        "name": "FIGHT TIME (H409)",
+        "jockey": "P N Wong",
+        "trainer": "D J Hall",
+        "win_odds": ""
+      },
+      {
+        "position": 9,
+        "horse_no": 11,
+        "name": "SPEEDY TRIDENT (K230)",
+        "jockey": "K Teetan",
+        "trainer": "Y S Tsui",
+        "win_odds": ""
+      },
+      {
+        "position": 10,
+        "horse_no": 7,
+        "name": "WINNING CIGAR (K422)",
+        "jockey": "B Avdulla",
+        "trainer": "D A Hayes",
+        "win_odds": ""
+      },
+      {
+        "position": 11,
+        "horse_no": 4,
+        "name": "GOLDEN FORTUNE (K500)",
+        "jockey": "A Atzeni",
+        "trainer": "K L Man",
+        "win_odds": ""
+      },
+      {
+        "position": 12,
+        "horse_no": 6,
+        "name": "GENERAL SMART (K138)",
+        "jockey": "Z Purton",
+        "trainer": "C S Shum",
+        "win_odds": ""
+      },
+      {
+        "position": 13,
+        "horse_no": 3,
+        "name": "WAVE GARDEN (K209)",
+        "jockey": "R Kingscote",
+        "trainer": "K H Ting",
+        "win_odds": ""
+      }
+    ],
+    "dividends": {
+      "WIN": [
+        {
+          "combo": "12",
+          "dividend": "50.50"
+        }
+      ],
+      "PLACE": [
+        {
+          "combo": "12",
+          "dividend": "22.50"
+        }
+      ],
+      "QUINELLA": [
+        {
+          "combo": "8,12",
+          "dividend": "170.00"
+        }
+      ]
+    }
+  },
+  "R4": {
+    "results": [
+      {
+        "position": 1,
+        "horse_no": 10,
+        "name": "ONESHOT (L105)",
+        "jockey": "K Teetan",
+        "trainer": "W K Mo",
+        "win_odds": ""
+      },
+      {
+        "position": 2,
+        "horse_no": 4,
+        "name": "MASTER PAYMENT (L159)",
+        "jockey": "Z Purton",
+        "trainer": "C H Yip",
+        "win_odds": ""
+      },
+      {
+        "position": 3,
+        "horse_no": 11,
+        "name": "BUSTLING CITY (L210)",
+        "jockey": "B Avdulla",
+        "trainer": "D A Hayes",
+        "win_odds": ""
+      },
+      {
+        "position": 4,
+        "horse_no": 7,
+        "name": "RAPID PHANTOM (L204)",
+        "jockey": "H Y Yuen",
+        "trainer": "P F Yiu",
+        "win_odds": ""
+      },
+      {
+        "position": 5,
+        "horse_no": 12,
+        "name": "CASA PRIMO (L201)",
+        "jockey": "R Kingscote",
+        "trainer": "C W Chang",
+        "win_odds": ""
+      },
+      {
+        "position": 6,
+        "horse_no": 14,
+        "name": "CAP LINER (L012)",
+        "jockey": "J Moreira",
+        "trainer": "J Richards",
+        "win_odds": ""
+      },
+      {
+        "position": 7,
+        "horse_no": 8,
+        "name": "STORM MIRROR (L179)",
+        "jockey": "J Orman",
+        "trainer": "P C Ng",
+        "win_odds": ""
+      },
+      {
+        "position": 8,
+        "horse_no": 9,
+        "name": "WINALOT (L197)",
+        "jockey": "K C Leung",
+        "trainer": "K W Lui",
+        "win_odds": ""
+      },
+      {
+        "position": 9,
+        "horse_no": 1,
+        "name": "ALSONSO (J405)",
+        "jockey": "H Bowman",
+        "trainer": "M Newnham",
+        "win_odds": ""
+      },
+      {
+        "position": 10,
+        "horse_no": 2,
+        "name": "E HO HO (L119)",
+        "jockey": "C Y Ho",
+        "trainer": "K L Man",
+        "win_odds": ""
+      },
+      {
+        "position": 11,
+        "horse_no": 13,
+        "name": "COMET RADIANCE (L067)",
+        "jockey": "Y L Chung",
+        "trainer": "A S Cruz",
+        "win_odds": ""
+      },
+      {
+        "position": 12,
+        "horse_no": 6,
+        "name": "GRAND NOVA (J323)",
+        "jockey": "A Atzeni",
+        "trainer": "J Size",
+        "win_odds": ""
+      },
+      {
+        "position": 13,
+        "horse_no": 3,
+        "name": "BEAUTY THUNDER (J299)",
+        "jockey": "P N Wong",
+        "trainer": "W K Mo",
+        "win_odds": ""
+      },
+      {
+        "position": 14,
+        "horse_no": 5,
+        "name": "TACTICAL VICTORY (K521)",
+        "jockey": "H T Mo",
+        "trainer": "W Y So",
+        "win_odds": ""
+      }
+    ],
+    "dividends": {
+      "WIN": [
+        {
+          "combo": "10",
+          "dividend": "703.50"
+        }
+      ],
+      "PLACE": [
+        {
+          "combo": "10",
+          "dividend": "149.00"
+        }
+      ],
+      "QUINELLA": [
+        {
+          "combo": "4,10",
+          "dividend": "1,515.50"
+        }
+      ]
+    }
+  },
+  "R5": {
+    "results": [
+      {
+        "position": 1,
+        "horse_no": 4,
+        "name": "REAL GENTLEMAN (K534)",
+        "jockey": "K C Leung",
+        "trainer": "K L Man",
+        "win_odds": ""
+      },
+      {
+        "position": 2,
+        "horse_no": 6,
+        "name": "GROUPER (L233)",
+        "jockey": "C L Chau",
+        "trainer": "C S Shum",
+        "win_odds": ""
+      },
+      {
+        "position": 3,
+        "horse_no": 2,
+        "name": "POSITIVE SMILE (J467)",
+        "jockey": "M L Yeung",
+        "trainer": "D A Hayes",
+        "win_odds": ""
+      },
+      {
+        "position": 4,
+        "horse_no": 7,
+        "name": "E HOPEFUL (L181)",
+        "jockey": "E Brown",
+        "trainer": "W Y So",
+        "win_odds": ""
+      },
+      {
+        "position": 5,
+        "horse_no": 9,
+        "name": "BROWNNEEDSFURTHER (K325)",
+        "jockey": "J Orman",
+        "trainer": "D J Hall",
+        "win_odds": ""
+      },
+      {
+        "position": 6,
+        "horse_no": 1,
+        "name": "CONRAD PATCH (L106)",
+        "jockey": "P N Wong",
+        "trainer": "W K Mo",
+        "win_odds": ""
+      },
+      {
+        "position": 7,
+        "horse_no": 8,
+        "name": "TRENDY RUSH (L209)",
+        "jockey": "A Badel",
+        "trainer": "J Richards",
+        "win_odds": ""
+      },
+      {
+        "position": 8,
+        "horse_no": 12,
+        "name": "AMAZING FUN (H442)",
+        "jockey": "M Chadwick",
+        "trainer": "C H Yip",
+        "win_odds": ""
+      },
+      {
+        "position": 9,
+        "horse_no": 3,
+        "name": "FLASHING FIGHTER (L281)",
+        "jockey": "H Y Yuen",
+        "trainer": "P F Yiu",
+        "win_odds": ""
+      },
+      {
+        "position": 10,
+        "horse_no": 5,
+        "name": "GRACEFUL HEART (L207)",
+        "jockey": "L Hewitson",
+        "trainer": "K W Lui",
+        "win_odds": ""
+      },
+      {
+        "position": 11,
+        "horse_no": 10,
+        "name": "IMPENDING LEGACY (K486)",
+        "jockey": "R Kingscote",
+        "trainer": "M Newnham",
+        "win_odds": ""
+      },
+      {
+        "position": 12,
+        "horse_no": 11,
+        "name": "EMERGING STAR (K390)",
+        "jockey": "H T Mo",
+        "trainer": "C W Chang",
+        "win_odds": ""
+      }
+    ],
+    "dividends": {
+      "WIN": [
+        {
+          "combo": "4",
+          "dividend": "1,583.50"
+        }
+      ],
+      "PLACE": [
+        {
+          "combo": "4",
+          "dividend": "384.00"
+        }
+      ],
+      "QUINELLA": [
+        {
+          "combo": "4,6",
+          "dividend": "11,991.50"
+        }
+      ]
+    }
+  },
+  "R6": {
+    "results": [
+      {
+        "position": 1,
+        "horse_no": 6,
+        "name": "INVICTUS DRAGON (K318)",
+        "jockey": "Z Purton",
+        "trainer": "K W Lui",
+        "win_odds": ""
+      },
+      {
+        "position": 2,
+        "horse_no": 7,
+        "name": "LUCKY MAN (J315)",
+        "jockey": "H Bentley",
+        "trainer": "K H Ting",
+        "win_odds": ""
+      },
+      {
+        "position": 3,
+        "horse_no": 3,
+        "name": "INVICTUS (L277)",
+        "jockey": "J Orman",
+        "trainer": "D J Whyte",
+        "win_odds": ""
+      },
+      {
+        "position": 4,
+        "horse_no": 5,
+        "name": "STAR SATYR (K231)",
+        "jockey": "Y L Chung",
+        "trainer": "A S Cruz",
+        "win_odds": ""
+      },
+      {
+        "position": 5,
+        "horse_no": 2,
+        "name": "BEST WORLD (L329)",
+        "jockey": "C L Chau",
+        "trainer": "D A Hayes",
+        "win_odds": ""
+      },
+      {
+        "position": 6,
+        "horse_no": 11,
+        "name": "DECISION LINK (K416)",
+        "jockey": "J Moreira",
+        "trainer": "C Fownes",
+        "win_odds": ""
+      },
+      {
+        "position": 7,
+        "horse_no": 13,
+        "name": "THE CONCENTRATION (H465)",
+        "jockey": "H Y Yuen",
+        "trainer": "P F Yiu",
+        "win_odds": ""
+      },
+      {
+        "position": 8,
+        "horse_no": 9,
+        "name": "CHEERFUL WONGCHOY (L045)",
+        "jockey": "E Brown",
+        "trainer": "P C Ng",
+        "win_odds": ""
+      },
+      {
+        "position": 9,
+        "horse_no": 8,
+        "name": "SUPER DRAGON (K389)",
+        "jockey": "A Atzeni",
+        "trainer": "M Newnham",
+        "win_odds": ""
+      },
+      {
+        "position": 10,
+        "horse_no": 10,
+        "name": "CELESTIAL STRIDER (L009)",
+        "jockey": "H T Mo",
+        "trainer": "W Y So",
+        "win_odds": ""
+      },
+      {
+        "position": 11,
+        "horse_no": 14,
+        "name": "MONEY TYCOON (K423)",
+        "jockey": "M L Yeung",
+        "trainer": "F C Lor",
+        "win_odds": ""
+      },
+      {
+        "position": 12,
+        "horse_no": 1,
+        "name": "FLYING FORTUNE (L057)",
+        "jockey": "K C Leung",
+        "trainer": "W K Mo",
+        "win_odds": ""
+      },
+      {
+        "position": 13,
+        "horse_no": 4,
+        "name": "LUCKY BID (L274)",
+        "jockey": "B Avdulla",
+        "trainer": "J Richards",
+        "win_odds": ""
+      },
+      {
+        "position": 14,
+        "horse_no": 12,
+        "name": "LEATHER GOODS (K401)",
+        "jockey": "K Teetan",
+        "trainer": "K L Man",
+        "win_odds": ""
+      }
+    ],
+    "dividends": {
+      "WIN": [
+        {
+          "combo": "6",
+          "dividend": "44.50"
+        }
+      ],
+      "PLACE": [
+        {
+          "combo": "6",
+          "dividend": "18.00"
+        }
+      ],
+      "QUINELLA": [
+        {
+          "combo": "6,7",
+          "dividend": "115.00"
+        }
+      ]
+    }
+  },
+  "R7": {
+    "results": [
+      {
+        "position": 1,
+        "horse_no": 13,
+        "name": "BLING BLING GENIUS (J397)",
+        "jockey": "L Hewitson",
+        "trainer": "D J Whyte",
+        "win_odds": ""
+      },
+      {
+        "position": 2,
+        "horse_no": 8,
+        "name": "LUCKY YEAR (K443)",
+        "jockey": "H Bentley",
+        "trainer": "C H Yip",
+        "win_odds": ""
+      },
+      {
+        "position": 3,
+        "horse_no": 11,
+        "name": "AMAZING DUCK (H392)",
+        "jockey": "R Kingscote",
+        "trainer": "K H Ting",
+        "win_odds": ""
+      },
+      {
+        "position": 4,
+        "horse_no": 4,
+        "name": "TURIN CHAMPIONS (L024)",
+        "jockey": "H Bowman",
+        "trainer": "D A Hayes",
+        "win_odds": ""
+      },
+      {
+        "position": 5,
+        "horse_no": 9,
+        "name": "VICTOR SUPREME (K547)",
+        "jockey": "Z Purton",
+        "trainer": "P F Yiu",
+        "win_odds": ""
+      },
+      {
+        "position": 6,
+        "horse_no": 2,
+        "name": "KA YING SUPERB (J091)",
+        "jockey": "H Y Yuen",
+        "trainer": "W K Mo",
+        "win_odds": ""
+      },
+      {
+        "position": 7,
+        "horse_no": 12,
+        "name": "RED BRICK WARRIOR (K580)",
+        "jockey": "A Atzeni",
+        "trainer": "D Eustace",
+        "win_odds": ""
+      },
+      {
+        "position": 8,
+        "horse_no": 6,
+        "name": "BEAUTY VIVA (K155)",
+        "jockey": "A Badel",
+        "trainer": "A S Cruz",
+        "win_odds": ""
+      },
+      {
+        "position": 9,
+        "horse_no": 5,
+        "name": "AUDACIOUS PURSUIT (K398)",
+        "jockey": "J Moreira",
+        "trainer": "C Fownes",
+        "win_odds": ""
+      },
+      {
+        "position": 10,
+        "horse_no": 3,
+        "name": "SUPERB KID (H298)",
+        "jockey": "M L Yeung",
+        "trainer": "Y S Tsui",
+        "win_odds": ""
+      },
+      {
+        "position": 11,
+        "horse_no": 14,
+        "name": "FIGHTING MACHINE (J015)",
+        "jockey": "K Teetan",
+        "trainer": "P C Ng",
+        "win_odds": ""
+      },
+      {
+        "position": 12,
+        "horse_no": 10,
+        "name": "ILLUMINOUS (J170)",
+        "jockey": "M F Poon",
+        "trainer": "F C Lor",
+        "win_odds": ""
+      },
+      {
+        "position": 13,
+        "horse_no": 7,
+        "name": "CIRCUIT MARSHAL (K526)",
+        "jockey": "J Orman",
+        "trainer": "M Newnham",
+        "win_odds": ""
+      },
+      {
+        "position": 14,
+        "horse_no": 1,
+        "name": "GALLANT EPOCH (J451)",
+        "jockey": "C Y Ho",
+        "trainer": "K W Lui",
+        "win_odds": ""
+      }
+    ],
+    "dividends": {
+      "WIN": [
+        {
+          "combo": "13",
+          "dividend": "132.00"
+        }
+      ],
+      "PLACE": [
+        {
+          "combo": "13",
+          "dividend": "42.00"
+        }
+      ],
+      "QUINELLA": [
+        {
+          "combo": "8,13",
+          "dividend": "742.00"
+        }
+      ]
+    }
+  },
+  "R8": {
+    "results": [
+      {
+        "position": 1,
+        "horse_no": 7,
+        "name": "EFFORTLESS WIN (L310)",
+        "jockey": "C L Chau",
+        "trainer": "F C Lor",
+        "win_odds": ""
+      },
+      {
+        "position": 2,
+        "horse_no": 11,
+        "name": "THRIVING BROTHERS (J396)",
+        "jockey": "M Chadwick",
+        "trainer": "C H Yip",
+        "win_odds": ""
+      },
+      {
+        "position": 3,
+        "horse_no": 3,
+        "name": "GOLD PATCH (L099)",
+        "jockey": "Z Purton",
+        "trainer": "K W Lui",
+        "win_odds": ""
+      },
+      {
+        "position": 4,
+        "horse_no": 8,
+        "name": "THUNDER ACTION (L314)",
+        "jockey": "M L Yeung",
+        "trainer": "W Y So",
+        "win_odds": ""
+      },
+      {
+        "position": 5,
+        "horse_no": 12,
+        "name": "RISING FROM ASHES (G209)",
+        "jockey": "H T Mo",
+        "trainer": "C W Chang",
+        "win_odds": ""
+      },
+      {
+        "position": 6,
+        "horse_no": 9,
+        "name": "ACE CHAMPION (K379)",
+        "jockey": "R Kingscote",
+        "trainer": "P C Ng",
+        "win_odds": ""
+      },
+      {
+        "position": 7,
+        "horse_no": 10,
+        "name": "SPICY STANDARD (J520)",
+        "jockey": "A Atzeni",
+        "trainer": "J Size",
+        "win_odds": ""
+      },
+      {
+        "position": 8,
+        "horse_no": 6,
+        "name": "LUCKY MY WAY (K146)",
+        "jockey": "L Hewitson",
+        "trainer": "D Eustace",
+        "win_odds": ""
+      },
+      {
+        "position": 9,
+        "horse_no": 4,
+        "name": "CHILL BUDDY (K469)",
+        "jockey": "H Y Yuen",
+        "trainer": "P F Yiu",
+        "win_odds": ""
+      },
+      {
+        "position": 10,
+        "horse_no": 2,
+        "name": "JUBILANT WINNER (J346)",
+        "jockey": "A Badel",
+        "trainer": "J Richards",
+        "win_odds": ""
+      },
+      {
+        "position": 11,
+        "horse_no": 1,
+        "name": "SUPERB CAPITALIST (H092)",
+        "jockey": "Y L Chung",
+        "trainer": "A S Cruz",
+        "win_odds": ""
+      },
+      {
+        "position": 12,
+        "horse_no": 5,
+        "name": "KANSAS (L305)",
+        "jockey": "H Bentley",
+        "trainer": "D A Hayes",
+        "win_odds": ""
+      }
+    ],
+    "dividends": {
+      "WIN": [
+        {
+          "combo": "7",
+          "dividend": "121.00"
+        }
+      ],
+      "PLACE": [
+        {
+          "combo": "7",
+          "dividend": "32.00"
+        }
+      ],
+      "QUINELLA": [
+        {
+          "combo": "7,11",
+          "dividend": "788.00"
+        }
+      ]
+    }
+  },
+  "R9": {
+    "results": [
+      {
+        "position": 1,
+        "horse_no": 7,
+        "name": "STRAIGHT TO GLORY (K340)",
+        "jockey": "K C Leung",
+        "trainer": "C W Chang",
+        "win_odds": ""
+      },
+      {
+        "position": 2,
+        "horse_no": 13,
+        "name": "LUCKY CANDY (L041)",
+        "jockey": "A Badel",
+        "trainer": "W K Mo",
+        "win_odds": ""
+      },
+      {
+        "position": 3,
+        "horse_no": 14,
+        "name": "SPARKLING FELLOW (K175)",
+        "jockey": "P N Wong",
+        "trainer": "D J Hall",
+        "win_odds": ""
+      },
+      {
+        "position": 4,
+        "horse_no": 12,
+        "name": "LIGHTNESS OF MUSIC (K436)",
+        "jockey": "Y L Chung",
+        "trainer": "C S Shum",
+        "win_odds": ""
+      },
+      {
+        "position": 5,
+        "horse_no": 10,
+        "name": "PARENTS' LOVE (H405)",
+        "jockey": "M Chadwick",
+        "trainer": "A S Cruz",
+        "win_odds": ""
+      },
+      {
+        "position": 6,
+        "horse_no": 3,
+        "name": "METRO POWER (K408)",
+        "jockey": "L Hewitson",
+        "trainer": "D A Hayes",
+        "win_odds": ""
+      },
+      {
+        "position": 7,
+        "horse_no": 2,
+        "name": "MICKLEY (K082)",
+        "jockey": "A Atzeni",
+        "trainer": "J Size",
+        "win_odds": ""
+      },
+      {
+        "position": 8,
+        "horse_no": 6,
+        "name": "MASTER OF ALL (H177)",
+        "jockey": "M L Yeung",
+        "trainer": "W Y So",
+        "win_odds": ""
+      },
+      {
+        "position": 9,
+        "horse_no": 1,
+        "name": "FAST RESPONDER (J295)",
+        "jockey": "H Y Yuen",
+        "trainer": "D J Whyte",
+        "win_odds": ""
+      },
+      {
+        "position": 10,
+        "horse_no": 5,
+        "name": "EVER LUCK (K235)",
+        "jockey": "J Orman",
+        "trainer": "M Newnham",
+        "win_odds": ""
+      },
+      {
+        "position": 11,
+        "horse_no": 11,
+        "name": "LOOKING BRIGHT (K315)",
+        "jockey": "M F Poon",
+        "trainer": "F C Lor",
+        "win_odds": ""
+      },
+      {
+        "position": 12,
+        "horse_no": 4,
+        "name": "ALPHA STRIKE (L019)",
+        "jockey": "J Moreira",
+        "trainer": "C Fownes",
+        "win_odds": ""
+      },
+      {
+        "position": 13,
+        "horse_no": 9,
+        "name": "FIERY STEED (K575)",
+        "jockey": "R Kingscote",
+        "trainer": "P F Yiu",
+        "win_odds": ""
+      },
+      {
+        "position": 14,
+        "horse_no": 8,
+        "name": "WATCH LEGEND (L313)",
+        "jockey": "K Teetan",
+        "trainer": "Y S Tsui",
+        "win_odds": ""
+      }
+    ],
+    "dividends": {
+      "WIN": [
+        {
+          "combo": "7",
+          "dividend": "213.00"
+        }
+      ],
+      "PLACE": [
+        {
+          "combo": "7",
+          "dividend": "65.50"
+        }
+      ],
+      "QUINELLA": [
+        {
+          "combo": "7,13",
+          "dividend": "589.00"
+        }
+      ]
+    }
+  },
+  "R10": {
+    "results": [
+      {
+        "position": 1,
+        "horse_no": 5,
+        "name": "SMART AVENUE (K474)",
+        "jockey": "Z Purton",
+        "trainer": "C H Yip",
+        "win_odds": ""
+      },
+      {
+        "position": 2,
+        "horse_no": 4,
+        "name": "AMAZING PARTNERS (K554)",
+        "jockey": "C Y Ho",
+        "trainer": "K W Lui",
+        "win_odds": ""
+      },
+      {
+        "position": 3,
+        "horse_no": 3,
+        "name": "ENDUED (K033)",
+        "jockey": "H Bowman",
+        "trainer": "J Size",
+        "win_odds": ""
+      },
+      {
+        "position": 4,
+        "horse_no": 2,
+        "name": "BLAZING WUKONG (K335)",
+        "jockey": "A Atzeni",
+        "trainer": "P F Yiu",
+        "win_odds": ""
+      },
+      {
+        "position": 5,
+        "horse_no": 14,
+        "name": "WITHALLMYFAITH (K428)",
+        "jockey": "M L Yeung",
+        "trainer": "D A Hayes",
+        "win_odds": ""
+      },
+      {
+        "position": 6,
+        "horse_no": 9,
+        "name": "HYMNBOOK (L238)",
+        "jockey": "K Teetan",
+        "trainer": "B Crawford",
+        "win_odds": ""
+      },
+      {
+        "position": 7,
+        "horse_no": 13,
+        "name": "RISING PHOENIX (J498)",
+        "jockey": "M F Poon",
+        "trainer": "D J Hall",
+        "win_odds": ""
+      },
+      {
+        "position": 8,
+        "horse_no": 6,
+        "name": "FAMILY JEWEL (J390)",
+        "jockey": "J Moreira",
+        "trainer": "C Fownes",
+        "win_odds": ""
+      },
+      {
+        "position": 9,
+        "horse_no": 11,
+        "name": "LEGEND WINNER (L032)",
+        "jockey": "Y L Chung",
+        "trainer": "M Newnham",
+        "win_odds": ""
+      },
+      {
+        "position": 10,
+        "horse_no": 1,
+        "name": "MISTER DAPPER (H376)",
+        "jockey": "H Y Yuen",
+        "trainer": "D Eustace",
+        "win_odds": ""
+      },
+      {
+        "position": 11,
+        "horse_no": 7,
+        "name": "GOLDEN CHAMP (L135)",
+        "jockey": "A Badel",
+        "trainer": "A S Cruz",
+        "win_odds": ""
+      },
+      {
+        "position": 12,
+        "horse_no": 10,
+        "name": "M M CONCORD (L076)",
+        "jockey": "M Chadwick",
+        "trainer": "W K Mo",
+        "win_odds": ""
+      },
+      {
+        "position": 13,
+        "horse_no": 8,
+        "name": "CALL ME MAGNIFIQUE (L339)",
+        "jockey": "E Brown",
+        "trainer": "C S Shum",
+        "win_odds": ""
+      },
+      {
+        "position": 14,
+        "horse_no": 12,
+        "name": "MASTER TRILLION (J442)",
+        "jockey": "H Bentley",
+        "trainer": "F C Lor",
+        "win_odds": ""
+      }
+    ],
+    "dividends": {
+      "WIN": [
+        {
+          "combo": "5",
+          "dividend": "29.50"
+        }
+      ],
+      "PLACE": [
+        {
+          "combo": "5",
+          "dividend": "14.00"
+        }
+      ],
+      "QUINELLA": [
+        {
+          "combo": "4,5",
+          "dividend": "95.00"
+        }
+      ]
+    }
+  }
+}

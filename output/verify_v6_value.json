@@ -1,0 +1,33 @@
+{
+  "races": 503,
+  "favourite_top3_variants": {
+    "stable (mergesort)": 302,
+    "quicksort (default)": 304,
+    "odds then v6 prob": 301,
+    "odds then horse_no": 304,
+    "optimistic (ties count)": 305
+  },
+  "v6_top3": 295,
+  "value_bet_scan": {
+    "0.0": {
+      "n": 1869,
+      "roi_pct": 6.31
+    },
+    "0.02": {
+      "n": 46,
+      "roi_pct": 197.61
+    },
+    "0.05": {
+      "n": 12,
+      "roi_pct": 79.17
+    },
+    "0.1": {
+      "n": 6,
+      "roi_pct": 258.33
+    }
+  },
+  "auc_v6": 0.7743,
+  "auc_market": 0.775,
+  "brier_v6": 0.0676,
+  "brier_market": 0.0681
+}
