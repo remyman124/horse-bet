@@ -285,6 +285,97 @@ def apply_plan(plan, do_apply):
         log_prov(c, p, 'race_results', rid, 'win_dividend', cur, newv)
         stats['dividend_update'] += 1
 
+    # ── R11: write the three published PLACE dividends ─────────────────────
+    # The old parser read cell[1] of the PLACE row, so place_dividend_1 held
+    # the winning COMBINATION (e.g. '3,6') instead of the payout. The three
+    # published amounts are written in finishing order: 1st, 2nd, 3rd.
+    for p in plan:
+        if p['action'] != 'UPDATE_PLACE_DIVIDENDS':
+            continue
+        d0, ven, rn = p['race']
+        rid = c.execute("""SELECT r.id FROM races r JOIN race_days rd ON rd.id=r.race_day_id
+                           WHERE rd.race_date=? AND rd.venue=? AND r.race_no=?""",
+                        (d0, ven, rn)).fetchone()
+        if rid is None:
+            stats['place_div_no_race'] += 1
+            continue
+        rid = rid['id']
+        row = c.execute('SELECT place_dividend_1, place_dividend_2, place_dividend_3 '
+                        'FROM race_results WHERE race_id=?', (rid,)).fetchone()
+        if row is None:
+            stats['place_div_no_result_row'] += 1
+            continue
+        amounts = p['official_place_amounts']
+        cols = ('place_dividend_1', 'place_dividend_2', 'place_dividend_3')
+        cur_vals = [row[c] for c in cols]
+        new_vals = [amounts[i] if i < len(amounts) else None for i in range(3)]
+        same = all((a is None and b is None) or
+                   (a is not None and b is not None and str(a) == str(b))
+                   for a, b in zip(cur_vals, new_vals))
+        if same:
+            stats['place_div_already_correct'] += 1
+            continue
+        if not do_apply:
+            stats['place_div_update'] += 1
+            continue
+        c.execute('UPDATE race_results SET place_dividend_1=?, place_dividend_2=?, '
+                  'place_dividend_3=? WHERE race_id=?',
+                  (new_vals[0], new_vals[1], new_vals[2], rid))
+        for i, col in enumerate(cols):
+            log_prov(c, p, 'race_results', rid, col, cur_vals[i], new_vals[i])
+        stats['place_div_update'] += 1
+
+    # ── R12: drop a fabricated result row, keep the race ────────────────────
+    # A race that was voided has no outcome: the official dividends table
+    # says REFUND for every pool. Any dividend stored for it came from the
+    # old cell-misread parser (a horse number, or a combination string),
+    # so the row is removed while the scheduled race itself is kept.
+    for p in plan:
+        if p['action'] != 'DELETE_FABRICATED_RESULT':
+            continue
+        d0, ven, rn = p['race']
+        rid = c.execute("""SELECT r.id FROM races r JOIN race_days rd ON rd.id=r.race_day_id
+                           WHERE rd.race_date=? AND rd.venue=? AND r.race_no=?""",
+                        (d0, ven, rn)).fetchone()
+        if rid is None:
+            stats['fab_result_no_race'] += 1
+            continue
+        rid = rid['id']
+        if not do_apply:
+            stats['fab_result_delete'] += 1
+            continue
+        old = c.execute('SELECT win_dividend, place_dividend_1 FROM race_results '
+                        'WHERE race_id=?', (rid,)).fetchone()
+        c.execute('DELETE FROM race_results WHERE race_id=?', (rid,))
+        log_prov(c, p, 'race_results', rid, '(row)',
+                 f'win_dividend={old[0] if old else None} place_dividend_1={old[1] if old else None}',
+                 'DELETED')
+        stats['fab_result_delete'] += 1
+
+    # ── R13: drop an empty race_day shell ───────────────────────────────────
+    # A meeting that the official site does not list leaves an empty
+    # race_days row behind once its fabricated races are removed.
+    for p in plan:
+        if p['action'] != 'DELETE_EMPTY_RACE_DAY':
+            continue
+        d0, ven = p['race'][0], p['race'][1]
+        rdid = c.execute('SELECT id FROM race_days WHERE race_date=? AND venue=?',
+                         (d0, ven)).fetchone()
+        if rdid is None:
+            stats['empty_day_no_row'] += 1
+            continue
+        rdid = rdid['id']
+        n = c.execute('SELECT COUNT(*) FROM races WHERE race_day_id=?', (rdid,)).fetchone()[0]
+        if n:
+            stats['empty_day_has_races'] += 1
+            continue
+        if not do_apply:
+            stats['empty_day_delete'] += 1
+            continue
+        c.execute('DELETE FROM race_days WHERE id=?', (rdid,))
+        log_prov(c, p, 'race_days', rdid, '(row)', f'{d0} {ven}', 'DELETED')
+        stats['empty_day_delete'] += 1
+
     if do_apply:
         c.commit()
         print('committed.')
