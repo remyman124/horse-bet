@@ -77,15 +77,22 @@ EXTRACT_JS = """
   //   Wednesday, October 21, 2026, Happy Valley, 18:40
   //   Turf, "B" Course, 1650M, Good
   //   Prize Money: $1,170,000, Rating: 60-40, Class 4
+  // NOTE: HKJC spells the all-weather surface out in full --
+  //   "All Weather Track, 1650M, Good"  (not "AWT"). The old regex only
+  //   knew "AWT", so every AWT meeting came back with distance=null.
   const txt = document.body.innerText;
   const meta = {};
-  const course = txt.match(/\\n(Turf|Dirt|AWT|GPT)[^\\n]*?(\\d{3,4})M/);
-  if (course) { meta.track = course[1]; meta.distance = parseFloat(course[2]); }
+  const TRACKS = 'All Weather Track|AWT|Turf|Dirt|GPT';
+  const course = txt.match(new RegExp('\\\\n(' + TRACKS + ')[^\\\\n]*?(\\\\d{3,4})M'));
+  if (course) {
+    meta.track = course[1] === 'All Weather Track' ? 'AWT' : course[1];
+    meta.distance = parseFloat(course[2]);
+  }
   const pm = txt.match(/Prize Money:[^\\n]*?Class ([^\\n]+)/);
   if (pm) meta.race_class = 'Class ' + pm[1].trim();
-  const going = txt.match(/\\n(?:Turf|Dirt|AWT)[^\\n]*?\\d{3,4}M,\\s*([^\\n]+)/);
+  const going = txt.match(new RegExp('\\\\n(?:' + TRACKS + ')[^\\\\n]*?\\\\d{3,4}M,\\\\s*([^\\\\n]+)'));
   if (going) meta.going = going[1].trim();
-  return {n: data.length, data, meta};
+  return {n: data.length, data: data, meta: meta};
 }
 """
 
