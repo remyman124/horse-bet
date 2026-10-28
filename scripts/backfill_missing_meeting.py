@@ -137,24 +137,79 @@ def parse_results_page(txt):
 
 
 def extract_meta(txt):
-    """Race class / distance / track from the page text."""
+    """Race class / distance / track / going from the page text.
+
+    The results page carries a labelled row:
+
+        <race name> | Course : | ALL WEATHER TRACK
+        <race name> | Going  : | GOOD
+
+    That `Course :` cell is the ONLY authoritative statement of the surface
+    on this page. The old code sniffed for the bare token 'AWT' anywhere in
+    the document, but HKJC writes the surface out in full on the results
+    page -- 'ALL WEATHER TRACK' -- and never emits the abbreviation. So every
+    all-weather meeting was silently written to the DB as 'Turf'.
+
+    That is a train/serve skew, not a cosmetic one: `track_enc` is a model
+    feature, and the model was trained on a history where AWT races were
+    labelled Turf. It is also wrong on its own terms -- the row says
+    ALL WEATHER TRACK and the DB said Turf.
+    """
     soup = BeautifulSoup(txt, 'html.parser')
     full = soup.get_text()
-    info = {'race_class': '', 'distance': None, 'track': 'Turf'}
+    info = {'race_class': '', 'distance': None, 'track': 'Turf', 'going': ''}
+
     gm = re.search(r'Group\s*(One|Two|Three)', full, re.I)
     cm = re.search(r'Class\s+(\d+)', full)
     if gm:
         info['race_class'] = f"Group-{gm.group(1).title()}"
     elif cm:
         info['race_class'] = f"Class {cm.group(1)}"
+
     dm = re.search(r'(\d{4})[Mm](?:\s|$)', full)
     if dm:
         info['distance'] = int(dm.group(1))
-    if 'AWT' in full:
-        info['track'] = 'AWT'
-    elif 'Dirt' in full:
-        info['track'] = 'Dirt'
+
+    # Read the labelled rows rather than sniffing the whole document.
+    course = going = None
+    for tr in soup.find_all('tr'):
+        cells = [td.get_text(' ', strip=True) for td in tr.find_all(['td', 'th'])]
+        if len(cells) < 2:
+            continue
+        label = cells[-2].rstrip(':').strip().lower()
+        value = cells[-1].strip()
+        if label == 'course' and course is None:
+            course = value
+        elif label == 'going' and going is None:
+            going = value
+    if course:
+        info['track'] = normalise_track(course)
+    if going:
+        info['going'] = going
+    else:
+        # Fallback for pages without the labelled row: accept both the
+        # abbreviation and the spelled-out form. Only used when the
+        # labelled `Course :` cell was absent -- otherwise a stray 'AWT'
+        # elsewhere in the document would override the authoritative value.
+        if 'AWT' in full or 'ALL WEATHER TRACK' in full.upper():
+            info['track'] = 'AWT'
+        elif 'Dirt' in full:
+            info['track'] = 'Dirt'
     return info
+
+
+def normalise_track(course_text):
+    """Map an HKJC `Course :` value onto the model's track vocabulary.
+
+    The model only knows AWT / Dirt / Turf, so the named turf courses
+    ('"A" Course', '"C+3" Course') all collapse to 'Turf'.
+    """
+    c = (course_text or '').upper()
+    if 'AWT' in c or 'ALL WEATHER' in c:
+        return 'AWT'
+    if 'DIRT' in c:
+        return 'Dirt'
+    return 'Turf'
 
 
 async def fetch(client, date_slash, venue, race_no):
