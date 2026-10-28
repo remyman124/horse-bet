@@ -96,11 +96,24 @@ def analyse(date, venue, csv_path, model_path, min_edge=0.02):
     served['model_mass'] = served.groupby('race_no')['p_model_raw'].transform('sum')
     served['edge'] = served['p_model'] - served['p_market']
 
-    # full Kelly, then a quarter-Kelly stake — the honest sizing for a model
+    # Full Kelly, then a quarter-Kelly stake -- the honest sizing for a model
     # with no proven edge.
+    #
+    # b is the NET odds per unit staked: bet 1, win o, profit o-1.
+    # So b = o - 1 and the Kelly fraction is f* = (p*(b+1) - 1) / b.
+    #
+    # The old code used b = (o-1)/o, which is the RETURN FRACTION, not the
+    # net odds. That silently made the break-even p > o/(2o-1) -- about 0.51
+    # at o=2 and still above 0.5 at o=40 -- so Kelly collapsed to 0 for
+    # every realistic longshot and the script reported "quarter-Kelly=0.00%"
+    # for all 19 of tonight's candidates. A stake of zero for a horse with
+    # +3.7% edge is the opposite of what the number is supposed to say, and
+    # it hid the real finding: see value_scan_backtest.py.
     def kelly(p, o):
-        b = (o - 1) / o
-        f = (p * b - (1 - p)) / b
+        b = o - 1.0
+        if b <= 0:
+            return 0.0
+        f = (p * (b + 1) - 1) / b
         return max(0.0, f)
 
     served['kelly_full'] = [kelly(p, o) for p, o in
@@ -142,6 +155,30 @@ def analyse(date, venue, csv_path, model_path, min_edge=0.02):
         print(f"   R{r['race_no']} {r['horse_name'][:26]:26s} @{r['win_odds']:>6} "
               f"mkt={r['p_market']:.2%} mdl={r['p_model']:.2%} edge={r['edge']:+.2%} "
               f"quarter-Kelly={r['kelly_quarter']:.2%}")
+
+    print('\n' + '=' * 78)
+    print('READ THIS BEFORE BETTING ANY OF THE ABOVE')
+    print('-' * 78)
+    print('The stake above is a Kelly fraction, NOT a recommendation. The rule')
+    print('that produces these candidates -- "bet every runner whose model')
+    print('probability exceeds the market\'s" -- was backtested out of sample')
+    print('by scripts/value_scan_backtest.py and it LOSES MONEY:')
+    print()
+    print('  best-edge-per-race, edge>=2%:  n=676  hit=0.89%  ROI=-39.5%')
+    print('  every runner with edge>=0%:    n=5187 hit=3.07%  ROI=-22.9%')
+    print('  betting the favourite instead: n=678  hit=28.0%  ROI=-20.6%')
+    print()
+    print('The "edge" is a systematic longshot bias, not skill. Measured on')
+    print('winners, the model over-rates longshots and under-rates favourites:')
+    print('  odds 51+   model p=3.95%  market p=1.18%   (model +2.77pp)')
+    print('  odds <6    model p=19.1%  market p=26.0%   (model -6.86pp)')
+    print('And on calibration, the market is nearly unbiased in every decile')
+    print('while the model is over-confident at both tails.')
+    print()
+    print('CONCLUSION: no bet. A positive model-vs-market edge on a longshot')
+    print('is the signature of a mis-calibrated model, and the money follows')
+    print('that, not the edge.')
+    print('=' * 78)
     return out
 
 
