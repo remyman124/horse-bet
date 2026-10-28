@@ -39,10 +39,14 @@ Run:
     cd /home/work/horse-bet && .venv/bin/python scripts/repair_track_labels.py          # dry run
     cd /home/work/horse-bet && .venv/bin/python scripts/repair_track_labels.py --apply  # write
 """
-import argparse, collections, json, shutil, sqlite3, sys, time
+import argparse, collections, json, os, shutil, sqlite3, sys, time
 
 DB = '/home/work/horse-bet/data/horse.db'
-SWEEP = '/home/work/.hermes-isak/cache/scratch/per_race_sweep.jsonl'
+# The sweep evidence is committed at data/evidence/ so the repair stays
+# reproducible. The old path lived in the Hermes scratch cache, which is
+# auto-pruned after 24h idle - the repair would have lost its evidence base.
+SWEEP = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                      'data', 'evidence', 'per_race_course_sweep.jsonl')
 
 
 def load_sweep():
