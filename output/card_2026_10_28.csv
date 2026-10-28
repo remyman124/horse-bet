@@ -1,0 +1,112 @@
+race_no,horse_no,horse_name,jockey,trainer,draw,win_odds,rating,place_odds,last_6,days_since,distance,race_class,track,going,withdrawn
+1,1,LUCKY SECRET,M Chadwick,W K Mo,10,35,40,8.9,14/14/11/10/12,199,1650,Class 5,AWT,Good,False
+1,2,TEAM HAPPY,K Teetan,C W Chang,8,9.1,36,2.6,1/1/6/3/2/4,24,1650,Class 5,AWT,Good,False
+1,3,HAILTOTHEVICTORS,C L Chau (-2),D Eustace,6,6.5,35,2,6/9/3/8/2/10,24,1650,Class 5,AWT,Good,False
+1,4,MY FLYING ANGEL,A Badel,F C Lor,3,13,27,3.4,7/9/6/4/5/4,24,1650,Class 5,AWT,Good,False
+1,5,YEE CHEONG RAIDER,K C Leung,B Crawford,11,20,27,5.1,13/5/11/6/2/2,27,1650,Class 5,AWT,Good,False
+1,6,HAPPY ACTION,A Atzeni,M Newnham,5,7.3,26,1.9,8/7/10/9/9/8,17,1650,Class 5,AWT,Good,False
+1,7,SUPERB GUY,C Y Ho,K W Lui,4,14,26,3.6,6/3/11/7/4/2,24,1650,Class 5,AWT,Good,False
+1,8,HAPPYDEARHAPPYDEER,P N Wong (-7),A S Cruz,1,2.2,25,1.2,2/5/5/5/13/11,24,1650,Class 5,AWT,Good,False
+1,9,KOLACHI,R Kingscote,D J Whyte,7,34,24,8.4,12/10/9/10/11/9,24,1650,Class 5,AWT,Good,False
+1,10,GO GO GO,H Bentley,W Y So,9,23,23,5,7/12/3/5/1/10,24,1650,Class 5,AWT,Good,False
+1,11,TURF PHOENIX,M L Yeung,K H Ting,2,16,18,3.8,9/5/10/12/3/11,21,1650,Class 5,AWT,Good,False
+2,1,DIAMOND SPARKLE,L Hewitson,M Newnham,10,14,40,4.6,9/8/9/13/5/8,27,1650,Class 5,AWT,Good,False
+2,2,FLYING SNIPER,M F Poon,D J Hall,9,16,38,4.3,9/8/5/4/8/6,17,1650,Class 5,AWT,Good,False
+2,3,HE WAS ME,A Atzeni,A S Cruz,7,8.8,35,3.1,3/3/7/1/8/1,45,1650,Class 5,AWT,Good,False
+2,4,THE CONCENTRATION,H T Mo (-2),P F Yiu,11,34,35,8.1,12/12/14/13/7/7,3,1650,Class 5,AWT,Good,False
+2,5,FLASH STAR,C L Chau (-2),C S Shum,4,9,34,2.7,7/8/12/6/9/9,14,1650,Class 5,AWT,Good,False
+2,6,CELESTIAL HARMONY,P N Wong (-7),B Crawford,1,9.8,30,3.4,11/8/7/8/4/6,24,1650,Class 5,AWT,Good,False
+2,7,VIVA TASTE,M Chadwick,K H Ting,8,18,27,5.6,10/12/7/9/6/10,24,1650,Class 5,AWT,Good,False
+2,8,KASA PAPA,A Badel,A S Cruz,6,19,25,7.2,11/5/6/5/4/10,14,1650,Class 5,AWT,Good,False
+2,9,ORIENTAL SURPRISE,H Y Yuen (-7),D A Hayes,5,5.1,25,1.7,5/3/2/3/2/2,14,1650,Class 5,AWT,Good,False
+2,10,MAZING GRACE,R Kingscote,C W Chang,2,4.8,24,1.7,5/10/5/14/5/6,24,1650,Class 5,AWT,Good,False
+2,11,WINNING DIAMOND,K Teetan,D Eustace,3,5.3,24,2,2/6/11/9/4/10,14,1650,Class 5,AWT,Good,False
+2,12,SPEEDY TRIDENT,M L Yeung,Y S Tsui,12,29,23,7.4,13/11/3/2/5/9,24,1650,Class 5,AWT,Good,False
+3,1,ROBOT KNIGHT,P N Wong (-7),K L Man,8,9.9,38,3.3,8/10/8/1/3/5,31,1200,Class 5,AWT,Good,False
+3,2,TURBO JEFFERIES,H Bentley,D A Hayes,2,39,38,8.8,11/8/8/5/10/9,24,1200,Class 5,AWT,Good,False
+3,3,VIEW ALL THINGS,M Chadwick,W K Mo,3,9.4,38,2.8,6/7/7/12/10/9,24,1200,Class 5,AWT,Good,False
+3,4,BULLISH PRIDE,A Badel,B Crawford,6,13,35,4.1,5/4/8/12/6/10,116,1200,Class 5,AWT,Good,False
+3,5,DAILY TROPHY,K Teetan,C Fownes,10,6.2,35,2.3,4/3/11/4/14/12,17,1200,Class 5,AWT,Good,False
+3,6,SO MY FOLKS,K C Leung,C S Shum,9,13,35,5.6,7/6/2/13/6/4,17,1200,Class 5,AWT,Good,False
+3,7,CONRAD THE GREAT,L Hewitson,D J Whyte,1,4.7,34,1.9,2/12/6/7/9/6,17,1200,Class 5,AWT,Good,False
+3,8,MACANESE MASTER,H Y Yuen (-7),Y S Tsui,11,9.8,34,2.9,7/4/2/4/2/2,42,1200,Class 5,AWT,Good,False
+3,9,SWAGGER BRO,R Kingscote,J Richards,5,12,32,4.1,9/14/5/5/6/3,24,1200,Class 5,AWT,Good,False
+3,10,VIVA CHALEUR,A Atzeni,A S Cruz,12,9.1,32,3.2,7/3/5/2/2/1,27,1200,Class 5,AWT,Good,False
+3,11,COLOURFUL WINNER,J Orman,W Y So,7,7.7,29,2.5,5/4/9/9/2/4,24,1200,Class 5,AWT,Good,False
+3,12,QUICK MONEY,M F Poon,C H Yip,4,21,25,4.6,8/11/6/14/9/11,17,1200,Class 5,AWT,Good,False
+4,1,TURIN MASCOT,K C Leung,K H Ting,2,5.9,59,2.1,5/3/6/9/8/10,24,1800,Class 4,AWT,Good,False
+4,2,YOUNG BRAVO,J Orman,D J Hall,11,16,56,4.6,10/11/5/5/1/9,140,1800,Class 4,AWT,Good,False
+4,3,RAGGA BOMB,R Kingscote,D Eustace,4,18,55,5.7,6/12/6/7/3/1,7,1800,Class 4,AWT,Good,False
+4,4,NOISY BOY,C L Chau (-2),C H Yip,10,9.5,54,3.4,12/7/5/11/4/7,42,1800,Class 4,AWT,Good,False
+4,5,YODA'S CHOICE,H Y Yuen (-7),P C Ng,5,8.1,52,3.2,4/1/2/9/2/8,143,1800,Class 4,AWT,Good,False
+4,6,FIREFOOT,K Teetan,W Y So,1,4.3,49,1.7,2/2/5/2/1/2,24,1800,Class 4,AWT,Good,False
+4,7,STORM RUNNER,C Y Ho,P C Ng,6,22,49,7,6/8/13/12/1/1,105,1800,Class 4,AWT,Good,False
+4,8,LEAPING STAR,H Bentley,D A Hayes,12,17,48,5.9,7/11/1/6/9/12,24,1800,Class 4,AWT,Good,False
+4,9,PRECISION HOPE,A Badel,D A Hayes,9,10,45,3.4,3/4/3/2/4/9,21,1800,Class 4,AWT,Good,False
+4,10,SUPREME MASTERMIND,A Atzeni,M Newnham,7,24,45,7.2,10/3/5/9/8/9,9,1800,Class 4,AWT,Good,False
+4,11,BULL ATTITUDE,L Hewitson,M Newnham,8,5.2,44,1.6,4/2/11/4/2/4,24,1800,Class 4,AWT,Good,False
+4,12,GLORIOUS ST PAUL'S,M F Poon,F C Lor,3,25,40,4.5,9/14/4/8/9/13,21,1800,Class 4,AWT,Good,False
+5,1,ARMOUR WAR EAGLE,K C Leung,M Newnham,11,6.2,60,2.7,1/2/8/4/13/2,17,1200,Class 4,AWT,Good,False
+5,2,ENDURANCE EXPRESS,H Y Yuen (-7),P F Yiu,7,8.8,58,3.4,11/5/12/8/4,17,1200,Class 4,AWT,Good,False
+5,3,CENTRAL BANK,C L Chau (-2),D Eustace,8,10,56,3.3,7/4/6/7/5/10,17,1200,Class 4,AWT,Good,False
+5,4,FLOWING RICHES,C Y Ho,W K Mo,6,10,55,1.8,10/1/11/10/8/3,9,1200,Class 4,AWT,Good,False
+5,5,LEADING DRAGON,A Atzeni,P C Ng,2,7.7,54,2.7,8/4/4/1/11/3,14,1200,Class 4,AWT,Good,False
+5,6,RAGING WARRIOR,J Orman,D J Hall,5,4.4,52,1.9,3,31,1200,Class 4,AWT,Good,False
+5,7,STARRY SHOW,R Kingscote,D A Hayes,1,13,52,3.9,8/5/1/9/10/7,21,1200,Class 4,AWT,Good,False
+5,8,GOOD LUCK HAPPY,Y L Chung (-2),A S Cruz,3,7.2,51,2.3,9/8/3/13/2/5,49,1200,Class 4,AWT,Good,False
+5,9,BETTER AND BETTER,A Badel,F C Lor,12,10,47,3.8,4/5/10/3/2/2,27,1200,Class 4,AWT,Good,False
+5,10,GOOD POWER,M L Yeung,C W Chang,4,40,47,9.5,11/12/9,24,1200,Class 4,AWT,Good,False
+5,11,EVERSTAR,H T Mo (-2),Y S Tsui,10,31,43,8.2,9/9/10/9/7/10,14,1200,Class 4,AWT,Good,False
+5,12,VIEW OF COSMOS,M F Poon,C H Yip,9,45,41,11,11/14/11/14/12,21,1200,Class 4,AWT,Good,False
+6,1,HAPPY UNIVERSE,K C Leung,K H Ting,6,5.6,60,2.5,3/13/2/10/1/6,24,1650,Class 4,AWT,Good,False
+6,2,ANOTHER WORLD,C Y Ho,C H Yip,14,13,56,3.8,6/6/10/9/10/10,24,1650,Class 4,AWT,Good,False
+6,3,HAPPY TERCENTENARY,A Badel,J Cummings,12,13,56,4.2,6/8/10/12/13,17,1650,Class 4,AWT,Good,False
+6,4,EXCELLENCE VALUE,H T Mo (-2),W Y So,2,25,55,7,12/8/9/12/13/9,9,1650,Class 4,AWT,Good,False
+6,5,NIGHT PUROSANGUE,A Atzeni,Y S Tsui,1,6.6,55,2.8,9/1/9/1/9/6,24,1650,Class 4,AWT,Good,False
+6,6,CHILL KAKA,R Kingscote,P F Yiu,13,11,52,3.6,11/3/3/2/13/13,24,1650,Class 4,AWT,Good,False
+6,7,CALIFORNIA STAR,Y L Chung (-2),A S Cruz,7,9.9,48,2.9,11/7/7/10/12/7,123,1650,Class 4,AWT,Good,False
+6,8,HERO RISING,L Hewitson,B Crawford,9,17,47,6.2,5/4/7/5,24,1650,Class 4,AWT,Good,False
+6,9,PERFECT TEAM,K Teetan,C Fownes,3,6.7,47,2.1,8/6/5/6/5/10,24,1650,Class 4,AWT,Good,False
+6,10,JOLTIN,M F Poon,D A Hayes,4,6.8,44,2.3,5/7/10/11/12/14,24,1650,Class 4,AWT,Good,False
+6,11,KYOTO SPRING,M L Yeung,C W Chang,11,45,44,10,9/9/9/7,14,1650,Class 4,AWT,Good,False
+6,12,LUCKY BID,M Chadwick,J Richards,8,43,44,10,12/10/13/6,27,1650,Class 4,AWT,Good,False
+6,13,FAMILY KNIGHT,H Y Yuen (-7),D J Whyte,5,15,42,4.2,7/8/4/12/4/5,14,1650,Class 4,AWT,Good,False
+6,14,MASSIVE GLORY,P N Wong (-7),F C Lor,10,25,42,6.9,11/9/13/11/6,27,1650,Class 4,AWT,Good,False
+7,1,HONEST WITNESS,P N Wong (-7),D A Hayes,7,8.5,60,3,4/7/11/12/2/12,9,1200,Class 4,AWT,Good,False
+7,2,MEGA CAPTAIN,C Y Ho,C H Yip,6,5.8,58,2.6,4/1/9/2/11,17,1200,Class 4,AWT,Good,False
+7,3,WOLF COMING,C L Chau (-2),C S Shum,5,5.2,56,1.5,8/2/6/9/3/11,9,1200,Class 4,AWT,Good,False
+7,4,GIANT LEAP,H Y Yuen (-7),P F Yiu,8,5.7,54,1.6,2/4/9/2/12/4,17,1200,Class 4,AWT,Good,False
+7,5,GOOD CHAP,A Atzeni,D J Hall,11,12,54,4.1,6/7/3/7/1/1,17,1200,Class 4,AWT,Good,False
+7,6,ONE MAN SHOW,M F Poon,F C Lor,12,25,53,7.3,11/2/6/5/5/3,137,1200,Class 4,AWT,Good,False
+7,7,TROPHY RAIDER,A Badel,C Fownes,4,17,52,6.1,-,-,1200,Class 4,AWT,Good,False
+7,8,CALIFORNIA BAY,K Teetan,A S Cruz,10,12,50,4.2,3/10/12/5/7/1,21,1200,Class 4,AWT,Good,False
+7,9,RISING FROM ASHES,J Orman,C W Chang,9,13,50,3.8,5/9/8/8/5/11,27,1200,Class 4,AWT,Good,False
+7,10,NOBLE DELUXE,M L Yeung,J Size,3,18,46,5.4,11/12/1/10/10/1,17,1200,Class 4,AWT,Good,False
+7,11,CALL ME SUCCESS,R Kingscote,D Eustace,1,12,43,5.4,13/10/10/3/5/7,119,1200,Class 4,AWT,Good,False
+7,12,LOVING VIBES,L Hewitson,M Newnham,2,11,41,4.2,9/4/2/2/2/8,21,1200,Class 4,AWT,Good,False
+8,1,SELF IMPROVEMENT,P N Wong (-7),K L Man,2,13,84,2.6,10/14/12/11/8/9,17,1200,Class 3,AWT,Good,False
+8,2,BLAZING WIND,R Kingscote,C S Shum,9,9.9,83,2.9,11/4/1/4/3/7,17,1200,Class 3,AWT,Good,False
+8,3,LUCY IN THE SKY,C L Chau (-2),Y S Tsui,3,13,78,3.4,3/3/1/4/8/7,17,1200,Class 3,AWT,Good,False
+8,4,BUSTLING CITY,B Avdulla,D A Hayes,1,2,76,1.1,2/1/1/2/2/3,17,1200,Class 3,AWT,Good,False
+8,5,STRAIGHT TO GLORY,K C Leung,C W Chang,10,18,75,4.1,7/9/7/1/7/1,14,1200,Class 3,AWT,Good,False
+8,6,SKY CAP,M L Yeung,C Fownes,6,14,70,4.2,4/10/1/10/5/3,17,1200,Class 3,AWT,Good,False
+8,7,MUST GO,A Atzeni,J Size,12,19,69,5.9,10/3/6/1/10/13,123,1200,Class 3,AWT,Good,False
+8,8,CAUSEWAY KING,H Y Yuen (-7),P F Yiu,11,10,68,2.8,1/11/4/7/9,31,1200,Class 3,AWT,Good,False
+8,9,RED SEA,K Teetan,J Richards,4,30,67,7.7,10/10/11/3/3,27,1200,Class 3,AWT,Good,False
+8,10,ZHUANG YUAN GLORY,A Badel,J Cummings,8,22,64,5.8,6,17,1200,Class 3,AWT,Good,False
+8,11,NOTTHESILLYONE,M Chadwick,M Newnham,5,10,63,3.4,11/8/8/9/1/9,24,1200,Class 3,AWT,Good,False
+8,12,HOTT SHOTT,M F Poon,D J Hall,7,31,62,8.6,9/11/10/14,31,1200,Class 3,AWT,Good,False
+9,1,TOP DRAGON,J Orman,W Y So,1,8.9,85,4.1,7/9/7/2/5/3,27,1650,Class 3,AWT,Good,False
+9,2,GORGEOUS WIN,H Y Yuen (-7),C S Shum,2,13,84,4.5,5/5/8/10/11/10,24,1650,Class 3,AWT,Good,False
+9,3,LUCKY SAM GOR,C L Chau (-2),M Newnham,6,12,78,3.3,5/3/7/2/1/7,7,1650,Class 3,AWT,Good,False
+9,4,SKY VINO,C Y Ho,C Fownes,11,8.9,78,3.1,3/5/4/6/1/2,24,1650,Class 3,AWT,Good,False
+9,5,SOVEREIGN FUND,K C Leung,B Crawford,4,21,78,7.4,9/1/9/8/3/8,45,1650,Class 3,AWT,Good,False
+9,6,DRAGON AIR FORCE,M Chadwick,P F Yiu,3,5,75,1.7,3/14/12/8/8/11,24,1650,Class 3,AWT,Good,False
+9,7,THUNDER BLAZE,B Avdulla,D J Hall,13,16,74,4.9,4/1/7/5,31,1650,Class 3,AWT,Good,False
+9,8,UNITED HUA STEED,P N Wong (-7),A S Cruz,14,15,66,5.3,-,-,1650,Class 3,AWT,Good,False
+9,9,ALL ROUND WINNER,H Bentley,D A Hayes,10,18,65,4.2,1/7/6/8/7/3,24,1650,Class 3,AWT,Good,False
+9,10,MIGHTY STEED,Y L Chung (-2),K W Lui,8,22,65,6.4,1/7/2/12/2/2,49,1650,Class 3,AWT,Good,False
+9,11,NEZHA,M F Poon,D J Hall,5,5.3,65,2.1,2/9/5/7/7/1,24,1650,Class 3,AWT,Good,False
+9,12,YOUNG ACHIEVER,A Badel,J Richards,9,22,64,6.8,14/3/4/12/11/7,280,1650,Class 3,AWT,Good,False
+9,13,PRAY FOR JUSTICE,K Teetan,D Eustace,7,11,63,3.8,2/5/7/5,123,1650,Class 3,AWT,Good,False
+9,14,SUPREME AGILITY,A Atzeni,P C Ng,12,19,61,5,1/5/9/11/4/2,24,1650,Class 3,AWT,Good,False
